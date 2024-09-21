@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.MADProjectY4S1" parent="Base.Theme.MADProjectY4S1" />
+
+    <style name="Theme.YourAppName" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Other theme attributes -->
+        <item name="android:fontFamily">@font/tenor_sans</item>
+        <item name="fontFamily">@font/tenor_sans</item>
+    </style>
 </resources>
