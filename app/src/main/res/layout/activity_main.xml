@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
-
+        
+        <!-- Navigation Bar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -71,6 +72,7 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <!-- Carousel -->
         <FrameLayout
             android:id="@+id/carouselContainer"
             android:layout_width="0dp"
@@ -78,7 +80,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.6">
+            app:layout_constraintHeight_percent="0.55">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/coverImageCarousel"
@@ -112,6 +114,13 @@
             app:layout_constraintTop_toBottomOf="@id/carouselContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/horizontal"
+            app:layout_constraintTop_toBottomOf="@id/newArrivalText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -147,22 +156,25 @@
                             android:src="@drawable/new1" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="21WN reversible angora cardigan"
                             android:textSize="14sp"
                             android:fontFamily="@font/tenor_sans"
-                            android:padding="8dp" />
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:lines="2"
+                            android:ellipsize="end" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="$120"
                             android:textSize="14sp"
                             android:textColor="#DD8560"
                             android:fontFamily="@font/tenor_sans"
-                            android:paddingStart="8dp"
-                            android:paddingBottom="8dp" />
+                            android:paddingBottom="8dp"
+                            android:gravity="center" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -186,22 +198,25 @@
                             android:src="@drawable/new2" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="21WN reversible angora cardigan"
                             android:textSize="14sp"
                             android:fontFamily="@font/tenor_sans"
-                            android:padding="8dp" />
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:lines="2"
+                            android:ellipsize="end" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="$120"
                             android:textSize="14sp"
                             android:textColor="#DD8560"
                             android:fontFamily="@font/tenor_sans"
-                            android:paddingStart="8dp"
-                            android:paddingBottom="8dp" />
+                            android:paddingBottom="8dp"
+                            android:gravity="center" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -225,22 +240,25 @@
                             android:src="@drawable/new3" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="21WN reversible angora cardigan"
                             android:textSize="14sp"
                             android:fontFamily="@font/tenor_sans"
-                            android:padding="8dp" />
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:lines="2"
+                            android:ellipsize="end" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="$120"
                             android:textSize="14sp"
                             android:textColor="#DD8560"
                             android:fontFamily="@font/tenor_sans"
-                            android:paddingStart="8dp"
-                            android:paddingBottom="8dp" />
+                            android:paddingBottom="8dp"
+                            android:gravity="center" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -263,22 +281,25 @@
                             android:src="@drawable/new4" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Oblong bag"
                             android:textSize="14sp"
                             android:fontFamily="@font/tenor_sans"
-                            android:padding="8dp" />
+                            android:padding="8dp"
+                            android:gravity="center"
+                            android:lines="2"
+                            android:ellipsize="end" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="$120"
                             android:textSize="14sp"
                             android:textColor="#DD8560"
                             android:fontFamily="@font/tenor_sans"
-                            android:paddingStart="8dp"
-                            android:paddingBottom="8dp" />
+                            android:paddingBottom="8dp"
+                            android:gravity="center" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
