@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         // Set drawables programmatically
         findViewById<ImageButton>(R.id.searchButton).setImageResource(R.drawable.ic_search)
         findViewById<ImageButton>(R.id.shoppingButton).setImageResource(R.drawable.ic_shopping_bag)
-        findViewById<ImageView>(R.id.logoImage).setImageResource(R.drawable.app_logo)
 
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(
