@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         tools:context=".MainActivity">
         
         <!-- Navigation Bar -->
@@ -19,10 +20,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#FFFFFF"
             android:paddingStart="5dp"
-            android:paddingEnd="10dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingEnd="10dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -32,9 +32,8 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_menu"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
 
                 <TextView
                     android:id="@+id/logo"
@@ -45,47 +44,42 @@
                     android:text="Phnom Penh\nTrends"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_centerInParent="true" />
 
-                <ImageButton
-                    android:id="@+id/searchButton"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_search"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    app:layout_constraintEnd_toStartOf="@id/shoppingButton"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginEnd="8dp" />
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
 
-                <ImageButton
-                    android:id="@+id/shoppingButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_shopping_bag"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="8dp" />
+                    <ImageButton
+                        android:id="@+id/searchButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_marginEnd="8dp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageButton
+                        android:id="@+id/shoppingButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_shopping_bag"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
         <!-- Carousel -->
         <FrameLayout
             android:id="@+id/carouselContainer"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.55">
+            android:layout_weight="0.55">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/coverImageCarousel"
@@ -116,25 +110,18 @@
             android:textStyle="bold"
             android:fontFamily="@font/tenor_sans"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/carouselContainer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_gravity="center_horizontal"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/horizontal"
-            app:layout_constraintTop_toBottomOf="@id/newArrivalText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:src="@drawable/horizontal" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/newArrivalText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -310,6 +297,7 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </HorizontalScrollView>
+
         <LinearLayout
             android:id="@+id/exploreMoreLayout"
             android:layout_width="wrap_content"
@@ -317,9 +305,7 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:padding="16dp"
-            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp">
 
             <TextView
@@ -338,6 +324,468 @@
                 app:tint="#000000"
                 android:contentDescription="Forward arrow"/>
         </LinearLayout>
+        <!--Sponsor-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/horizontal"
+                android:padding="10dp"/>
+            <!-- First row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor1"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor2"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor3"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+            </LinearLayout>
+
+            <!-- Second row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor4"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor5"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/sponsor6"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="8dp"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/horizontal"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <!--Collection-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/collection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Collection"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/collection1"
+                android:layout_marginBottom="20dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/collection2"
+                android:layout_marginBottom="20dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/collection3"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+        <!-- Recommend -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/justForU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Just For You"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/horizontal"/>
+            <HorizontalScrollView
+                android:id="@+id/recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <!-- Card 1 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/new1" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="21WN reversible angora cardigan"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$120"
+                                android:textSize="14sp"
+                                android:textColor="#DD8560"
+                                android:fontFamily="@font/tenor_sans"
+                                android:paddingBottom="8dp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Card 2 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/new2" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="21WN reversible angora cardigan"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$120"
+                                android:textSize="14sp"
+                                android:textColor="#DD8560"
+                                android:fontFamily="@font/tenor_sans"
+                                android:paddingBottom="8dp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Card 3 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/new3" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="21WN reversible angora cardigan"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$120"
+                                android:textSize="14sp"
+                                android:textColor="#DD8560"
+                                android:fontFamily="@font/tenor_sans"
+                                android:paddingBottom="8dp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Card 4 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/new4" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Oblong bag"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$120"
+                                android:textSize="14sp"
+                                android:textColor="#DD8560"
+                                android:fontFamily="@font/tenor_sans"
+                                android:paddingBottom="8dp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Benifit -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/f2f2f2">
+            <TextView
+                android:id="@+id/benifit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phnom Penh Trends"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/decbenifit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Making a luxurious lifestyle accessible for a generous group of women is our daily drive."
+                android:textSize="18sp"
+                android:fontFamily="@font/tenor_sans"
+                android:padding="30dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/horizontal"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/benefit1"/>
+                    <TextView
+                        android:id="@+id/benifit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fast shipping. Free on orders over $25."
+                        android:textSize="18sp"
+                        android:fontFamily="@font/tenor_sans"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/benifit2"/>
+                    <TextView
+                        android:id="@+id/benifit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sustainable process from start to finish."
+                        android:textSize="18sp"
+                        android:fontFamily="@font/tenor_sans"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="20dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/benifit3"/>
+                    <TextView
+                        android:id="@+id/benifit3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unique designs and high-quality materials."
+                        android:textSize="18sp"
+                        android:fontFamily="@font/tenor_sans"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/benifit4"/>
+                    <TextView
+                        android:id="@+id/benifit4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fast shipping. Free on orders over $25."
+                        android:textSize="18sp"
+                        android:fontFamily="@font/tenor_sans"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--Follow Us-->
+        
+    </LinearLayout>
 </ScrollView>
