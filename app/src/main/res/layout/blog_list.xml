@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="3 Pairs of Denim You Won’t Believe"
+                        android:text="2021 Style Guide: The Biggest Fall "
                         android:textSize="20dp"
                         android:paddingBottom="3dp"
                         android:fontFamily="@font/tenor_sans"/>
@@ -173,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="4 days ago"
+                        android:text="5 days ago"
                         android:textSize="17dp"
                         android:fontFamily="@font/tenor_sans"/>
                 </LinearLayout>
@@ -198,7 +198,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="3 Pairs of Denim You Won’t Believe"
+                        android:text="5 Fall Looks I’m Loving"
                         android:textSize="20dp"
                         android:paddingBottom="3dp"
                         android:fontFamily="@font/tenor_sans"/>
@@ -214,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="4 days ago"
+                        android:text="01/11/2021"
                         android:textSize="17dp"
                         android:fontFamily="@font/tenor_sans"/>
                 </LinearLayout>
@@ -239,7 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="3 Pairs of Denim You Won’t Believe"
+                        android:text="5 Fall Boot Trends You Need to Try"
                         android:textSize="20dp"
                         android:paddingBottom="3dp"
                         android:fontFamily="@font/tenor_sans"/>
@@ -255,7 +255,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="4 days ago"
+                        android:text="25/10/2021"
                         android:textSize="17dp"
                         android:fontFamily="@font/tenor_sans"/>
                 </LinearLayout>
@@ -280,7 +280,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="3 Pairs of Denim You Won’t Believe"
+                        android:text="2021 Style Guide: The Biggest Fall Trends"
                         android:textSize="20dp"
                         android:paddingBottom="3dp"
                         android:fontFamily="@font/tenor_sans"/>
@@ -296,7 +296,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="4 days ago"
+                        android:text="16/10/2021"
                         android:textSize="17dp"
                         android:fontFamily="@font/tenor_sans"/>
                 </LinearLayout>
@@ -337,7 +337,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:text="4 days ago"
+                        android:text="10/10/2021"
                         android:textSize="17dp"
                         android:fontFamily="@font/tenor_sans"/>
                 </LinearLayout>
