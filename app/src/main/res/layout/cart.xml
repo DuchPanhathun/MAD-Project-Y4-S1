@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:src="@drawable/iconclose"
+        android:layout_margin="6dp"
+        android:paddingRight="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C a r t"
+        android:textSize="28sp"
+        android:fontFamily="@font/tenor_sans"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/retangle"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="25dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lamerei"
+                android:fontFamily="@font/tenor_sans"
+                android:textSize="20dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recycle Boucle Knit Cardigan Pink"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="7dp"/>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <Button
+                    android:id="@+id/decreaseButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="-"
+                    android:textSize="15sp"
+                    android:background="@drawable/sign"
+                    android:textColor="@color/black"
+                    android:padding="0dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/quantityTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/increaseButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="+"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:background="@drawable/sign"
+                    android:textColor="@color/black"
+                    android:padding="0dp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$120"
+                android:textSize="16dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/retangle334"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="25dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5252 by OIOI"
+                android:fontFamily="@font/tenor_sans"
+                android:textSize="20dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2021 Signature SweatShirt [NAVY]"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="7dp"/>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <Button
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="-"
+                    android:textSize="15sp"
+                    android:background="@drawable/sign"
+                    android:textColor="@color/black"
+                    android:padding="0dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"/>
+
+                <Button
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="+"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:background="@drawable/sign"
+                    android:textColor="@color/black"
+                    android:padding="0dp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$120"
+                android:textSize="16dp"
+                android:textColor="@color/red"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line19"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUB TOTAL"
+            android:fontFamily="@font/tenor_sans"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$240"
+            android:textColor="@color/red"
+            android:textSize="20dp"
+            android:layout_marginLeft="190dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping charges, taxes and Discount codes"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="34dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="are Calculated at the time of accounting."
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="34dp"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="68dp"
+        android:background="@color/black">
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:src="@drawable/content"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+</LinearLayout>
