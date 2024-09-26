@@ -43,7 +43,7 @@
                     android:fontFamily="@font/tenor_sans"
                     android:gravity="center"
                     android:text="Phnom Penh\nTrends"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_centerInParent="true" />
 
