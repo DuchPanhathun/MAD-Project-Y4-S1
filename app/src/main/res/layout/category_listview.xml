@@ -104,7 +104,7 @@
                     android:fontFamily="@font/tenor_sans"
                     android:text="4500"
                     android:textColor="@color/gray"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp" />
 
@@ -115,7 +115,7 @@
                     android:fontFamily="@font/tenor_sans"
                     android:text="APPAREL"
                     android:textColor="@color/gray"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp" />
             </LinearLayout>

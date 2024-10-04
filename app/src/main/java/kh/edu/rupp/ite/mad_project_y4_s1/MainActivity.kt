@@ -22,6 +22,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.content.Intent
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -67,6 +69,38 @@ class MainActivity : AppCompatActivity() {
         // Add menu functionality
         val menuButton: ImageButton = findViewById(R.id.menuButton)
         menuButton.setOnClickListener { showCustomMenu() }
+
+        // Add this new code to handle the click event for the shopping button
+        val shoppingButton: ImageButton = findViewById(R.id.shoppingButton)
+        shoppingButton.setOnClickListener {
+            val intent = Intent(this, CategoryListActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Add this new code to handle the click event
+        val newArrivalText: TextView = findViewById(R.id.newArrivalText)
+        newArrivalText.setOnClickListener {
+            Log.d("MainActivity", "New Arrival text clicked")
+            try {
+                val intent = Intent(this, BlogGridActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error starting BlogGridActivity", e)
+                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val exploreMoreLayout: LinearLayout = findViewById(R.id.exploreMoreLayout)
+        exploreMoreLayout.setOnClickListener {
+            Log.d("MainActivity", "Explore More clicked")
+            try {
+                val intent = Intent(this, BlogGridActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error starting BlogGridActivity", e)
+                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun showCustomMenu() {

@@ -68,7 +68,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_shopping_bag"
-                        android:background="?attr/selectableItemBackgroundBorderless" />
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="onShoppingButtonClick" />
 
                 </LinearLayout>
 
@@ -88,19 +89,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <com.google.android.material.tabs.TabLayout
+            <kh.edu.rupp.ite.mad_project_y4_s1.CustomTabLayout
                 android:id="@+id/indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="@android:color/transparent"
-                app:tabBackground="@drawable/tab_selector"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp"
-                app:tabPadding="4dp"
-                android:paddingBottom="16dp"
-                app:tabMaxWidth="20dp"
-                app:tabMinWidth="20dp" />
+                android:paddingBottom="16dp" />
         </FrameLayout>
 
         <TextView
@@ -112,7 +107,8 @@
             android:textStyle="bold"
             android:fontFamily="@font/tenor_sans"
             android:layout_marginTop="25sp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            />
 
         <ImageView
             android:layout_width="match_parent"
@@ -308,9 +304,13 @@
             android:gravity="center"
             android:padding="16dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
 
             <TextView
+                android:id="@+id/exploreMoreText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore More"
