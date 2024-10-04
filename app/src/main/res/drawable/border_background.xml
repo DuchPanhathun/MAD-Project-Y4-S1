@@ -9,5 +9,5 @@
         android:color="#000000"/> <!-- Black color for border -->
 
     <!-- Optional: Card Corner Radius -->
-    <corners android:radius="100%"/>
+    <corners android:radius="8dp"/>
 </shape>

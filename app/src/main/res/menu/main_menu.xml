@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/tab_group">
+        <item
+            android:id="@+id/menu_setting"
+            android:title="SETTING" />
+        <item
+            android:id="@+id/menu_men"
+            android:title="MEN" />
+        <item
+            android:id="@+id/menu_women"
+            android:title="WOMEN" />
+    </group>
+
+    <group android:id="@+id/setting_group">
+        <item
+            android:id="@+id/menu_my_favorite"
+            android:title="My Favorite" />
+        <item
+            android:id="@+id/menu_about_us"
+            android:title="About us" />
+        <item
+            android:id="@+id/menu_privacy_policy"
+            android:title="Privacy Policy" />
+    </group>
+
+    <group android:id="@+id/men_group">
+        <item android:id="@+id/menu_coats" android:title="Coats" />
+        <item android:id="@+id/menu_jakets" android:title="Jakets" />
+        <item android:id="@+id/menu_sweater" android:title="Sweater" />
+        <item android:id="@+id/menu_tshirt" android:title="T-Shirt" />
+        <item android:id="@+id/menu_blazers" android:title="Blazers" />
+        <item android:id="@+id/menu_hoodies" android:title="Hoodies" />
+        <item android:id="@+id/menu_chinos" android:title="Chinos" />
+        <item android:id="@+id/menu_dress_pants" android:title="Dress Pants" />
+        <item android:id="@+id/menu_cargo_pants" android:title="Cargo Pants" />
+        <item android:id="@+id/menu_shorts" android:title="Shorts" />
+        <item android:id="@+id/menu_joggers" android:title="Joggers" />
+        <item android:id="@+id/menu_trousers" android:title="Trousers" />
+    </group>
+
+    <group android:id="@+id/women_group">
+        <item android:id="@+id/menu_jeans" android:title="Jeans" />
+    </group>
+
+    <group android:id="@+id/footer_group">
+        <item android:id="@+id/menu_log_out" android:title="Log Out" />
+        <item android:id="@+id/menu_phone" android:title="(786) 713-8616" />
+        <item android:id="@+id/menu_store_locator" android:title="Store locator" />
+    </group>
+</menu>
