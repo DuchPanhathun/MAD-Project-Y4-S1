@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <group android:alpha="0.5">
+        <!-- Outer Path - Triangle Shape -->
+        <path
+            android:pathData="M2.696,5.236L4.816,19.271h14.292L21.388,4.787"
+            android:strokeColor="#000000"
+            android:strokeWidth="1" />
+
+        <!-- Curved Paths (Top Curves and Lines) -->
+        <path
+            android:pathData="M8.259,6.65c0.033,1.075 0.803,3.224 3.619,3.224 2.816,0 3.783,-2.193 3.915,-3.29 0.208,1.108 1.612,3.303 4.639,3.224M3.377,10.094c0.639,0.057 2.093,-0.194 2.802,-1.658"
+            android:strokeColor="#000000"
+            android:strokeWidth="1" />
+
+        <!-- Diagonal Line - Slash Across -->
+        <path
+            android:pathData="M3.192,2.746L20.439,20.347"
+            android:strokeColor="#000000"
+            android:strokeWidth="1" />
+    </group>
+
+</vector>

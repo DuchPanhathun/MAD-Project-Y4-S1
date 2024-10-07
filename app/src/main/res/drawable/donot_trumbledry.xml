@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <group android:alpha="0.5">
+        <!-- Rectangle -->
+        <path
+            android:pathData="M4.386,4.49h15v15h-15v-15z"
+            android:strokeColor="#000000"
+            android:strokeWidth="1"/>
+
+        <!-- Diagonal Line -->
+        <path
+            android:pathData="M20.355,16.397L2.248,7.38l0.446,-0.895L20.801,15.502L20.355,16.397z"
+            android:fillColor="#000000" />
+
+        <!-- Inner Path: Right Curve -->
+        <path
+            android:pathData="M14.845,14.751c-0.725,0.739 -1.735,1.197 -2.852,1.197 -2.207,0 -3.997,-1.789 -3.997,-3.997 0,-0.2 0.015,-0.397 0.043,-0.59L7.106,10.897c-0.073,0.34 -0.111,0.693 -0.111,1.054 0,2.76 2.237,4.997 4.997,4.997 1.513,0 2.869,-0.672 3.785,-1.734L14.845,14.751z"
+            android:fillColor="#000000" />
+
+        <!-- Inner Path: Left Curve -->
+        <path
+            android:pathData="M8.315,10.382c0.61,-1.428 2.027,-2.429 3.677,-2.429 2.208,0 3.997,1.789 3.997,3.997 0,0.724 -0.192,1.403 -0.529,1.989l0.897,0.447c0.403,-0.72 0.633,-1.55 0.633,-2.435 0,-2.76 -2.237,-4.997 -4.997,-4.997 -2.043,0 -3.799,1.226 -4.574,2.982L8.315,10.382z"
+            android:fillColor="#000000" />
+    </group>
+
+</vector>
