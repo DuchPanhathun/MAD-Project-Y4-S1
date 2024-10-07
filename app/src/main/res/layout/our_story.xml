@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <LinearLayout
+        android:id="@+id/blog_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Navigation Bar (Toolbar) -->
+    <include layout="@layout/toolbar_layout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Story"
+        android:fontFamily="@font/tenor_sans"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line31"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+>>>>>>> refs/remotes/origin/main
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/tenor_sans"
+            android:gravity="center"
+            android:text="Contact Us"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/horizontal" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/add_message" />
+=======
+            android:text="Open Fashion - Free Ecommerce UI Kit is a"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="16dp"/>
+>>>>>>> refs/remotes/origin/main
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_margin="15dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/tenor_sans"
+            android:text="You can text us at 800-309-2622 – or click on the “text us” link below on your mobile device. Please allow the system to acknowledge a simple greeting (even “Hi” will do!) before providing your question/order details. Consent is not required for any purchase. Message and data rates may apply. Text messaging may not be available via all carriers."
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:background="@drawable/square_c"
+            android:fontFamily="@font/tenor_sans">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/tenor_sans"
+                android:gravity="center"
+                android:text="TEXT US"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_fb" />
+=======
+            android:text="free download UI kit. You can open Open"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+>>>>>>> refs/remotes/origin/main
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_margin="15dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/tenor_sans"
+            android:text="To send us a private or direct message, like @PhnomPenhTrends on Facebook or follow us on Twitter. We’ll get back to you ASAP. Please include your name, order number, and email address for a faster response!"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <include layout="@layout/footer_layout" />
+    </LinearLayout>
+</ScrollView>
+=======
+            android:text="Fshion - Free Ecommerce UI Kit file by"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Figma."
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="13dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create stunning shop with  bulletproof"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="guidelines and thoughful componants. It's"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="library contains more than 50+ components"
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Figma."
+            android:layout_marginLeft="16sp"
+            android:textSize="18dp"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</LinearLayout>
+>>>>>>> refs/remotes/origin/main
