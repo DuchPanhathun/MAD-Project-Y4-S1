@@ -1959,10 +1959,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
                     android:fontFamily="@font/tenor_sans"
+                    android:text="1"
                     android:textColor="@color/fcfcfc"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
             </LinearLayout>
 
             <LinearLayout

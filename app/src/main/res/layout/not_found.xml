@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar_layout" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20sp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PAGE NOT FOUND"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/tenor_sans"
+                android:gravity="center"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/tailors_dummy"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="We can't find the page you looking for, it will return to the"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="30dp"
+                android:fontFamily="@font/tenor_sans" />
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/square_c"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_arrow_left"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/tenor_sans"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="HOME PAGE"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <include layout="@layout/footer_layout" />
+    </LinearLayout>
+</ScrollView>
