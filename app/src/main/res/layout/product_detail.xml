@@ -7,26 +7,26 @@
     android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-        <include layout="@layout/toolbar_layout" />
-        <LinearLayout
+        <include layout="@layout/toolbar_layout"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/productImageCarousel"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cover_image1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cover_image2" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cover_image3" />
-        </LinearLayout>
+            android:layout_marginTop="8dp"
+            app:tabBackground="@drawable/carousel_tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
