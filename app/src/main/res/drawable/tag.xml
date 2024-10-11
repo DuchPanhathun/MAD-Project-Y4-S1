@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="21dp"
+    android:viewportWidth="21"
+    android:viewportHeight="21">
+
+    <!-- Diamond Outline -->
+    <path
+        android:pathData="M10.446,1.018L20.237,10.809L10.809,20.237L1.018,10.446L1.381,1.381L10.446,1.018Z"
+        android:strokeColor="#000000"
+        android:strokeWidth="1"
+        android:fillColor="#000000"
+        android:fillAlpha="0"
+        android:strokeAlpha="0.5"/>
+
+    <!-- Small Circle -->
+    <path
+        android:pathData="M6.784,6.297m0,-0.833a0.833,0.833 0 1,0 0,1.666a0.833,0.833 0 1,0 0,-1.666Z"
+        android:strokeColor="#000000"
+        android:strokeWidth="1"
+        android:fillColor="#000000"
+        android:fillAlpha="0"
+        android:strokeAlpha="0.5"/>
+</vector>

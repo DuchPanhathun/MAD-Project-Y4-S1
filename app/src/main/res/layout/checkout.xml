@@ -12,40 +12,49 @@
         android:id="@+id/checkOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="CHECKOUT"
         android:textSize="25dp"
         android:fontFamily="@font/tenorsansregular"
         android:layout_marginTop="40dp"
+=======
+        android:text="CHECK OUT"
+        android:textSize="20dp"
+        android:fontFamily="@font/tenor_sans"
+        android:layout_marginTop="70dp"
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
         android:layout_gravity="center_horizontal"/>
-
     <ImageView
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/line31"
-        android:layout_gravity="center_horizontal"
-        />
-
-
-    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:src="@drawable/line31"
+        android:layout_gravity="center_horizontal"/>
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ratengle_344"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="20dp"/>
+=======
+    <FrameLayout
+        android:id="@+id/productItemWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true">
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:text="LAMEREI"
                 android:fontFamily="@font/tenor_sans"
                 android:textSize="19dp"
@@ -70,11 +79,18 @@
                 android:layout_marginLeft="15dp"
                 android:textSize="16dp"/>
 
+=======
+                android:src="@drawable/ratengle_344"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="20dp"/>
+
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
+<<<<<<< HEAD
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
@@ -102,12 +118,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+=======
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LAMEREI"
+                    android:fontFamily="@font/tenor_sans"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"/>
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Size"
+                    android:text="Recycle Boucle Knit Cardigan Pink"
+                    android:textSize="15dp"
                     android:fontFamily="@font/tenor_sans"
+<<<<<<< HEAD
                     android:textSize="18dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"/>
@@ -189,18 +217,128 @@
                 </androidx.cardview.widget.CardView>
 
                 <RelativeLayout
+=======
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/heart_red"
-                        android:layout_alignParentEnd="true"
-                        android:layout_margin="12dp"/>
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:text="$120"
+                    android:textColor="@color/red"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size"
+                        android:fontFamily="@font/tenor_sans"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginLeft="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="S"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:gravity="center"/> <!-- Ensure text is centered -->
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginLeft="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"> <!-- Added gravity to center content -->
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="M"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="3dp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginLeft="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"> <!-- Added gravity to center content -->
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="L"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/tenor_sans"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <RelativeLayout
+                        android:id="@+id/heartIconWrapper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:id="@+id/heartIcon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/heart_red"
+                            android:layout_alignParentEnd="true"
+                            android:layout_margin="12dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -217,7 +355,7 @@
             android:scaleType="fitXY"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -271,6 +409,7 @@
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="20dp"/>
 
+<<<<<<< HEAD
             <TextView
                 android:id="@+id/codeFree"
                 android:layout_width="wrap_content"
@@ -281,6 +420,17 @@
                 android:textSize="20sp"
                 android:layout_marginLeft="187dp"
                 android:layout_marginTop="20dp"/>
+=======
+                <TextView
+                    android:id="@+id/codeFree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free"
+                    android:fontFamily="@font/tenorsansregular"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"/>
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
         </LinearLayout>
 
         <RelativeLayout
@@ -334,6 +484,10 @@
                     android:layout_marginLeft="20dp" />
             </LinearLayout>
         </RelativeLayout>
-
     </LinearLayout>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ebb68ec393870c263adf75a8d545b8df42b61a69
 </LinearLayout>
