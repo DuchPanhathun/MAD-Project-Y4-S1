@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CHECKOUT"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:fontFamily="@font/tenorsansregular"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_gravity="center_horizontal"/>
 
     <ImageView
@@ -32,8 +32,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/ratengle_344"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="20dp"/>
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="LAMEREI"
                 android:fontFamily="@font/tenor_sans"
-                android:textSize="25dp"
+                android:textSize="19dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"/>
 
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recycle Boucle Knit Cardigan Pink"
-                android:textSize="25dp"
+                android:textSize="16dp"
                 android:fontFamily="@font/tenor_sans"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"/>
@@ -68,7 +68,7 @@
                 android:textColor="@color/red"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="15dp"
-                android:textSize="20dp"/>
+                android:textSize="16dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -76,8 +76,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:src="@drawable/star_1"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"/>
@@ -86,17 +86,17 @@
                     android:layout_height="wrap_content"
                     android:text="4.8"
                     android:fontFamily="@font/tenor_sans"
-                    android:textSize="23dp"
+                    android:textSize="16dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="7dp"/>
+                    android:layout_marginTop="4dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ratings"
                     android:fontFamily="@font/tenor_sans"
-                    android:textSize="23dp"
+                    android:textSize="16dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="7dp"/>
+                    android:layout_marginTop="4dp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -108,14 +108,14 @@
                     android:layout_height="wrap_content"
                     android:text="Size"
                     android:fontFamily="@font/tenor_sans"
-                    android:textSize="23dp"
+                    android:textSize="18dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"/>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:cardCornerRadius="20dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:cardCornerRadius="16dp"
                     app:cardBackgroundColor="@android:color/transparent"
                     android:layout_marginLeft="10dp">
 
@@ -124,7 +124,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -133,13 +132,14 @@
                             android:fontFamily="@font/tenor_sans"
                             android:gravity="center"
                             android:text="S"
-                            android:textSize="27sp" /> <!-- Ensure text is centered -->
+                            android:textSize="18sp"
+                            android:layout_marginBottom="5dp"/> <!-- Ensure text is centered -->
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     app:cardCornerRadius="20dp"
                     app:cardBackgroundColor="@android:color/transparent"
                     android:layout_marginLeft="10dp">
@@ -154,7 +154,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="M"
-                            android:textSize="27sp"
+                            android:textSize="18sp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="3dp"
@@ -164,8 +164,8 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     app:cardCornerRadius="20dp"
                     app:cardBackgroundColor="@android:color/transparent"
                     android:layout_marginLeft="10dp">
@@ -180,11 +180,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="L"
-                            android:textSize="27sp"
+                            android:textSize="18sp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/tenor_sans"
-                            android:gravity="center"/>
+                            android:layout_gravity="center_vertical"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -206,12 +206,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/line22"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/black"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
@@ -223,10 +222,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/kopong"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"/>
 
             <TextView
@@ -234,10 +233,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add promo code"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:fontFamily="@font/tenorsansregular"
-                android:layout_marginLeft="23dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="23dp"/>
         </LinearLayout>
 
         <ImageView
@@ -256,10 +255,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/door_delivery"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"/>
 
             <TextView
@@ -267,33 +266,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delivery"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:fontFamily="@font/tenorsansregular"
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="20dp"/>
 
-                <TextView
-                    android:id="@+id/codeFree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Free"
-                    android:fontFamily="@font/tenorsansregular"
-                    android:textSize="30sp"
-                    android:layout_marginLeft="450dp"
-                    android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/codeFree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free"
+                android:textColor="@color/black"
+                android:fontFamily="@font/tenorsansregular"
+                android:textSize="20sp"
+                android:layout_marginLeft="187dp"
+                android:layout_marginTop="20dp"/>
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="580dp"> <!-- Adjust the top margin as needed -->
+            android:layout_marginTop="200dp"> <!-- Adjust the top margin as needed -->
 
             <!-- First TextView (EST. TOTAL) aligned to the start -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EST. TOTAL"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="20dp" />
 
@@ -302,7 +302,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$120"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp" />
         </RelativeLayout>
@@ -311,31 +311,29 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="50dp"
                 android:background="@color/black"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"> <!-- Align the LinearLayout to the bottom -->
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/shop_bag" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CHECK OUT"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/tenorsansregular"
-                    android:layout_marginLeft="40dp" />
+                    android:layout_marginLeft="20dp" />
             </LinearLayout>
         </RelativeLayout>
 
     </LinearLayout>
-
 </LinearLayout>

@@ -11,4 +11,5 @@
     <color name="red">#FF0000</color>
     <color name="grey">#808080</color>
     <color name="indicator_color">#FFFFFF</color>
+    <color name="greyscale">#F9F9F9</color>
 </resources>
