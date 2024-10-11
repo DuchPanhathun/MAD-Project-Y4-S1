@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:layout_marginLeft="150dp"
+        android:padding="10dp"/>
+    <TextView
+        android:id="@+id/payment_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAYMENT SUCCESS"
+        android:textSize="27dp"
+        android:fontFamily="@font/tenorsansregular"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line31"
+        android:layout_gravity="center_horizontal"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/success_star"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="35dp"
+        android:src="@drawable/success_star"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/success"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/textLetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your payment was success"
+        android:textSize="20dp"
+        android:fontFamily="@font/tenorsansregular"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment ID 15263541"
+        android:textSize="18dp"
+        android:textColor="@color/grey"
+        android:layout_marginTop="10dp"/>
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line31"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        />
+</LinearLayout>
