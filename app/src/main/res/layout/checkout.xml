@@ -248,40 +248,83 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:scaleType="fitXY"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/door_delivery"/>
+                    <TextView
+                        android:id="@+id/codeDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/tenorsansregular" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true">
+                    <TextView
+                        android:id="@+id/codeFree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/tenorsansregular"
+                        android:text="Free"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </RelativeLayout>
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/door_delivery"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-
-            <TextView
-                android:id="@+id/codeDelivery"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delivery"
-                android:textSize="20dp"
-                android:fontFamily="@font/tenorsansregular"
-                android:layout_marginLeft="23dp"
-                android:layout_marginTop="20dp"/>
+                android:src="@drawable/line22"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/black"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:scaleType="fitXY"/>
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:id="@+id/codeFree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Free"
-                android:textColor="@color/black"
-                android:fontFamily="@font/tenorsansregular"
-                android:textSize="20sp"
-                android:layout_marginLeft="187dp"
-                android:layout_marginTop="20dp"/>
-        </LinearLayout>
+<!--            <ImageView-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:src="@drawable/door_delivery"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginTop="20dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/codeDelivery"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Delivery"-->
+<!--                android:textSize="20dp"-->
+<!--                android:fontFamily="@font/tenorsansregular"-->
+<!--                android:layout_marginLeft="23dp"-->
+<!--                android:layout_marginTop="20dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/codeFree"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Free"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:fontFamily="@font/tenorsansregular"-->
+<!--                android:textSize="20sp"-->
+<!--                android:layout_marginLeft="187dp"-->
+<!--                android:layout_marginTop="20dp"/>-->
+<!--        </LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
