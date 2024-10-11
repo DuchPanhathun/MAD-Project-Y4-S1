@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="27dp"
+        android:fontFamily="@font/tenorsansregular"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line31"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:padding="20dp">
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/square_c"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="17dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/tenor_sans"
+            android:text="Log In"
+            android:gravity="center"
+            android:textColor="@color/fcfcfc"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textLetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have account? please Sign Up"
+        android:textSize="15dp"
+        android:fontFamily="@font/tenorsansregular"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>
