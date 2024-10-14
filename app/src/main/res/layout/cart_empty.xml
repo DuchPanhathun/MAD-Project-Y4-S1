@@ -4,20 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:src="@drawable/iconclose"
-        android:layout_margin="6dp"
-        android:paddingRight="50dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cart"
-        android:textSize="28sp"
+        android:text="C A R T"
+        android:textSize="25sp"
         android:fontFamily="@font/tenor_sans"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp" />
 
     <RelativeLayout

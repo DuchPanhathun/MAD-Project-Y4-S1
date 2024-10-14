@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Setting"
-            android:textSize="27dp"
+            android:textSize="25dp"
             android:fontFamily="@font/tenor_sans"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="27dp" />
