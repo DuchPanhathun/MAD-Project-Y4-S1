@@ -43,22 +43,6 @@
             android:hint="Password" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/square_c"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="17dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/tenor_sans"
-            android:text="Log In"
-            android:gravity="center"
-            android:textColor="@color/fcfcfc"
-            android:textSize="18dp" />
-    </LinearLayout>
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
