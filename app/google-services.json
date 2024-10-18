@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84993316224",
+    "project_id": "clothes-store-controller",
+    "storage_bucket": "clothes-store-controller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84993316224:android:c626c5f481d46b95111d65",
+        "android_client_info": {
+          "package_name": "com.phnompenh.app2139"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUusn_qwjEJtTdm8MaCYgUrmyuIesexuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -31,8 +31,8 @@
             android:layout_weight="1"
             android:text="SETTING"
             android:textAlignment="center"
-            android:textSize="18sp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/menTab"
@@ -73,19 +73,22 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/logOutText"
+            android:id="@+id/loginLogoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log Out"
+            android:text="Log In"
             android:textColor="#DD8560"
             android:textSize="18sp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground" />
 
         <TextView
             android:id="@+id/phoneText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="(786) 713-8616"
+            android:text="(786) 713-8616 2132139"
             android:textSize="16sp"
             android:padding="8dp"
             android:textColor="#000000" />

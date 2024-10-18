@@ -14,63 +14,8 @@
         android:gravity="center_horizontal">
 
         <!-- Navigation Bar -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:paddingStart="5dp"
-            android:paddingEnd="10dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageButton
-                    android:id="@+id/menuButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_menu"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true" />
-
-                <TextView
-                    android:id="@+id/logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/tenor_sans"
-                    android:gravity="center"
-                    android:text="Phnom Penh\nTrends"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_centerInParent="true" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true">
-
-                    <ImageButton
-                        android:id="@+id/searchButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_search"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:layout_marginEnd="8dp" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_shopping_bag"
-                        android:background="?attr/selectableItemBackgroundBorderless" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
+        <include layout="@layout/toolbar_layout" />
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
