@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:src="@drawable/phnompenhlogo"
+        android:layout_gravity="center_horizontal" />
     <TextView
         android:id="@+id/signin"
         android:layout_width="wrap_content"
