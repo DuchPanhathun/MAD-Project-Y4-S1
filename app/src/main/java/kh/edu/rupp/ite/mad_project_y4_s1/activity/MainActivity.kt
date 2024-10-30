@@ -1,4 +1,4 @@
-package kh.edu.rupp.ite.mad_project_y4_s1
+package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.os.Bundle
 import android.os.Handler
@@ -27,6 +27,8 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import android.view.LayoutInflater
 import android.content.Context
+import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
+import kh.edu.rupp.ite.mad_project_y4_s1.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         // Add this new code to handle the click event for the shopping button
         val shoppingButton: ImageButton = findViewById(R.id.shoppingButton)
         shoppingButton.setOnClickListener {
-            val intent = Intent(this, CategoryListActivity::class.java)
+            val intent = Intent(this, ItemsActivity::class.java)
             startActivity(intent)
         }
 
