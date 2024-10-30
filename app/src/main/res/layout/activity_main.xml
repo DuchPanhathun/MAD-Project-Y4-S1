@@ -28,13 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <kh.edu.rupp.ite.mad_project_y4_s1.CustomTabLayout
-                android:id="@+id/indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@android:color/transparent"
-                android:paddingBottom="16dp" />
         </FrameLayout>
 
         <TextView
@@ -376,5 +369,13 @@
             </LinearLayout>
         </LinearLayout>
         <include layout="@layout/footer_layout" />
+
+        <kh.edu.rupp.ite.mad_project_y4_s1.CustomTabLayout
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/transparent"
+            android:paddingBottom="16dp" />
     </LinearLayout>
 </ScrollView>
