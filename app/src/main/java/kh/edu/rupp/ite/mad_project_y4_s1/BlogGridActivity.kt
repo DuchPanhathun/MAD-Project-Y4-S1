@@ -9,5 +9,6 @@ class BlogGridActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d("BlogGridActivity", "onCreate called")
         setContentView(R.layout.blog_grid)
+        
     }
 }
