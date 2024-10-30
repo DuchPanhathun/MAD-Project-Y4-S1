@@ -6,8 +6,9 @@ data class Item(
     @PropertyName("brandName") val brandName: String = "",
     @PropertyName("type") val type: String = "",
     @PropertyName("price") val price: String = "",
-    @PropertyName("sizes") val sizes: List<String> = listOf()
+    @PropertyName("sizes") val sizes: List<String> = listOf(),
+    @PropertyName("images") val images: List<String> = listOf()
 ) {
     // Required no-argument constructor for Firestore
-    constructor() : this("", "", "", listOf())
+    constructor() : this("", "", "", listOf(), listOf())
 }
