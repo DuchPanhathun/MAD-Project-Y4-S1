@@ -45,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp">
                 <ImageView
+                    android:id="@+id/blogimages"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:scaleType="centerCrop"
@@ -56,6 +57,7 @@
                     android:padding="15dp"
                     android:layout_alignParentEnd="true"/>
                 <TextView
+                    android:id="@+id/textblog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2021 Style Guide: The Biggest Fall Trends"
@@ -76,47 +78,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/tenor_sans"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="20dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/blog2"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bookmark"
-                    android:padding="15dp"
-                    android:layout_alignParentEnd="true"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2021 Style Guide: The Biggest Fall Trends"
-                    android:textSize="25sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/tenor_sans"
-                    android:gravity="start"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:padding="15dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:layout_marginTop="10dp"
-                android:text="4 days ago"
-                android:textSize="20sp"
-                android:fontFamily="@font/tenor_sans"/>
-        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,6 +110,53 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
                     android:padding="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/blog2" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:padding="15dp"
+                            android:src="@drawable/bookmark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/tenor_sans"
+                            android:gravity="start"
+                            android:padding="15dp"
+                            android:text="2021 Style Guide: The Biggest Fall Trends"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/tenor_sans"
+                        android:gravity="end"
+                        android:text="4 days ago"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </RelativeLayout>
             <TextView
                 android:layout_width="match_parent"
