@@ -34,7 +34,7 @@
             android:textColor="@android:color/holo_green_dark" />
 
         <TextView
-            android:id="@+id/sizeText"
+            android:id="@+id/sizesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp" />

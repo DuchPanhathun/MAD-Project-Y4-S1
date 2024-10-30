@@ -1,9 +1,13 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
+import com.google.firebase.firestore.PropertyName
+
 data class Item(
-    val id: String = "",
-    val brandName: String = "",
-    val type: String = "",
-    val price: Double = 0.0,
-    val size: String = ""
-)
+    @PropertyName("brandName") val brandName: String = "",
+    @PropertyName("type") val type: String = "",
+    @PropertyName("price") val price: String = "",
+    @PropertyName("sizes") val sizes: List<String> = listOf()
+) {
+    // Required no-argument constructor for Firestore
+    constructor() : this("", "", "", listOf())
+}

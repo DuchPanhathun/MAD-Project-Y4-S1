@@ -15,7 +15,7 @@ class ItemsAdapter(private val items: List<Item>) :
         val brandName: TextView = view.findViewById(R.id.brandNameText)
         val type: TextView = view.findViewById(R.id.typeText)
         val price: TextView = view.findViewById(R.id.priceText)
-        val size: TextView = view.findViewById(R.id.sizeText)
+        val sizes: TextView = view.findViewById(R.id.sizesText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -29,7 +29,7 @@ class ItemsAdapter(private val items: List<Item>) :
         holder.brandName.text = item.brandName
         holder.type.text = item.type
         holder.price.text = "$${item.price}"
-        holder.size.text = "Size: ${item.size}"
+        holder.sizes.text = "Available Sizes: ${item.sizes.joinToString(", ")}"
     }
 
     override fun getItemCount() = items.size
