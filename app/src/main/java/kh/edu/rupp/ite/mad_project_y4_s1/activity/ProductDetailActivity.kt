@@ -1,4 +1,4 @@
-package kh.edu.rupp.ite.mad_project_y4_s1
+package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.os.Bundle
 import android.view.ViewGroup
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kh.edu.rupp.ite.mad_project_y4_s1.R
 
 class ProductDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,11 @@ class ProductDetailActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.indicator)
 
         // Assume you have a list of image resources
-        val images = listOf(R.drawable.cover_image1, R.drawable.cover_image2, R.drawable.cover_image3)
+        val images = listOf(
+            R.drawable.cover_image1,
+            R.drawable.cover_image2,
+            R.drawable.cover_image3
+        )
 
         viewPager.adapter = ImagePagerAdapter(images)
 

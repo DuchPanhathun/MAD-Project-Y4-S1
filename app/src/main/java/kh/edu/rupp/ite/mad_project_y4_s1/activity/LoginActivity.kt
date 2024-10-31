@@ -1,4 +1,4 @@
-package kh.edu.rupp.ite.mad_project_y4_s1
+package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kh.edu.rupp.ite.mad_project_y4_s1.R
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
