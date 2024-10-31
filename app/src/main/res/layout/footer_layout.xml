@@ -89,6 +89,7 @@
             android:padding="15dp"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/blogimages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blog"
