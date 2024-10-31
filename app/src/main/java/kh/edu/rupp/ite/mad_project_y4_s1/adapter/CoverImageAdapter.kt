@@ -1,4 +1,4 @@
-package kh.edu.rupp.ite.mad_project_y4_s1
+package kh.edu.rupp.ite.mad_project_y4_s1.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import kh.edu.rupp.ite.mad_project_y4_s1.R
 
 class CoverImageAdapter(private val images: List<Int>) : RecyclerView.Adapter<CoverImageAdapter.CoverImageViewHolder>() {
     
