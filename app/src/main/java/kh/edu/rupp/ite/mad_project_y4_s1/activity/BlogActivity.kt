@@ -1,7 +1,10 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.os.Bundle
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+=======
+>>>>>>> fa060a4 (fix stash)
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
