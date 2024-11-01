@@ -30,7 +30,7 @@ class BlogActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-
+        
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -49,4 +49,4 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
-}
+} 

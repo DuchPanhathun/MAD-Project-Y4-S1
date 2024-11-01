@@ -62,22 +62,5 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-
-    implementation ("com.google.firebase:firebase-firestore-ktx:latest_version")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:latest_version")
-
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
-    implementation ("com.google.firebase:firebase-firestore-ktx:24.0.3") // Check for the latest version
-    implementation ("com.google.android.gms:play-services-auth:20.2.0") // Check for the latest version
-
     implementation("androidx.activity:activity-ktx:1.8.2")
-    implementation ("androidx.activity:activity-ktx:1.4.0")
-    implementation( "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
-
-
-
-
-
-
 }

@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
-class BlogAdapter(private val blogs: List<Blog>) :
+class BlogAdapter(private val blogs: List<Blog>) : 
     RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -33,7 +33,4 @@ class BlogAdapter(private val blogs: List<Blog>) :
     }
 
     override fun getItemCount() = blogs.size
-    fun updateBlogs(blogs: List<Blog>) {
-
-    }
-}
+} 
