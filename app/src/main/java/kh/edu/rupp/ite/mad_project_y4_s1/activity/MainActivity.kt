@@ -1,6 +1,5 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -34,7 +33,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
-    private val sliderRunnable = Runnable {
+    private val sliderRunnable = Runnable { 
         coverImageCarousel.currentItem = (coverImageCarousel.currentItem + 1) % (coverImageCarousel.adapter?.itemCount ?: 1)
     }
     private lateinit var customMenuView: View
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
 
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
@@ -54,25 +52,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.searchButton).setImageResource(R.drawable.ic_search)
         findViewById<ImageButton>(R.id.shoppingButton).setImageResource(R.drawable.ic_shopping_bag)
 
-        // Set the text for the TextView
-        val clickableTextView = findViewById<TextView>(R.id.blogimages)
-        clickableTextView.text = "Blog"
-
-        clickableTextView.setOnClickListener {
-            // Start BlogActivity
-            val intent = Intent(this, BlogActivity::class.java)
-            startActivity(intent)
-        }
-
-
-
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(
             R.drawable.cover_image1,
             R.drawable.cover_image2,
             R.drawable.cover_image3
         )
-
+        
         coverImageCarousel.adapter = CoverImageAdapter(images)
 
         // Set up the indicator
@@ -90,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         // Add menu functionality
         val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener {
+        menuButton.setOnClickListener { 
             showCustomMenu()
         }
 
@@ -269,5 +255,4 @@ class MainActivity : AppCompatActivity() {
             updateLoginLogoutButton()
         }
     }
-
 }

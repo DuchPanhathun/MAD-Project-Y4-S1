@@ -1,21 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.os.Bundle
-<<<<<<< HEAD
-import kh.edu.rupp.ite.mad_project_y4_s1.R
-=======
-<<<<<<< HEAD
-import androidx.appcompat.app.AppCompatActivity
-import kh.edu.rupp.ite.mad_project_y4_s1.R
-
-class BlogActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.blog_grid) // Ensure this XML layout exists
-    }
-}
-=======
->>>>>>> refs/remotes/origin/thun
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -65,4 +50,3 @@ class BlogActivity : AppCompatActivity() {
         }
     }
 } 
->>>>>>> refs/remotes/origin/thun
