@@ -11,6 +11,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -22,12 +23,17 @@ class BlogAdapter(private var blogs: List<Blog>) :
 class BlogAdapter(private val blogs: List<Blog>) : 
     RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 >>>>>>> cadd3f4 (fix stash)
+=======
+class BlogAdapter(private val blogs: List<Blog>) : 
+    RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+>>>>>>> 90e3bc1 (bloggrid done)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
         val title: TextView = view.findViewById(R.id.blogTitle)
     }
 
+<<<<<<< HEAD
     class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Initialize footer views here if needed
     }
@@ -82,3 +88,21 @@ class BlogAdapter(private val blogs: List<Blog>) :
     override fun getItemCount() = blogs.size
 } 
 >>>>>>> cadd3f4 (fix stash)
+=======
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_blog, parent, false)
+        return BlogViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
+        val blog = blogs[position]
+        holder.title.text = blog.title
+        Glide.with(holder.itemView.context)
+            .load(blog.coverImage)
+            .into(holder.coverImage)
+    }
+
+    override fun getItemCount() = blogs.size
+} 
+>>>>>>> 90e3bc1 (bloggrid done)

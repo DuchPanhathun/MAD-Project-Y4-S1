@@ -30,12 +30,17 @@ class BlogActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         
 >>>>>>> cadd3f4 (fix stash)
+=======
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        
+>>>>>>> 90e3bc1 (bloggrid done)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {

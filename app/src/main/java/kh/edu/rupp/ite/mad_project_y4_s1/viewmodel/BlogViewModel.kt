@@ -31,4 +31,8 @@ class BlogViewModel : ViewModel() {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> 90e3bc1 (bloggrid done)
