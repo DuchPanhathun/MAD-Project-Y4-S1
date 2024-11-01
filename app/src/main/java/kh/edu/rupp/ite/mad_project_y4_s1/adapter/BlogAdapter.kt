@@ -17,8 +17,39 @@ import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 27b5cc5 (Blog post)
+=======
+import kh.edu.rupp.ite.mad_project_y4_s1.model.BlogItem
+
+class BlogAdapter(private val items: List<BlogItem>) : RecyclerView.Adapter<BlogAdapter.ItemViewHolder>() {
+
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val coverImageView: ImageView = view.findViewById(R.id.blogimages)
+        val titleTextView: TextView = view.findViewById(R.id.textblog)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        return ItemViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        val item = items[position]
+
+        holder.titleTextView.text = item.title
+        Glide.with(holder.itemView.context)
+            .load(item.coverImage)
+            .into(holder.coverImageView)
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+}
+=======
+>>>>>>> c3c2b74 (sdfsdf)
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
@@ -318,5 +349,12 @@ class BlogAdapter(private val blogs: List<Blog>) :
 
     override fun getItemCount() = blogs.size
 } 
+<<<<<<< HEAD
 >>>>>>> 90e3bc1 (bloggrid done)
+<<<<<<< HEAD
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+=======
+>>>>>>> refs/remotes/origin/thun
+>>>>>>> 86c7f6a (sdfsdf)
+>>>>>>> c3c2b74 (sdfsdf)

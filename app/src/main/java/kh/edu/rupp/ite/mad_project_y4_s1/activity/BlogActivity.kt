@@ -7,6 +7,7 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 import android.content.Intent
 import android.os.Bundle
 <<<<<<< HEAD
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 =======
 >>>>>>> fa060a4 (fix stash)
@@ -14,6 +15,9 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import android.content.Intent
 import android.os.Bundle
 >>>>>>> 14e41be (blog post)
+=======
+import kh.edu.rupp.ite.mad_project_y4_s1.R
+>>>>>>> c3c2b74 (sdfsdf)
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
