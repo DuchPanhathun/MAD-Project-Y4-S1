@@ -18,6 +18,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 27b5cc5 (Blog post)
 =======
@@ -50,6 +51,8 @@ class BlogAdapter(private val items: List<BlogItem>) : RecyclerView.Adapter<Blog
 }
 =======
 >>>>>>> c3c2b74 (sdfsdf)
+=======
+>>>>>>> 4896537 (fix stash)
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
@@ -348,6 +351,7 @@ class BlogAdapter(private val blogs: List<Blog>) :
     }
 
     override fun getItemCount() = blogs.size
+<<<<<<< HEAD
 } 
 <<<<<<< HEAD
 >>>>>>> 90e3bc1 (bloggrid done)
@@ -357,4 +361,10 @@ class BlogAdapter(private val blogs: List<Blog>) :
 =======
 >>>>>>> refs/remotes/origin/thun
 >>>>>>> 86c7f6a (sdfsdf)
+<<<<<<< HEAD
 >>>>>>> c3c2b74 (sdfsdf)
+=======
+=======
+} 
+>>>>>>> fa060a4 (fix stash)
+>>>>>>> 4896537 (fix stash)

@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 =======
 >>>>>>> fa060a4 (fix stash)
@@ -18,6 +19,11 @@ import android.os.Bundle
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 >>>>>>> c3c2b74 (sdfsdf)
+=======
+import kh.edu.rupp.ite.mad_project_y4_s1.R
+=======
+>>>>>>> fa060a4 (fix stash)
+>>>>>>> 4896537 (fix stash)
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
