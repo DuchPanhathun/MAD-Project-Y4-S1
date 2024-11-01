@@ -63,4 +63,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 
     override fun getItemCount() = blogs.size
 } 
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/thun
+=======
+>>>>>>> refs/remotes/origin/thun
 >>>>>>> refs/remotes/origin/thun

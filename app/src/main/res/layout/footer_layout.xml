@@ -89,7 +89,11 @@
             android:padding="15dp"
             android:gravity="center"/>
         <TextView
+<<<<<<< HEAD
+            android:id="@+id/blogimages"
+=======
             android:id="@+id/blogText"
+>>>>>>> refs/remotes/origin/thun
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blog"
