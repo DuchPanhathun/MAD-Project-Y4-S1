@@ -25,6 +25,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -46,6 +47,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 >>>>>>> 14e41be (blog post)
 =======
 >>>>>>> 221b825 (..)
+=======
+>>>>>>> 215843c (fix stash)
 class BlogAdapter(
     private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
@@ -61,6 +64,8 @@ class BlogAdapter(
 =======
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 =======
+=======
+>>>>>>> 0c597ef (fix stash)
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 >>>>>>> 0d79057 (..)
@@ -69,7 +74,14 @@ class BlogAdapter(private var blogs: List<Blog>) :
         private const val VIEW_TYPE_BLOG = 0
         private const val VIEW_TYPE_FOOTER = 1
     }
+<<<<<<< HEAD
 >>>>>>> 7b2ead3 (fix stash)
+=======
+=======
+class BlogAdapter(private val blogs: List<Blog>) : 
+    RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+>>>>>>> cadd3f4 (fix stash)
+>>>>>>> 215843c (fix stash)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -195,6 +207,7 @@ class BlogAdapter(private var blogs: List<Blog>) :
 >>>>>>> 0d79057 (..)
     }
 
+<<<<<<< HEAD
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_FOOTER) {
 <<<<<<< HEAD
@@ -260,7 +273,14 @@ class BlogAdapter(private var blogs: List<Blog>) :
     }
 >>>>>>> 7b2ead3 (fix stash)
 }
+<<<<<<< HEAD
 >>>>>>> 14e41be (blog post)
 =======
 }
 >>>>>>> 27b5cc5 (Blog post)
+=======
+=======
+    override fun getItemCount() = blogs.size
+} 
+>>>>>>> cadd3f4 (fix stash)
+>>>>>>> 215843c (fix stash)

@@ -50,6 +50,7 @@ class BlogViewModel : ViewModel() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
@@ -63,3 +64,6 @@ class BlogViewModel : ViewModel() {
 =======
 }
 >>>>>>> 27b5cc5 (Blog post)
+=======
+}
+>>>>>>> 215843c (fix stash)

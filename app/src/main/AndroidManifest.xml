@@ -31,6 +31,7 @@
         <activity android:name=".activity.ItemsActivity" android:exported="false" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 =======
 >>>>>>> 14e41be (blog post)
@@ -39,6 +40,14 @@
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 >>>>>>> 27b5cc5 (Blog post)
+=======
+        <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+        <activity android:name=".activity.BlogActivity" android:exported="false" />
+        <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+=======
+        <activity android:name=".activity.BlogActivity" android:exported="false" />
+>>>>>>> 0c597ef (fix stash)
+>>>>>>> 215843c (fix stash)
     </application>
 
 </manifest>

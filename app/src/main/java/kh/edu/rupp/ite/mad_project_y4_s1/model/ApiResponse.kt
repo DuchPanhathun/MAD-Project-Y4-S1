@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
+<<<<<<< HEAD
 import com.google.android.gms.common.api.Status
 import org.jetbrains.annotations.ApiStatus
 
@@ -14,10 +15,19 @@ data class ApiResponse<T>(
 )
 
 
+=======
+data class ApiResponse<T>(
+    val status: ApiState,
+    val data: T? = null,
+    val error: String? = null
+)
+
+>>>>>>> 0c597ef (fix stash)
 enum class ApiState {
     LOADING,
     SUCCESS,
     ERROR
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -30,10 +40,18 @@ enum class ApiState {
 
 >>>>>>> 27b5cc5 (Blog post)
 =======
+=======
+>>>>>>> 215843c (fix stash)
 <<<<<<< HEAD:app/src/main/java/kh/edu/rupp/ite/mad_project_y4_s1/model/ApiResponse.kt
 }
 
 =======
 }
 >>>>>>> 0d79057 (..):app/src/main/java/kh/edu/rupp/ite/mad_project_y4_s1/model/ ApiResponse.kt
+<<<<<<< HEAD
 >>>>>>> 221b825 (..)
+=======
+=======
+} 
+>>>>>>> 0c597ef (fix stash)
+>>>>>>> 215843c (fix stash)

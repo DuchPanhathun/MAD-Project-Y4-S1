@@ -52,7 +52,11 @@ class BlogActivity : AppCompatActivity() {
 =======
 =======
 
+<<<<<<< HEAD
 >>>>>>> 0d79057 (..)
+=======
+<<<<<<< HEAD
+>>>>>>> 0c597ef (fix stash)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 >>>>>>> b268321 (..)
 
@@ -61,12 +65,16 @@ class BlogActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 
+=======
+>>>>>>> 215843c (fix stash)
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         
 >>>>>>> cadd3f4 (fix stash)
+<<<<<<< HEAD
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         
@@ -81,6 +89,8 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> 27b5cc5 (Blog post)
 =======
 >>>>>>> 7b2ead3 (fix stash)
+=======
+>>>>>>> 215843c (fix stash)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -106,6 +116,7 @@ class BlogActivity : AppCompatActivity() {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
 =======
 }
@@ -113,3 +124,6 @@ class BlogActivity : AppCompatActivity() {
 =======
 }
 >>>>>>> 27b5cc5 (Blog post)
+=======
+} 
+>>>>>>> 215843c (fix stash)
