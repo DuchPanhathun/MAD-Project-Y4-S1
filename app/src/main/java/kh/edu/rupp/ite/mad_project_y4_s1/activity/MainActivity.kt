@@ -1,6 +1,5 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
 
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
@@ -53,18 +51,6 @@ class MainActivity : AppCompatActivity() {
         // Set drawables programmatically
         findViewById<ImageButton>(R.id.searchButton).setImageResource(R.drawable.ic_search)
         findViewById<ImageButton>(R.id.shoppingButton).setImageResource(R.drawable.ic_shopping_bag)
-
-        // Set the text for the TextView
-        val clickableTextView = findViewById<TextView>(R.id.blogimages)
-        clickableTextView.text = "Blog"
-
-        clickableTextView.setOnClickListener {
-            // Start BlogActivity
-            val intent = Intent(this, BlogActivity::class.java)
-            startActivity(intent)
-        }
-
-
 
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(
@@ -101,12 +87,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         // Add this new code to handle the click event
         val newArrivalText: TextView = findViewById(R.id.newArrivalText)
         newArrivalText.setOnClickListener {
             Log.d("MainActivity", "New Arrival text clicked")
             try {
-                val intent = Intent(this, BlogGridActivity::class.java)
+                val intent = Intent(this, BlogActivity::class.java)
                 startActivity(intent)
             } catch (e: Exception) {
                 Log.e("MainActivity", "Error starting BlogGridActivity", e)
@@ -118,12 +105,17 @@ class MainActivity : AppCompatActivity() {
         exploreMoreLayout.setOnClickListener {
             Log.d("MainActivity", "Explore More clicked")
             try {
-                val intent = Intent(this, BlogGridActivity::class.java)
+                val intent = Intent(this, BlogActivity::class.java)
                 startActivity(intent)
             } catch (e: Exception) {
                 Log.e("MainActivity", "Error starting BlogGridActivity", e)
                 Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Add blog text click handler
+        findViewById<TextView>(R.id.blogText).setOnClickListener {
+            startActivity(Intent(this, BlogActivity::class.java))
         }
     }
 
@@ -192,6 +184,7 @@ class MainActivity : AppCompatActivity() {
 
         setupMenuItems(menuGroupId)
     }
+
 
     private fun setupMenuItems(menuGroupId: Int) {
         val menu = PopupMenu(this, null).menu
@@ -264,5 +257,4 @@ class MainActivity : AppCompatActivity() {
             updateLoginLogoutButton()
         }
     }
-
 }
