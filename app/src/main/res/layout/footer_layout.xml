@@ -99,7 +99,6 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"/>
-
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

@@ -63,6 +63,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+<<<<<<< HEAD
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+</FrameLayout> 
+>>>>>>> cadd3f4 (fix stash)

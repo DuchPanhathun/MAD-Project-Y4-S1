@@ -33,7 +33,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
-    private val sliderRunnable = Runnable {
+    private val sliderRunnable = Runnable { 
         coverImageCarousel.currentItem = (coverImageCarousel.currentItem + 1) % (coverImageCarousel.adapter?.itemCount ?: 1)
     }
     private lateinit var customMenuView: View
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             R.drawable.cover_image2,
             R.drawable.cover_image3
         )
-
+        
         coverImageCarousel.adapter = CoverImageAdapter(images)
 
         // Set up the indicator
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         // Add menu functionality
         val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener {
+        menuButton.setOnClickListener { 
             showCustomMenu()
         }
 
@@ -87,13 +87,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // Add this new code to handle the click event
         val newArrivalText: TextView = findViewById(R.id.newArrivalText)
         newArrivalText.setOnClickListener {
             Log.d("MainActivity", "New Arrival text clicked")
             try {
-                val intent = Intent(this, BlogActivity::class.java)
+                val intent = Intent(this, BlogGridActivity::class.java)
                 startActivity(intent)
             } catch (e: Exception) {
                 Log.e("MainActivity", "Error starting BlogGridActivity", e)
@@ -105,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         exploreMoreLayout.setOnClickListener {
             Log.d("MainActivity", "Explore More clicked")
             try {
-                val intent = Intent(this, BlogActivity::class.java)
+                val intent = Intent(this, BlogGridActivity::class.java)
                 startActivity(intent)
             } catch (e: Exception) {
                 Log.e("MainActivity", "Error starting BlogGridActivity", e)
@@ -184,7 +183,6 @@ class MainActivity : AppCompatActivity() {
 
         setupMenuItems(menuGroupId)
     }
-
 
     private fun setupMenuItems(menuGroupId: Int) {
         val menu = PopupMenu(this, null).menu

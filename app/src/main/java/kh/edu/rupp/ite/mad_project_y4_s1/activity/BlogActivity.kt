@@ -29,8 +29,13 @@ class BlogActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
 
+<<<<<<< HEAD
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 
+=======
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        
+>>>>>>> cadd3f4 (fix stash)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -49,4 +54,4 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
-}
+} 

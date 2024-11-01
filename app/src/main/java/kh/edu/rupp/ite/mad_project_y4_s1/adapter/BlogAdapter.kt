@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -17,6 +18,10 @@ class BlogAdapter(private var blogs: List<Blog>) :
         private const val VIEW_TYPE_BLOG = 0
         private const val VIEW_TYPE_FOOTER = 1
     }
+=======
+class BlogAdapter(private val blogs: List<Blog>) : 
+    RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+>>>>>>> cadd3f4 (fix stash)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -35,6 +40,7 @@ class BlogAdapter(private var blogs: List<Blog>) :
         }
     }
 
+<<<<<<< HEAD
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_FOOTER) {
             // Inflate footer layout here
@@ -72,3 +78,7 @@ class BlogAdapter(private var blogs: List<Blog>) :
         notifyDataSetChanged()
     }
 }
+=======
+    override fun getItemCount() = blogs.size
+} 
+>>>>>>> cadd3f4 (fix stash)
