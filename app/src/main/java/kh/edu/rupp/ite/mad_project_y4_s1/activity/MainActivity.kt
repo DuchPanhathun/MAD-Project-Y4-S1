@@ -125,6 +125,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Add blog text click handler
+        findViewById<TextView>(R.id.blogText).setOnClickListener {
+            startActivity(Intent(this, BlogActivity::class.java))
+        }
     }
 
     private fun showCustomMenu() {
