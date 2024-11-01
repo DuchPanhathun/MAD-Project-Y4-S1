@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8a481e1 (bloggrid done)
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -72,6 +75,7 @@
     <!-- Centered Progress Bar Overlay -->
 =======
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
 =======
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -135,14 +139,30 @@
 =======
     <!-- Centered Progress Bar Overlay -->
 >>>>>>> f0a2911 (...)
+=======
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/blogRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+>>>>>>> 90e3bc1 (bloggrid done)
+>>>>>>> 8a481e1 (bloggrid done)
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f0a2911 (...)
+=======
+>>>>>>> 8a481e1 (bloggrid done)
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,5 +211,17 @@
 =======
 </FrameLayout> 
 >>>>>>> cadd3f4 (fix stash)
+<<<<<<< HEAD
 >>>>>>> 0c597ef (fix stash)
+<<<<<<< HEAD
 >>>>>>> 215843c (fix stash)
+=======
+=======
+=======
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout> 
+>>>>>>> 90e3bc1 (bloggrid done)
+>>>>>>> 290c922 (bloggrid done)
+>>>>>>> 8a481e1 (bloggrid done)

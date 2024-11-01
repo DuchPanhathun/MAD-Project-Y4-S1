@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
 import android.os.Parcelable
@@ -30,6 +31,7 @@ data class Blog(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
 =======
 >>>>>>> 14e41be (blog post)
@@ -37,3 +39,7 @@ data class Blog(
 >>>>>>> 27b5cc5 (Blog post)
 =======
 >>>>>>> 8ccd66b (..)
+=======
+=======
+>>>>>>> 290c922 (bloggrid done)
+>>>>>>> 8a481e1 (bloggrid done)

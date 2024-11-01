@@ -51,10 +51,14 @@ class BlogViewModel : ViewModel() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8a481e1 (bloggrid done)
 }
 =======
 } 
 >>>>>>> 90e3bc1 (bloggrid done)
+<<<<<<< HEAD
 =======
 }
 >>>>>>> fdb8e52 (update ui in categories list view)
@@ -67,3 +71,5 @@ class BlogViewModel : ViewModel() {
 =======
 }
 >>>>>>> 215843c (fix stash)
+=======
+>>>>>>> 8a481e1 (bloggrid done)

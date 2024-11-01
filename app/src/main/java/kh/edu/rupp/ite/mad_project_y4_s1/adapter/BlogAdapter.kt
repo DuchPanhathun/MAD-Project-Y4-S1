@@ -26,6 +26,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -49,6 +50,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 >>>>>>> 221b825 (..)
 =======
 >>>>>>> 215843c (fix stash)
+=======
+>>>>>>> 8a481e1 (bloggrid done)
 class BlogAdapter(
     private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
@@ -66,6 +69,8 @@ class BlogAdapter(
 =======
 =======
 >>>>>>> 0c597ef (fix stash)
+=======
+>>>>>>> 290c922 (bloggrid done)
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 >>>>>>> 0d79057 (..)
@@ -81,13 +86,21 @@ class BlogAdapter(private var blogs: List<Blog>) :
 class BlogAdapter(private val blogs: List<Blog>) : 
     RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 >>>>>>> cadd3f4 (fix stash)
+<<<<<<< HEAD
 >>>>>>> 215843c (fix stash)
+=======
+=======
+class BlogAdapter(private val blogs: List<Blog>) : 
+    RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+>>>>>>> 90e3bc1 (bloggrid done)
+>>>>>>> 8a481e1 (bloggrid done)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
         val title: TextView = view.findViewById(R.id.blogTitle)
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -191,6 +204,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 >>>>>>> fa060a4 (fix stash)
 =======
 =======
+=======
+>>>>>>> 8a481e1 (bloggrid done)
     class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Initialize footer views here if needed
     }
@@ -283,4 +298,25 @@ class BlogAdapter(private val blogs: List<Blog>) :
     override fun getItemCount() = blogs.size
 } 
 >>>>>>> cadd3f4 (fix stash)
+<<<<<<< HEAD
 >>>>>>> 215843c (fix stash)
+=======
+=======
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_blog, parent, false)
+        return BlogViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
+        val blog = blogs[position]
+        holder.title.text = blog.title
+        Glide.with(holder.itemView.context)
+            .load(blog.coverImage)
+            .into(holder.coverImage)
+    }
+
+    override fun getItemCount() = blogs.size
+} 
+>>>>>>> 90e3bc1 (bloggrid done)
+>>>>>>> 8a481e1 (bloggrid done)
