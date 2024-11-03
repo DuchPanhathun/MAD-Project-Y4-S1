@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
 import android.os.Parcelable
@@ -42,4 +43,18 @@ data class Blog(
 =======
 =======
 >>>>>>> 290c922 (bloggrid done)
+<<<<<<< HEAD
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+=======
+=======
+package kh.edu.rupp.ite.mad_project_y4_s1.model
+
+data class Blog(
+    val coverImage: String = "",
+    val title: String = ""
+
+)
+>>>>>>> fdb8e52 (update ui in categories list view)
+>>>>>>> b2948c4 (update ui in categories list view)
+>>>>>>> bed50d0 (update ui in categories list view)

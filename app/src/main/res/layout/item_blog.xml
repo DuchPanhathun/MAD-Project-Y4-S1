@@ -274,7 +274,17 @@
 
     </LinearLayout>
 
+<<<<<<< HEAD
 </androidx.cardview.widget.CardView> 
 >>>>>>> 90e3bc1 (bloggrid done)
+<<<<<<< HEAD
 >>>>>>> 290c922 (bloggrid done)
+<<<<<<< HEAD
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+=======
+=======
+</androidx.cardview.widget.CardView>
+>>>>>>> fdb8e52 (update ui in categories list view)
+>>>>>>> b2948c4 (update ui in categories list view)
+>>>>>>> bed50d0 (update ui in categories list view)
