@@ -63,8 +63,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
-<<<<<<< HEAD
 }
+<<<<<<< HEAD
 =======
 }
 >>>>>>> 90e3bc1 (bloggrid done)
+=======
+>>>>>>> fdb8e52 (update ui in categories list view)

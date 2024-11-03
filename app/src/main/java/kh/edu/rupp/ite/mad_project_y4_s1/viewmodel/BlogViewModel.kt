@@ -32,7 +32,11 @@ class BlogViewModel : ViewModel() {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
 >>>>>>> 90e3bc1 (bloggrid done)
+=======
+}
+>>>>>>> fdb8e52 (update ui in categories list view)

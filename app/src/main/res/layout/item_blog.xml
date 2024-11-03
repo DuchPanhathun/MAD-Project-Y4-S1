@@ -87,5 +87,9 @@
 
     </LinearLayout>
 
+<<<<<<< HEAD
 </androidx.cardview.widget.CardView> 
 >>>>>>> 90e3bc1 (bloggrid done)
+=======
+</androidx.cardview.widget.CardView>
+>>>>>>> fdb8e52 (update ui in categories list view)
