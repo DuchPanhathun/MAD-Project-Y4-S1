@@ -138,14 +138,14 @@ class MainActivity : AppCompatActivity() {
 
         // Set up tabs
         val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
-        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
-        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
+//        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
+//        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
         tabIndicator = customMenuView.findViewById(R.id.tabIndicator)
         menuItemsRecyclerView = customMenuView.findViewById(R.id.menuItemsRecyclerView)
 
         settingTab.setOnClickListener { selectTab(it, R.id.setting_group) }
-        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
-        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
+//        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
+//        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
 
         // Set up login/logout button
         loginLogoutButton = customMenuView.findViewById(R.id.loginLogoutButton)
@@ -160,12 +160,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupTabs() {
         val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
-        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
-        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
+//        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
+//        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
 
         settingTab.setOnClickListener { selectTab(it, R.id.setting_group) }
-        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
-        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
+//        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
+//        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
 
         selectTab(settingTab, R.id.setting_group)
     }

@@ -31,8 +31,4 @@ class BlogViewModel : ViewModel() {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-} 
->>>>>>> refs/remotes/origin/thun
