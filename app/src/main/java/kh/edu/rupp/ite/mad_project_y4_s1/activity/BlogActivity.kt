@@ -89,6 +89,7 @@ class BlogActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0d79057 (..)
 =======
 <<<<<<< HEAD
@@ -102,6 +103,9 @@ class BlogActivity : AppCompatActivity() {
 =======
 <<<<<<< HEAD
 >>>>>>> 73a4b5e (Blog post)
+=======
+<<<<<<< HEAD
+>>>>>>> dfca5d8 (fix stash)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 >>>>>>> b268321 (..)
 
@@ -144,6 +148,7 @@ class BlogActivity : AppCompatActivity() {
 
 >>>>>>> 27b5cc5 (Blog post)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7b2ead3 (fix stash)
 =======
@@ -154,6 +159,10 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> cfcf15a (blog post)
 =======
 >>>>>>> f157459 (Blog post)
+=======
+=======
+>>>>>>> 7b2ead3 (fix stash)
+>>>>>>> 0c0ecd0 (fix stash)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
