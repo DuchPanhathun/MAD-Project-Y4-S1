@@ -34,7 +34,11 @@ class BlogDetailActivity : AppCompatActivity() {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
 =======
 }
 >>>>>>> cd6fae2 (...)
+=======
+} 
+>>>>>>> d92960f (...)
