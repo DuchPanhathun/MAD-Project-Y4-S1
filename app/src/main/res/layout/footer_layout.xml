@@ -89,12 +89,15 @@
             android:padding="15dp"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/blogText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blog"
             android:textSize="20sp"
             android:fontFamily="@font/tenor_sans"
             android:padding="15dp"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"/>
     </LinearLayout>
     <TextView
