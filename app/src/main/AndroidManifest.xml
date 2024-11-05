@@ -33,6 +33,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 =======
 >>>>>>> 14e41be (blog post)
@@ -44,13 +45,18 @@
 =======
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+>>>>>>> f157459 (Blog post)
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
 =======
 >>>>>>> d546cfd (blog post)
+=======
+>>>>>>> 73a4b5e (Blog post)
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 =======
 >>>>>>> 14e41be (blog post)
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         <activity android:name=".activity.BlogActivity" android:exported="false" />
@@ -60,7 +66,16 @@
 =======
 =======
 >>>>>>> c6cbdec (...)
+<<<<<<< HEAD
 >>>>>>> b30522d (...)
+=======
+=======
+=======
+        <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+        <activity android:name=".activity.BlogActivity" android:exported="false" />
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> 73a4b5e (Blog post)
+>>>>>>> f157459 (Blog post)
     </application>
 
 </manifest>

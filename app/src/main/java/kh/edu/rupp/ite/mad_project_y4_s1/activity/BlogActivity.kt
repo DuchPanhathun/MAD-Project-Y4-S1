@@ -2,10 +2,15 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 27b5cc5 (Blog post)
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> f157459 (Blog post)
 
 import android.content.Intent
 import android.os.Bundle
@@ -44,17 +49,23 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f157459 (Blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 =======
 >>>>>>> 14e41be (blog post)
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 >>>>>>> 27b5cc5 (Blog post)
+<<<<<<< HEAD
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 =======
 >>>>>>> 14e41be (blog post)
 >>>>>>> cfcf15a (blog post)
+=======
+>>>>>>> f157459 (Blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
 import kotlinx.coroutines.launch
 
@@ -77,6 +88,7 @@ class BlogActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0d79057 (..)
 =======
 <<<<<<< HEAD
@@ -87,6 +99,9 @@ class BlogActivity : AppCompatActivity() {
 =======
 <<<<<<< HEAD
 >>>>>>> d546cfd (blog post)
+=======
+<<<<<<< HEAD
+>>>>>>> 73a4b5e (Blog post)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 >>>>>>> b268321 (..)
 
@@ -121,10 +136,14 @@ class BlogActivity : AppCompatActivity() {
 
 >>>>>>> 14e41be (blog post)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f157459 (Blog post)
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
 >>>>>>> 27b5cc5 (Blog post)
+<<<<<<< HEAD
 =======
 >>>>>>> 7b2ead3 (fix stash)
 =======
@@ -133,6 +152,8 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> 8a481e1 (bloggrid done)
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+>>>>>>> f157459 (Blog post)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -160,12 +181,16 @@ class BlogActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+>>>>>>> f157459 (Blog post)
 } 
 =======
 }
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 }
@@ -175,3 +200,8 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> 215843c (fix stash)
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+}
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> f157459 (Blog post)

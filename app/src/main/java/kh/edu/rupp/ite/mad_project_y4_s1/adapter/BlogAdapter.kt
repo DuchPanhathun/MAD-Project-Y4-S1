@@ -2,17 +2,23 @@ package kh.edu.rupp.ite.mad_project_y4_s1.adapter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f157459 (Blog post)
 
 =======
 >>>>>>> 14e41be (blog post)
 =======
 
 >>>>>>> 27b5cc5 (Blog post)
+<<<<<<< HEAD
 =======
 
 =======
 >>>>>>> 14e41be (blog post)
 >>>>>>> cfcf15a (blog post)
+=======
+>>>>>>> f157459 (Blog post)
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +27,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,6 +69,10 @@ class BlogAdapter(private val items: List<BlogItem>) : RecyclerView.Adapter<Blog
 >>>>>>> 4896537 (fix stash)
 =======
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> f157459 (Blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
@@ -153,13 +164,19 @@ class BlogAdapter(
     private val onBlogClick: (Blog) -> Unit
 ) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
 <<<<<<< HEAD
 >>>>>>> b30522d (...)
 =======
 =======
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> f157459 (Blog post)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -386,8 +403,11 @@ class BlogAdapter(
             .load(blog.coverImage)
             .into(holder.coverImage)
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
+=======
+>>>>>>> 27b5cc5 (Blog post)
 
 >>>>>>> 14e41be (blog post)
         holder.itemView.setOnClickListener {
@@ -396,6 +416,7 @@ class BlogAdapter(
     }
 
     override fun getItemCount() = blogs.size
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 } 
@@ -419,4 +440,10 @@ class BlogAdapter(
 =======
 }
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+}
+>>>>>>> 27b5cc5 (Blog post)
+>>>>>>> f157459 (Blog post)

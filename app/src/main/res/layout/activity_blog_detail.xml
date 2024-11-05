@@ -11,8 +11,15 @@
 =======
 =======
 
+<<<<<<< HEAD
 >>>>>>> c6cbdec (...)
+<<<<<<< HEAD
 >>>>>>> b30522d (...)
+=======
+=======
+
+>>>>>>> 73a4b5e (Blog post)
+>>>>>>> f157459 (Blog post)
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
