@@ -133,12 +133,15 @@ class BlogAdapter(
             .into(holder.coverImage)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
 =======
 >>>>>>> 27b5cc5 (Blog post)
 
 >>>>>>> 14e41be (blog post)
+=======
+>>>>>>> 8ccd66b (..)
         holder.itemView.setOnClickListener {
             onBlogClick(blog)
         }

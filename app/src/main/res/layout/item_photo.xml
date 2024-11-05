@@ -4,8 +4,8 @@
     android:layout_width="200dp"
     android:layout_height="150dp"
     android:layout_margin="8dp"
-<<<<<<< HEAD
-    android:scaleType="centerCrop"/> 
-=======
     android:scaleType="centerCrop"/>
+<<<<<<< HEAD
 >>>>>>> 14e41be (blog post)
+=======
+>>>>>>> 8ccd66b (..)

@@ -29,8 +29,11 @@ data class Blog(
 ) : Parcelable
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
 =======
 >>>>>>> 14e41be (blog post)
 =======
 >>>>>>> 27b5cc5 (Blog post)
+=======
+>>>>>>> 8ccd66b (..)
