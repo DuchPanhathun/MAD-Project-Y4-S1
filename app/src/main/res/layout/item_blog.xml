@@ -9,6 +9,7 @@
     app:cardElevation="4dp"
     android:layout_margin="10dp">
 
+<<<<<<< HEAD
     <!-- Vertical Layout for Image and Text -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -181,4 +182,62 @@
 =======
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+<<<<<<< HEAD
 >>>>>>> 7b2ead3 (fix stash)
+=======
+=======
+        <!-- Vertical Layout for Image and Text -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- RelativeLayout for overlaying text on the image -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <!-- Full-width Blog Cover Image -->
+                <ImageView
+                    android:id="@+id/blogCoverImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+                <!-- Bookmark Icon Positioned on the Top-Right -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bookmark"
+                    android:padding="15dp"
+                    android:layout_alignParentEnd="true"/>
+
+                <!-- Overlay Text Positioned on the Bottom-Left -->
+                <TextView
+                    android:id="@+id/blogTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2021 Style Guide: The Biggest Fall Trends"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/tenor_sans"
+                    android:padding="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
+
+            <!-- Date Below the Image, Aligned at Bottom of Card -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginTop="10dp"
+                android:text="4 days ago"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:fontFamily="@font/tenor_sans" />
+
+        </LinearLayout>
+</androidx.cardview.widget.CardView>
+>>>>>>> b268321 (..)
+>>>>>>> 6862e4b (..)

@@ -52,6 +52,12 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/titleSection"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+        app:layout_constraintBottom_toTopOf="@id/footer_layout"
+>>>>>>> b268321 (..)
+>>>>>>> 6862e4b (..)
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,6 +142,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
@@ -159,3 +166,20 @@
 =======
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> f16d7c0 (...)
+=======
+</androidx.constraintlayout.widget.ConstraintLayout>
+=======
+
+    <!-- Footer at the Bottom of the Screen -->
+    <include
+        android:id="@+id/footer_layout"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> b268321 (..)
+>>>>>>> 6862e4b (..)
