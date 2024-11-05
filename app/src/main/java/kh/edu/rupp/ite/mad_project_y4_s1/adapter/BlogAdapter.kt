@@ -24,6 +24,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -43,6 +44,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 =======
 
 >>>>>>> 14e41be (blog post)
+=======
+>>>>>>> 221b825 (..)
 class BlogAdapter(
     private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
@@ -57,6 +60,10 @@ class BlogAdapter(
 >>>>>>> 27b5cc5 (Blog post)
 =======
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+=======
+class BlogAdapter(private var blogs: List<Blog>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+>>>>>>> 0d79057 (..)
 
     companion object {
         private const val VIEW_TYPE_BLOG = 0
@@ -177,15 +184,32 @@ class BlogAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
+<<<<<<< HEAD
         return if (position == blogs.size) VIEW_TYPE_FOOTER else VIEW_TYPE_BLOG
+=======
+        return if (position == blogs.size) {
+            VIEW_TYPE_FOOTER // Return footer view type for the last position
+        } else {
+            VIEW_TYPE_BLOG // Return blog view type
+        }
+>>>>>>> 0d79057 (..)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_FOOTER) {
+<<<<<<< HEAD
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.footer_layout, parent, false)
             FooterViewHolder(view)
         } else {
+=======
+            // Inflate footer layout here
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.footer_layout, parent, false) // Your footer layout
+            FooterViewHolder(view)
+        } else {
+            // Inflate blog item layout here
+>>>>>>> 0d79057 (..)
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_blog, parent, false)
             BlogViewHolder(view)
@@ -193,6 +217,7 @@ class BlogAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+<<<<<<< HEAD
         when (holder) {
             is BlogViewHolder -> {
                 val blog = blogs[position]
@@ -210,6 +235,25 @@ class BlogAdapter(
 
     override fun getItemCount() = blogs.size + 1
 
+=======
+        if (holder is BlogViewHolder) {
+            val blog = blogs[position]
+            holder.title.text = blog.title
+            Glide.with(holder.itemView.context)
+                .load(blog.coverImage)
+                .into(holder.coverImage)
+        } else if (holder is FooterViewHolder) {
+            // Bind footer data if needed
+            // You can also set up click listeners or other logic for the footer here
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return blogs.size + 1 // Add one for the footer
+    }
+
+    // Method to update the blogs and notify the adapter
+>>>>>>> 0d79057 (..)
     fun updateBlogs(newBlogs: List<Blog>) {
         blogs = newBlogs
         notifyDataSetChanged()

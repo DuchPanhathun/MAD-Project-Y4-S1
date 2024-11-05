@@ -48,7 +48,11 @@ class BlogActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> 0d79057 (..)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 >>>>>>> b268321 (..)
 
@@ -79,7 +83,7 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> 7b2ead3 (fix stash)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
-                when (response.status) {  // Use 'state' instead of 'status'
+                when (response.status) {
                     ApiState.LOADING -> progressBar.visibility = View.VISIBLE
                     ApiState.SUCCESS -> {
                         progressBar.visibility = View.GONE
