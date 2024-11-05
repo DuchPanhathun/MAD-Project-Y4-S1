@@ -1,5 +1,8 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.adapter
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14e41be (blog post)
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
@@ -29,17 +33,24 @@ class BlogAdapter(private val blogs: List<Blog>) :
     RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 >>>>>>> 90e3bc1 (bloggrid done)
 =======
+=======
+
+>>>>>>> 14e41be (blog post)
 class BlogAdapter(
     private val blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
 ) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
+=======
+>>>>>>> 14e41be (blog post)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
         val title: TextView = view.findViewById(R.id.blogTitle)
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Initialize footer views here if needed
@@ -96,6 +107,8 @@ class BlogAdapter(
 } 
 >>>>>>> cadd3f4 (fix stash)
 =======
+=======
+>>>>>>> 14e41be (blog post)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_blog, parent, false)
@@ -108,13 +121,18 @@ class BlogAdapter(
         Glide.with(holder.itemView.context)
             .load(blog.coverImage)
             .into(holder.coverImage)
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 14e41be (blog post)
         holder.itemView.setOnClickListener {
             onBlogClick(blog)
         }
     }
 
     override fun getItemCount() = blogs.size
+<<<<<<< HEAD
 <<<<<<< HEAD
 } 
 <<<<<<< HEAD
@@ -125,3 +143,6 @@ class BlogAdapter(
 =======
 } 
 >>>>>>> fa060a4 (fix stash)
+=======
+}
+>>>>>>> 14e41be (blog post)

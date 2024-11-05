@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Blog(
     val coverImage: String = "",
 <<<<<<< HEAD
+<<<<<<< HEAD
     val title: String = ""
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19,9 +20,14 @@ data class Blog(
 )
 >>>>>>> fdb8e52 (update ui in categories list view)
 =======
+=======
+>>>>>>> 14e41be (blog post)
     val title: String = "",
     val detail: String = "",
     val additionalPhotos: List<String> = listOf(),
     val additionalDetails: String = ""
 ) : Parcelable
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
+=======
+>>>>>>> 14e41be (blog post)

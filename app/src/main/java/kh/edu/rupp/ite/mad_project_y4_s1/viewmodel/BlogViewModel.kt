@@ -9,7 +9,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
+=======
+>>>>>>> 14e41be (blog post)
 
 class BlogViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
@@ -41,6 +44,7 @@ class BlogViewModel : ViewModel() {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
@@ -48,3 +52,6 @@ class BlogViewModel : ViewModel() {
 =======
 }
 >>>>>>> fdb8e52 (update ui in categories list view)
+=======
+}
+>>>>>>> 14e41be (blog post)

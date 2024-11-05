@@ -1,4 +1,5 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
+<<<<<<< HEAD
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +7,10 @@ import android.os.Bundle
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 =======
 >>>>>>> fa060a4 (fix stash)
+=======
+import android.content.Intent
+import android.os.Bundle
+>>>>>>> 14e41be (blog post)
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -18,7 +23,10 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.BlogAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
+=======
+>>>>>>> 14e41be (blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
 import kotlinx.coroutines.launch
 
@@ -36,6 +44,7 @@ class BlogActivity : AppCompatActivity() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 
 =======
@@ -46,6 +55,10 @@ class BlogActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         
 >>>>>>> 90e3bc1 (bloggrid done)
+=======
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+>>>>>>> 14e41be (blog post)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -69,4 +82,8 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 14e41be (blog post)
