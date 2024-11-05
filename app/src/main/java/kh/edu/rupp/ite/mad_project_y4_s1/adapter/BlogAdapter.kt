@@ -1,8 +1,5 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.adapter
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/thun
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,18 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
-<<<<<<< HEAD
+import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 class BlogAdapter(
     private val blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
 ) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
-=======
-import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
-
-class BlogAdapter(private val blogs: List<Blog>) : 
-    RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
->>>>>>> refs/remotes/origin/thun
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -41,7 +32,6 @@ class BlogAdapter(private val blogs: List<Blog>) :
         Glide.with(holder.itemView.context)
             .load(blog.coverImage)
             .into(holder.coverImage)
-<<<<<<< HEAD
 
         holder.itemView.setOnClickListener {
             onBlogClick(blog)
@@ -50,9 +40,3 @@ class BlogAdapter(private val blogs: List<Blog>) :
 
     override fun getItemCount() = blogs.size
 }
-=======
-    }
-
-    override fun getItemCount() = blogs.size
-} 
->>>>>>> refs/remotes/origin/thun

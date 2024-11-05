@@ -10,8 +10,5 @@ enum class ApiState {
     LOADING,
     SUCCESS,
     ERROR
-<<<<<<< HEAD
 }
-=======
-} 
->>>>>>> refs/remotes/origin/thun
+

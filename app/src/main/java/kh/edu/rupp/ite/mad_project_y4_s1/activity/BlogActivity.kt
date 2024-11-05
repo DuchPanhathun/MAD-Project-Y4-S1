@@ -1,9 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
-<<<<<<< HEAD
-import android.content.Intent
-=======
 
->>>>>>> refs/remotes/origin/thun
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -17,10 +14,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.BlogAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
-<<<<<<< HEAD
-=======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
->>>>>>> refs/remotes/origin/thun
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
 import kotlinx.coroutines.launch
 
@@ -37,11 +31,7 @@ class BlogActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> refs/remotes/origin/thun
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -49,16 +39,12 @@ class BlogActivity : AppCompatActivity() {
                     ApiState.SUCCESS -> {
                         progressBar.visibility = View.GONE
                         response.data?.let { blogs ->
-<<<<<<< HEAD
                             recyclerView.adapter = BlogAdapter(blogs) { blog ->
                                 val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java).apply {
                                     putExtra("blog", blog)
                                 }
                                 startActivity(intent)
                             }
-=======
-                            recyclerView.adapter = BlogAdapter(blogs)
->>>>>>> refs/remotes/origin/thun
                         }
                     }
                     ApiState.ERROR -> {
@@ -69,8 +55,4 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-} 
->>>>>>> refs/remotes/origin/thun

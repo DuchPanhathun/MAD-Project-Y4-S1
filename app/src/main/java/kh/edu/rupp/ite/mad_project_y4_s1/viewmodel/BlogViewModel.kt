@@ -9,10 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
-<<<<<<< HEAD
-=======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
->>>>>>> refs/remotes/origin/thun
 
 class BlogViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
@@ -27,7 +24,6 @@ class BlogViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val snapshot = db.collection("blogPosts").get().await()
-<<<<<<< HEAD
                 val blogs = snapshot.documents.mapNotNull { doc ->
                     Blog(
                         coverImage = doc.getString("coverImage") ?: "",
@@ -37,17 +33,10 @@ class BlogViewModel : ViewModel() {
                         additionalDetails = doc.getString("additionalDetails") ?: ""
                     )
                 }
-=======
-                val blogs = snapshot.toObjects(Blog::class.java)
->>>>>>> refs/remotes/origin/thun
                 _blogsState.emit(ApiResponse(ApiState.SUCCESS, data = blogs))
             } catch (e: Exception) {
                 _blogsState.emit(ApiResponse(ApiState.ERROR, error = e.message ?: "Unknown error occurred"))
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/thun
