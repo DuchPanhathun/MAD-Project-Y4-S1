@@ -4,12 +4,17 @@
     android:layout_height="match_parent">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> 8ccd66b (..)
 =======
 =======
+>>>>>>> 1b19d0c (..)
+=======
+=======
+>>>>>>> 6b75145 (..)
 
 <<<<<<< HEAD
 >>>>>>> c6cbdec (...)
@@ -18,8 +23,16 @@
 =======
 =======
 
+<<<<<<< HEAD
 >>>>>>> 73a4b5e (Blog post)
+<<<<<<< HEAD
 >>>>>>> f157459 (Blog post)
+=======
+=======
+=======
+>>>>>>> 8ccd66b (..)
+>>>>>>> 6b75145 (..)
+>>>>>>> 1b19d0c (..)
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,6 +74,7 @@
     </LinearLayout>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 </ScrollView>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -77,7 +91,18 @@
 =======
 </ScrollView> 
 =======
+=======
+>>>>>>> 6b75145 (..)
 </ScrollView>
+<<<<<<< HEAD
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 >>>>>>> d546cfd (blog post)
+<<<<<<< HEAD
 >>>>>>> cfcf15a (blog post)
+=======
+=======
+=======
+>>>>>>> 8ccd66b (..)
+>>>>>>> 6b75145 (..)
+>>>>>>> 1b19d0c (..)
