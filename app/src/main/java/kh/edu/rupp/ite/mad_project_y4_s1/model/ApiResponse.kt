@@ -10,4 +10,8 @@ enum class ApiState {
     LOADING,
     SUCCESS,
     ERROR
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> cd6fae2 (...)

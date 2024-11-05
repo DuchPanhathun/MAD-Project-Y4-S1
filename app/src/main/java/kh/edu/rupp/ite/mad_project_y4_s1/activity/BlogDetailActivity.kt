@@ -33,4 +33,8 @@ class BlogDetailActivity : AppCompatActivity() {
             photosRecyclerView.adapter = AdditionalPhotosAdapter(it.additionalPhotos)
         }
     }
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> cd6fae2 (...)
