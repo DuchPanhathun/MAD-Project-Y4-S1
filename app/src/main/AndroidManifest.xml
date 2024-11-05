@@ -44,10 +44,16 @@
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
         <activity android:name=".activity.BlogActivity" android:exported="false" />
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+<<<<<<< HEAD
 =======
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 >>>>>>> 0c597ef (fix stash)
+<<<<<<< HEAD
 >>>>>>> 215843c (fix stash)
+=======
+=======
+>>>>>>> c6cbdec (...)
+>>>>>>> b30522d (...)
     </application>
 
 </manifest>

@@ -3,10 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> 8ccd66b (..)
+=======
+=======
+
+>>>>>>> c6cbdec (...)
+>>>>>>> b30522d (...)
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,8 +52,15 @@
             android:layout_marginTop="16dp"/>
 
     </LinearLayout>
+<<<<<<< HEAD
 </ScrollView>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 14e41be (blog post)
 =======
 >>>>>>> 8ccd66b (..)
+=======
+=======
+</ScrollView> 
+>>>>>>> c6cbdec (...)
+>>>>>>> b30522d (...)

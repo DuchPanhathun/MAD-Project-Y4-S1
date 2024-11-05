@@ -50,11 +50,29 @@ data class Blog(
 =======
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Blog(
     val coverImage: String = "",
+<<<<<<< HEAD
     val title: String = ""
 
 )
 >>>>>>> fdb8e52 (update ui in categories list view)
+<<<<<<< HEAD
 >>>>>>> b2948c4 (update ui in categories list view)
+<<<<<<< HEAD
 >>>>>>> bed50d0 (update ui in categories list view)
+=======
+=======
+=======
+    val title: String = "",
+    val detail: String = "",
+    val additionalPhotos: List<String> = listOf(),
+    val additionalDetails: String = ""
+) : Parcelable
+>>>>>>> f0a2911 (...)
+>>>>>>> c6cbdec (...)
+>>>>>>> b30522d (...)

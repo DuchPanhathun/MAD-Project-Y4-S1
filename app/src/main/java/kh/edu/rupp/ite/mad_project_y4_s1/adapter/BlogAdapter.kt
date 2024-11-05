@@ -61,6 +61,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -86,6 +87,8 @@ class BlogAdapter(private val blogs: List<Blog>) :
 >>>>>>> 215843c (fix stash)
 =======
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+>>>>>>> b30522d (...)
 class BlogAdapter(
     private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
@@ -105,6 +108,8 @@ class BlogAdapter(
 >>>>>>> 0c597ef (fix stash)
 =======
 >>>>>>> 290c922 (bloggrid done)
+=======
+>>>>>>> c6cbdec (...)
 class BlogAdapter(private var blogs: List<Blog>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 >>>>>>> 0d79057 (..)
@@ -127,7 +132,16 @@ class BlogAdapter(private val blogs: List<Blog>) :
 class BlogAdapter(private val blogs: List<Blog>) : 
     RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 >>>>>>> 90e3bc1 (bloggrid done)
+<<<<<<< HEAD
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+=======
+class BlogAdapter(
+    private val blogs: List<Blog>,
+    private val onBlogClick: (Blog) -> Unit
+) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+>>>>>>> f0a2911 (...)
+>>>>>>> b30522d (...)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -348,6 +362,10 @@ class BlogAdapter(private val blogs: List<Blog>) :
         Glide.with(holder.itemView.context)
             .load(blog.coverImage)
             .into(holder.coverImage)
+            
+        holder.itemView.setOnClickListener {
+            onBlogClick(blog)
+        }
     }
 
     override fun getItemCount() = blogs.size
