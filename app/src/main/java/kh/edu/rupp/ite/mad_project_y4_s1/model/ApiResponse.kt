@@ -31,6 +31,7 @@ enum class ApiState {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
 =======
 }
@@ -42,6 +43,8 @@ enum class ApiState {
 =======
 =======
 >>>>>>> 215843c (fix stash)
+=======
+>>>>>>> 042a0ba (...)
 <<<<<<< HEAD:app/src/main/java/kh/edu/rupp/ite/mad_project_y4_s1/model/ApiResponse.kt
 }
 
@@ -54,4 +57,13 @@ enum class ApiState {
 =======
 } 
 >>>>>>> 0c597ef (fix stash)
+<<<<<<< HEAD
 >>>>>>> 215843c (fix stash)
+=======
+=======
+} 
+=======
+}
+>>>>>>> cd6fae2 (...)
+>>>>>>> 05d8f46 (...)
+>>>>>>> 042a0ba (...)

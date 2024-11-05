@@ -35,10 +35,16 @@ class BlogDetailActivity : AppCompatActivity() {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 042a0ba (...)
 } 
 =======
 }
 >>>>>>> cd6fae2 (...)
+<<<<<<< HEAD
 =======
 } 
 >>>>>>> d92960f (...)
+=======
+>>>>>>> 042a0ba (...)
