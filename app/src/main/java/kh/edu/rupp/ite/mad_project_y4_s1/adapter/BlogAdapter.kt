@@ -44,8 +44,9 @@ class BlogAdapter(private val blogs: List<Blog>) :
 
 >>>>>>> 14e41be (blog post)
 class BlogAdapter(
-    private val blogs: List<Blog>,
+    private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
+<<<<<<< HEAD
 ) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -54,12 +55,21 @@ class BlogAdapter(
 >>>>>>> 14e41be (blog post)
 =======
 >>>>>>> 27b5cc5 (Blog post)
+=======
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    companion object {
+        private const val VIEW_TYPE_BLOG = 0
+        private const val VIEW_TYPE_FOOTER = 1
+    }
+>>>>>>> 7b2ead3 (fix stash)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
         val title: TextView = view.findViewById(R.id.blogTitle)
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -161,6 +171,50 @@ class BlogAdapter(
 } 
 >>>>>>> fa060a4 (fix stash)
 =======
+=======
+    class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        // Initialize footer views here if needed
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == blogs.size) VIEW_TYPE_FOOTER else VIEW_TYPE_BLOG
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == VIEW_TYPE_FOOTER) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.footer_layout, parent, false)
+            FooterViewHolder(view)
+        } else {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_blog, parent, false)
+            BlogViewHolder(view)
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is BlogViewHolder -> {
+                val blog = blogs[position]
+                holder.title.text = blog.title
+                Glide.with(holder.itemView.context)
+                    .load(blog.coverImage)
+                    .into(holder.coverImage)
+                holder.itemView.setOnClickListener { onBlogClick(blog) }
+            }
+            is FooterViewHolder -> {
+                // Bind footer data if needed
+            }
+        }
+    }
+
+    override fun getItemCount() = blogs.size + 1
+
+    fun updateBlogs(newBlogs: List<Blog>) {
+        blogs = newBlogs
+        notifyDataSetChanged()
+    }
+>>>>>>> 7b2ead3 (fix stash)
 }
 >>>>>>> 14e41be (blog post)
 =======

@@ -51,6 +51,7 @@
         android:padding="3dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/titleSection"
+<<<<<<< HEAD
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -110,6 +111,8 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/titleSection"
         app:layout_constraintBottom_toTopOf="@id/footer_layout"
+=======
+>>>>>>> 7b2ead3 (fix stash)
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -148,15 +151,7 @@
 >>>>>>> 90e3bc1 (bloggrid done)
 =======
 
-    <!-- Footer at the Bottom of the Screen -->
-    <include
-        android:id="@+id/footer_layout"
-        layout="@layout/footer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> f0a2911 (...)
