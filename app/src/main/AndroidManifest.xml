@@ -32,6 +32,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 =======
 >>>>>>> 14e41be (blog post)
@@ -41,8 +42,14 @@
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 >>>>>>> 27b5cc5 (Blog post)
 =======
+=======
+>>>>>>> cfcf15a (blog post)
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+=======
+>>>>>>> d546cfd (blog post)
         <activity android:name=".activity.BlogActivity" android:exported="false" />
+=======
+>>>>>>> 14e41be (blog post)
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
 <<<<<<< HEAD
 =======

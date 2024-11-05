@@ -1,12 +1,18 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.adapter
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 14e41be (blog post)
 =======
 
 >>>>>>> 27b5cc5 (Blog post)
+=======
+
+=======
+>>>>>>> 14e41be (blog post)
+>>>>>>> cfcf15a (blog post)
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +21,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -53,6 +60,8 @@ class BlogAdapter(private val items: List<BlogItem>) : RecyclerView.Adapter<Blog
 >>>>>>> c3c2b74 (sdfsdf)
 =======
 >>>>>>> 4896537 (fix stash)
+=======
+>>>>>>> cfcf15a (blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 <<<<<<< HEAD
@@ -136,18 +145,28 @@ class BlogAdapter(private val blogs: List<Blog>) :
 >>>>>>> 8a481e1 (bloggrid done)
 =======
 =======
+=======
+
+>>>>>>> 14e41be (blog post)
 class BlogAdapter(
     private val blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
 ) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
+<<<<<<< HEAD
 >>>>>>> b30522d (...)
+=======
+=======
+>>>>>>> 14e41be (blog post)
+>>>>>>> cfcf15a (blog post)
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
         val title: TextView = view.findViewById(R.id.blogTitle)
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -254,6 +273,8 @@ class BlogAdapter(
 =======
 =======
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+>>>>>>> cfcf15a (blog post)
     class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Initialize footer views here if needed
     }
@@ -350,6 +371,8 @@ class BlogAdapter(
 >>>>>>> 215843c (fix stash)
 =======
 =======
+=======
+>>>>>>> 14e41be (blog post)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_blog, parent, false)
@@ -362,13 +385,18 @@ class BlogAdapter(
         Glide.with(holder.itemView.context)
             .load(blog.coverImage)
             .into(holder.coverImage)
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 14e41be (blog post)
         holder.itemView.setOnClickListener {
             onBlogClick(blog)
         }
     }
 
     override fun getItemCount() = blogs.size
+<<<<<<< HEAD
 <<<<<<< HEAD
 } 
 <<<<<<< HEAD
@@ -385,4 +413,10 @@ class BlogAdapter(
 =======
 } 
 >>>>>>> fa060a4 (fix stash)
+<<<<<<< HEAD
 >>>>>>> 4896537 (fix stash)
+=======
+=======
+}
+>>>>>>> 14e41be (blog post)
+>>>>>>> cfcf15a (blog post)

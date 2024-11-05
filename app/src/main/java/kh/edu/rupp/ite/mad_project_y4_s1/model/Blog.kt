@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
 import android.os.Parcelable
@@ -48,6 +49,10 @@ data class Blog(
 =======
 =======
 =======
+>>>>>>> d546cfd (blog post)
+=======
+=======
+>>>>>>> 14e41be (blog post)
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
 import android.os.Parcelable
@@ -56,6 +61,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Blog(
     val coverImage: String = "",
+<<<<<<< HEAD
 <<<<<<< HEAD
     val title: String = ""
 
@@ -68,11 +74,22 @@ data class Blog(
 =======
 =======
 =======
+=======
+>>>>>>> 14e41be (blog post)
     val title: String = "",
     val detail: String = "",
     val additionalPhotos: List<String> = listOf(),
     val additionalDetails: String = ""
 ) : Parcelable
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
+<<<<<<< HEAD
 >>>>>>> c6cbdec (...)
+<<<<<<< HEAD
 >>>>>>> b30522d (...)
+=======
+=======
+=======
+>>>>>>> 14e41be (blog post)
+>>>>>>> d546cfd (blog post)
+>>>>>>> cfcf15a (blog post)

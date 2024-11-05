@@ -5,6 +5,7 @@
     android:layout_height="150dp"
     android:layout_margin="8dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
     android:scaleType="centerCrop"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -15,4 +16,13 @@
 =======
     android:scaleType="centerCrop"/> 
 >>>>>>> c6cbdec (...)
+<<<<<<< HEAD
 >>>>>>> b30522d (...)
+=======
+=======
+    android:scaleType="centerCrop"/> 
+=======
+    android:scaleType="centerCrop"/>
+>>>>>>> 14e41be (blog post)
+>>>>>>> d546cfd (blog post)
+>>>>>>> cfcf15a (blog post)

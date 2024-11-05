@@ -1,8 +1,11 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 27b5cc5 (Blog post)
+=======
+>>>>>>> cfcf15a (blog post)
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +19,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import android.content.Intent
 import android.os.Bundle
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 >>>>>>> c3c2b74 (sdfsdf)
@@ -24,6 +28,8 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 =======
 >>>>>>> fa060a4 (fix stash)
 >>>>>>> 4896537 (fix stash)
+=======
+>>>>>>> cfcf15a (blog post)
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -37,12 +43,18 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 =======
 >>>>>>> 14e41be (blog post)
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 >>>>>>> 27b5cc5 (Blog post)
+=======
+import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
+=======
+>>>>>>> 14e41be (blog post)
+>>>>>>> cfcf15a (blog post)
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
 import kotlinx.coroutines.launch
 
@@ -64,6 +76,7 @@ class BlogActivity : AppCompatActivity() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0d79057 (..)
 =======
 <<<<<<< HEAD
@@ -71,6 +84,9 @@ class BlogActivity : AppCompatActivity() {
 =======
 <<<<<<< HEAD
 >>>>>>> 290c922 (bloggrid done)
+=======
+<<<<<<< HEAD
+>>>>>>> d546cfd (blog post)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
 >>>>>>> b268321 (..)
 
@@ -97,10 +113,14 @@ class BlogActivity : AppCompatActivity() {
         
 >>>>>>> 90e3bc1 (bloggrid done)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cfcf15a (blog post)
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 =======
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
@@ -111,6 +131,8 @@ class BlogActivity : AppCompatActivity() {
 >>>>>>> 215843c (fix stash)
 =======
 >>>>>>> 8a481e1 (bloggrid done)
+=======
+>>>>>>> cfcf15a (blog post)
         lifecycleScope.launch {
             viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
                 when (response.status) {
@@ -137,13 +159,19 @@ class BlogActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cfcf15a (blog post)
 } 
 =======
 }
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 =======
 }
 >>>>>>> 27b5cc5 (Blog post)
 =======
 } 
 >>>>>>> 215843c (fix stash)
+=======
+>>>>>>> cfcf15a (blog post)

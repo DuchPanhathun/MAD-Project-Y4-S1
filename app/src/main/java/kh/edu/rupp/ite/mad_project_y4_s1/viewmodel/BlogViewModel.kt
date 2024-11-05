@@ -11,12 +11,18 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 =======
 >>>>>>> 14e41be (blog post)
 =======
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 >>>>>>> 27b5cc5 (Blog post)
+=======
+import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
+=======
+>>>>>>> 14e41be (blog post)
+>>>>>>> cfcf15a (blog post)
 
 class BlogViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
@@ -53,10 +59,13 @@ class BlogViewModel : ViewModel() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8a481e1 (bloggrid done)
 =======
 >>>>>>> bed50d0 (update ui in categories list view)
+=======
+>>>>>>> cfcf15a (blog post)
 }
 =======
 } 
@@ -69,6 +78,7 @@ class BlogViewModel : ViewModel() {
 =======
 }
 >>>>>>> 14e41be (blog post)
+<<<<<<< HEAD
 =======
 }
 >>>>>>> 27b5cc5 (Blog post)
@@ -82,3 +92,5 @@ class BlogViewModel : ViewModel() {
 }
 >>>>>>> fdb8e52 (update ui in categories list view)
 >>>>>>> bed50d0 (update ui in categories list view)
+=======
+>>>>>>> cfcf15a (blog post)
