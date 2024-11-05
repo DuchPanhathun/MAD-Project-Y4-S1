@@ -30,10 +30,15 @@
         <activity android:name=".activity.SignUpActivity" />
         <activity android:name=".activity.ItemsActivity" android:exported="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".activity.BlogActivity" android:exported="false" />
 =======
 >>>>>>> 14e41be (blog post)
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+=======
+        <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+        <activity android:name=".activity.BlogActivity" android:exported="false" />
+>>>>>>> 27b5cc5 (Blog post)
     </application>
 
 </manifest>

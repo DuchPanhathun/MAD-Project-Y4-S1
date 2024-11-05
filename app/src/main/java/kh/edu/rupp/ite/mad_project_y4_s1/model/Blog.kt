@@ -28,6 +28,9 @@ data class Blog(
     val additionalDetails: String = ""
 ) : Parcelable
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0a2911 (...)
 =======
 >>>>>>> 14e41be (blog post)
+=======
+>>>>>>> 27b5cc5 (Blog post)

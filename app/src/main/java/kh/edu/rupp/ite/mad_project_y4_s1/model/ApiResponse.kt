@@ -11,7 +11,12 @@ enum class ApiState {
     SUCCESS,
     ERROR
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
 =======
 }
 >>>>>>> cd6fae2 (...)
+=======
+}
+
+>>>>>>> 27b5cc5 (Blog post)
