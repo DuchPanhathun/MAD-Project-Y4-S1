@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+import android.content.Intent
 import android.os.Bundle
 <<<<<<< HEAD
 import kh.edu.rupp.ite.mad_project_y4_s1.R
@@ -52,7 +53,12 @@ class BlogActivity : AppCompatActivity() {
                     ApiState.SUCCESS -> {
                         progressBar.visibility = View.GONE
                         response.data?.let { blogs ->
-                            recyclerView.adapter = BlogAdapter(blogs)
+                            recyclerView.adapter = BlogAdapter(blogs) { blog ->
+                                val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java).apply {
+                                    putExtra("blog", blog)
+                                }
+                                startActivity(intent)
+                            }
                         }
                     }
                     ApiState.ERROR -> {

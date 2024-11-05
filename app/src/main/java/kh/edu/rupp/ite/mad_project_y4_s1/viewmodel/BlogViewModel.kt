@@ -24,7 +24,15 @@ class BlogViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val snapshot = db.collection("blogPosts").get().await()
-                val blogs = snapshot.toObjects(Blog::class.java)
+                val blogs = snapshot.documents.mapNotNull { doc ->
+                    Blog(
+                        coverImage = doc.getString("coverImage") ?: "",
+                        title = doc.getString("title") ?: "",
+                        detail = doc.getString("detail") ?: "",
+                        additionalPhotos = (doc.get("additionalPhotos") as? List<String>) ?: listOf(),
+                        additionalDetails = doc.getString("additionalDetails") ?: ""
+                    )
+                }
                 _blogsState.emit(ApiResponse(ApiState.SUCCESS, data = blogs))
             } catch (e: Exception) {
                 _blogsState.emit(ApiResponse(ApiState.ERROR, error = e.message ?: "Unknown error occurred"))
