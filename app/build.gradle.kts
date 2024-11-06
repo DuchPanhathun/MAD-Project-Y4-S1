@@ -66,33 +66,3 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-}
->>>>>>> 90e3bc1 (bloggrid done)
-=======
->>>>>>> fdb8e52 (update ui in categories list view)
-=======
-=======
->>>>>>> bed50d0 (update ui in categories list view)
-=======
-}
-<<<<<<< HEAD
->>>>>>> 0c597ef (fix stash)
-<<<<<<< HEAD
->>>>>>> 215843c (fix stash)
-=======
-=======
->>>>>>> 90e3bc1 (bloggrid done)
-<<<<<<< HEAD
->>>>>>> 290c922 (bloggrid done)
-<<<<<<< HEAD
->>>>>>> 8a481e1 (bloggrid done)
-=======
-=======
-=======
->>>>>>> fdb8e52 (update ui in categories list view)
->>>>>>> b2948c4 (update ui in categories list view)
->>>>>>> bed50d0 (update ui in categories list view)
