@@ -2,37 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 8ccd66b (..)
-=======
-=======
->>>>>>> 1b19d0c (..)
-=======
-=======
->>>>>>> 6b75145 (..)
-
-<<<<<<< HEAD
->>>>>>> c6cbdec (...)
-<<<<<<< HEAD
->>>>>>> b30522d (...)
-=======
-=======
-
-<<<<<<< HEAD
->>>>>>> 73a4b5e (Blog post)
-<<<<<<< HEAD
->>>>>>> f157459 (Blog post)
-=======
-=======
-=======
->>>>>>> 8ccd66b (..)
->>>>>>> 6b75145 (..)
->>>>>>> 1b19d0c (..)
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,37 +43,4 @@
             android:layout_marginTop="16dp"/>
 
     </LinearLayout>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 </ScrollView>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 14e41be (blog post)
-=======
->>>>>>> 8ccd66b (..)
-=======
-=======
-</ScrollView> 
->>>>>>> c6cbdec (...)
-<<<<<<< HEAD
->>>>>>> b30522d (...)
-=======
-=======
-</ScrollView> 
-=======
-=======
->>>>>>> 6b75145 (..)
-</ScrollView>
-<<<<<<< HEAD
->>>>>>> 14e41be (blog post)
-<<<<<<< HEAD
->>>>>>> d546cfd (blog post)
-<<<<<<< HEAD
->>>>>>> cfcf15a (blog post)
-=======
-=======
-=======
->>>>>>> 8ccd66b (..)
->>>>>>> 6b75145 (..)
->>>>>>> 1b19d0c (..)

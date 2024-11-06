@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 
-class AdditionalPhotosAdapter(private val photos: List<String>) : 
+class AdditionalPhotosAdapter(private val photos: List<String>) :
     RecyclerView.Adapter<AdditionalPhotosAdapter.PhotoViewHolder>() {
 
     class PhotoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,4 +28,4 @@ class AdditionalPhotosAdapter(private val photos: List<String>) :
     }
 
     override fun getItemCount() = photos.size
-} 
+}

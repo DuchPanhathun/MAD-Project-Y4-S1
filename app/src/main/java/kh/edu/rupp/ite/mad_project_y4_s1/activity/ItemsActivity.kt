@@ -14,14 +14,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
-import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
-import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
+import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
 
 class ItemsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
-    private val itemsState = MutableStateFlow<ApiResponse<List<Item>>>(ApiResponse(ApiState.LOADING))
+    private val itemsState = MutableStateFlow<Pair<ApiState, List<Item>?>>(Pair(ApiState.LOADING, null))
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,29 +44,29 @@ class ItemsActivity : AppCompatActivity() {
             try {
                 val snapshot = db.collection("items").get().await()
                 val items = snapshot.toObjects(Item::class.java)
-                itemsState.emit(ApiResponse(ApiState.SUCCESS, data = items))
+                itemsState.emit(Pair(ApiState.SUCCESS, items))
             } catch (e: Exception) {
-                itemsState.emit(ApiResponse(ApiState.ERROR, error = e.message))
+                itemsState.emit(Pair(ApiState.ERROR, null))
             }
         }
     }
 
     private fun observeState() {
         lifecycleScope.launch {
-            itemsState.collect { response ->
-                when (response.status) {
+            itemsState.collect { state ->
+                when (state.first) {
                     ApiState.LOADING -> {
                         progressBar.visibility = View.VISIBLE
                     }
                     ApiState.SUCCESS -> {
                         progressBar.visibility = View.GONE
-                        response.data?.let { items ->
+                        state.second?.let { items ->
                             recyclerView.adapter = ItemsAdapter(items)
                         }
                     }
                     ApiState.ERROR -> {
                         progressBar.visibility = View.GONE
-                        Toast.makeText(this@ItemsActivity, response.error, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@ItemsActivity, "Error loading items", Toast.LENGTH_LONG).show()
                     }
                 }
             }
