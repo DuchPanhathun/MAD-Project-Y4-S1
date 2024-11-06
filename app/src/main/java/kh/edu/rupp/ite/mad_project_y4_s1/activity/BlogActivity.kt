@@ -7,7 +7,9 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.BlogAdapter
@@ -15,7 +17,6 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
-import kotlinx.coroutines.launch
 
 class BlogActivity : AppCompatActivity() {
     private val viewModel: BlogViewModel by viewModels()
@@ -29,25 +30,22 @@ class BlogActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
         
-        lifecycleScope.launch {
-            viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
-                when (response.status) {
-                    ApiState.LOADING -> progressBar.visibility = View.VISIBLE
-                    ApiState.SUCCESS -> {
-                        progressBar.visibility = View.GONE
-                        response.data?.let { blogs ->
-                            recyclerView.adapter = BlogAdapter(blogs) { blog ->
-                                // Handle blog click by starting BlogDetailActivity
-                                val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java)
-                                intent.putExtra("blog", blog)
-                                startActivity(intent)
-                            }
+        viewModel.blogsState.observe(this) { response: ApiResponse<List<Blog>> ->
+            when (response.status) {
+                ApiState.LOADING -> progressBar.visibility = View.VISIBLE
+                ApiState.SUCCESS -> {
+                    progressBar.visibility = View.GONE
+                    response.data?.let { blogs ->
+                        recyclerView.adapter = BlogAdapter(blogs) { blog ->
+                            val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java)
+                            intent.putExtra("blog", blog)
+                            startActivity(intent)
                         }
                     }
-                    ApiState.ERROR -> {
-                        progressBar.visibility = View.GONE
-                        Toast.makeText(this@BlogActivity, response.error, Toast.LENGTH_LONG).show()
-                    }
+                }
+                ApiState.ERROR -> {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this@BlogActivity, response.error, Toast.LENGTH_LONG).show()
                 }
             }
         }
