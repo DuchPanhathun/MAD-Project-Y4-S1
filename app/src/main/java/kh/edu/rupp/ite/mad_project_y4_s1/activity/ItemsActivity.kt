@@ -16,12 +16,13 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
+import kh.edu.rupp.ite.mad_project_y4_s1.api.ItemsApi
 
 class ItemsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private val itemsState = MutableStateFlow<Pair<ApiState, List<Item>?>>(Pair(ApiState.LOADING, null))
-    private val db = FirebaseFirestore.getInstance()
+    private val itemsApi = ItemsApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +43,7 @@ class ItemsActivity : AppCompatActivity() {
     private fun fetchItems() {
         lifecycleScope.launch {
             try {
-                val snapshot = db.collection("items").get().await()
-                val items = snapshot.toObjects(Item::class.java)
+                val items = itemsApi.getItems()
                 itemsState.emit(Pair(ApiState.SUCCESS, items))
             } catch (e: Exception) {
                 itemsState.emit(Pair(ApiState.ERROR, null))
