@@ -30,7 +30,12 @@
         <activity android:name=".activity.SignUpActivity" />
         <activity android:name=".activity.ItemsActivity" android:exported="false" />
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
+<<<<<<< HEAD
         <activity android:name=".activity.BlogActivity" android:exported="false" />
+=======
+
+
+>>>>>>> origin/thun
     </application>
 
 </manifest>

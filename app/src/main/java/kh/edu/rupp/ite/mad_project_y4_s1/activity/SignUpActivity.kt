@@ -5,26 +5,38 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.AuthViewModel
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up)
-
-        auth = Firebase.auth
 
         val emailEditText: EditText = findViewById(R.id.editEmail)
         val passwordEditText: EditText = findViewById(R.id.editPassword)
         val confirmPasswordEditText: EditText = findViewById(R.id.editConfirmPassword)
         val signUpButton: Button = findViewById(R.id.signUpButton)
         val loginText: TextView = findViewById(R.id.textLetter)
+
+        lifecycleScope.launch {
+            viewModel.authState.collect { result ->
+                result?.let {
+                    if (it.isSuccess) {
+                        Toast.makeText(baseContext, "Sign up successful.", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(baseContext, it.error ?: "Sign up failed.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
 
         signUpButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -33,15 +45,7 @@ class SignUpActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (password == confirmPassword) {
-                    auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this) { task ->
-                            if (task.isSuccessful) {
-                                Toast.makeText(baseContext, "Sign up successful.", Toast.LENGTH_SHORT).show()
-                                finish() // This will return to the MainActivity
-                            } else {
-                                Toast.makeText(baseContext, "Sign up failed.", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                    viewModel.signUp(email, password)
                 } else {
                     Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 }
@@ -51,7 +55,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         loginText.setOnClickListener {
-            finish() // This will return to the LoginActivity
+            finish()
         }
     }
 }
