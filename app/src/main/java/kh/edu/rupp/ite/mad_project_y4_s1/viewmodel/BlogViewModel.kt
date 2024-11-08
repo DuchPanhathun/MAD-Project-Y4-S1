@@ -26,22 +26,8 @@ class BlogViewModel : ViewModel() {
         viewModelScope.launch {
             _blogsState.value = ApiResponse(ApiState.LOADING)
             try {
-<<<<<<< HEAD
-                val snapshot = db.collection("blogPosts").get().await()
-                val blogs = snapshot.documents.mapNotNull { doc ->
-                    Blog(
-                        coverImage = doc.getString("coverImage") ?: "",
-                        title = doc.getString("title") ?: "",
-                        detail = doc.getString("detail") ?: "",
-                        additionalPhotos = (doc.get("additionalPhotos") as? List<String>) ?: listOf(),
-                        additionalDetails = doc.getString("additionalDetails") ?: ""
-                    )
-                }
-                _blogsState.emit(ApiResponse(ApiState.SUCCESS, data = blogs))
-=======
                 val blogs = blogApi.getBlogs()
                 _blogsState.value = ApiResponse(ApiState.SUCCESS, blogs)
->>>>>>> origin/thun
             } catch (e: Exception) {
                 _blogsState.value = ApiResponse(ApiState.ERROR, error = e.message ?: "Unknown error occurred")
             }

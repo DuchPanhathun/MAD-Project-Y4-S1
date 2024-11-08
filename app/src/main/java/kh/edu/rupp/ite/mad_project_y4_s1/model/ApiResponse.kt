@@ -12,7 +12,3 @@ enum class ApiState {
     ERROR
 }
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/thun

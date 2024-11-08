@@ -11,11 +11,6 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
 
 class BlogAdapter(
-<<<<<<< HEAD
-    private val blogs: List<Blog>,
-    private val onBlogClick: (Blog) -> Unit
-) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
-=======
     private var blogs: List<Blog>,
     private val onBlogClick: (Blog) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -24,7 +19,6 @@ class BlogAdapter(
         private const val VIEW_TYPE_BLOG = 0
         private const val VIEW_TYPE_FOOTER = 1
     }
->>>>>>> origin/thun
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverImage: ImageView = view.findViewById(R.id.blogCoverImage)
@@ -35,22 +29,6 @@ class BlogAdapter(
         // Initialize footer views here if needed
     }
 
-<<<<<<< HEAD
-    override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
-        val blog = blogs[position]
-        holder.title.text = blog.title
-        Glide.with(holder.itemView.context)
-            .load(blog.coverImage)
-            .into(holder.coverImage)
-
-        holder.itemView.setOnClickListener {
-            onBlogClick(blog)
-        }
-    }
-
-    override fun getItemCount() = blogs.size
-}
-=======
     override fun getItemViewType(position: Int): Int {
         return if (position == blogs.size) VIEW_TYPE_FOOTER else VIEW_TYPE_BLOG
     }
@@ -90,4 +68,3 @@ class BlogAdapter(
         notifyDataSetChanged()
     }
 }
->>>>>>> origin/thun

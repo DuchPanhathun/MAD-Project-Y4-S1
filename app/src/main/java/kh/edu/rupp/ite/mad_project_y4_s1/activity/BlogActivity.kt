@@ -29,25 +29,7 @@ class BlogActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
-<<<<<<< HEAD
 
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
-
-        lifecycleScope.launch {
-            viewModel.blogsState.collect { response: ApiResponse<List<Blog>> ->
-                when (response.status) {
-                    ApiState.LOADING -> progressBar.visibility = View.VISIBLE
-                    ApiState.SUCCESS -> {
-                        progressBar.visibility = View.GONE
-                        response.data?.let { blogs ->
-                            recyclerView.adapter = BlogAdapter(blogs) { blog ->
-                                val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java).apply {
-                                    putExtra("blog", blog)
-                                }
-                                startActivity(intent)
-                            }
-=======
-        
         viewModel.blogsState.observe(this) { response: ApiResponse<List<Blog>> ->
             when (response.status) {
                 ApiState.LOADING -> progressBar.visibility = View.VISIBLE
@@ -58,7 +40,6 @@ class BlogActivity : AppCompatActivity() {
                             val intent = Intent(this@BlogActivity, BlogDetailActivity::class.java)
                             intent.putExtra("blog", blog)
                             startActivity(intent)
->>>>>>> origin/thun
                         }
                     }
                 }

@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<<<<<<< HEAD
-=======
 
     <!-- Navigation Bar -->
     <include
@@ -43,7 +41,6 @@
     </LinearLayout>
 
     <!-- Blog List with Vertical Layout Manager -->
->>>>>>> origin/thun
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/blogRecyclerView"
         android:layout_width="match_parent"
@@ -66,10 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-<<<<<<< HEAD
-</FrameLayout> 
-=======
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> origin/thun
