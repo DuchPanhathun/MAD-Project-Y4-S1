@@ -18,9 +18,9 @@ class BlogViewModel : ViewModel() {
     private val _selectedBlog = MutableLiveData<Blog>()
     val selectedBlog: LiveData<Blog> = _selectedBlog
 
-    init {
-        fetchBlogs()
-    }
+    //init {
+    //    fetchBlogs()
+    //}
 
     private fun fetchBlogs() {
         viewModelScope.launch {
