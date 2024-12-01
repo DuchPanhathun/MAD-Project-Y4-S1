@@ -1,9 +1,13 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+<<<<<<< HEAD
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+=======
+import android.content.Intent
+>>>>>>> origin/thun
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -194,7 +198,12 @@ class ItemsActivity : AppCompatActivity() {
                 ApiState.SUCCESS -> {
                     progressBar.visibility = View.GONE
                     response.data?.let { items ->
-                        recyclerView.adapter = ItemsAdapter(items)
+                        val adapter = ItemsAdapter(items) { item ->
+                            val intent = Intent(this, ItemDetailActivity::class.java)
+                            intent.putExtra("item", item)
+                            startActivity(intent)
+                        }
+                        recyclerView.adapter = adapter
                     }
                 }
                 ApiState.ERROR -> {
