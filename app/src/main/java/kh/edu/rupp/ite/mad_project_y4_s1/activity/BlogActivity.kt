@@ -30,6 +30,10 @@ class BlogActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
         
+        if (viewModel.blogsState.value?.data == null) {
+            viewModel.fetchBlogs()
+        }
+
         viewModel.blogsState.observe(this) { response: ApiResponse<List<Blog>> ->
             when (response.status) {
                 ApiState.LOADING -> progressBar.visibility = View.VISIBLE

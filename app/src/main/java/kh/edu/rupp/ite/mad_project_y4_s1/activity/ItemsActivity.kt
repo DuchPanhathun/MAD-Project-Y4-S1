@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -42,7 +43,12 @@ class ItemsActivity : AppCompatActivity() {
                 ApiState.SUCCESS -> {
                     progressBar.visibility = View.GONE
                     response.data?.let { items ->
-                        recyclerView.adapter = ItemsAdapter(items)
+                        val adapter = ItemsAdapter(items) { item ->
+                            val intent = Intent(this, ItemDetailActivity::class.java)
+                            intent.putExtra("item", item)
+                            startActivity(intent)
+                        }
+                        recyclerView.adapter = adapter
                     }
                 }
                 ApiState.ERROR -> {

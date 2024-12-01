@@ -29,6 +29,8 @@ import android.view.LayoutInflater
 import android.content.Context
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+import androidx.appcompat.widget.SearchView
+import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -42,6 +44,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var popupWindow: PopupWindow
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
+    private lateinit var searchView: SearchView
+    private lateinit var searchButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,6 +120,52 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
         }
+
+        setupSearch()
+    }
+
+    private fun setupSearch() {
+        searchView = findViewById(R.id.searchView)
+        searchButton = findViewById(R.id.searchButton)
+
+        // Make SearchView full width and customize its appearance
+        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setTextColor(Color.BLACK)
+        searchEditText.setHintTextColor(Color.GRAY)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { performSearch(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { performSearch(it) }
+                return true
+            }
+        })
+    }
+
+    fun onSearchButtonClick(view: View) {
+        if (searchView.visibility == View.GONE) {
+            searchView.visibility = View.VISIBLE
+            searchView.isIconified = false  // Shows keyboard and expands SearchView
+        } else {
+            searchView.visibility = View.GONE
+            searchView.setQuery("", false)  // Clears the query
+            searchView.isIconified = true
+        }
+    }
+
+    private fun performSearch(query: String) {
+        // TODO: Implement your search logic here
+        // For example:
+        Toast.makeText(this, "Searching for: $query", Toast.LENGTH_SHORT).show()
+        
+        // You might want to:
+        // 1. Start a new SearchResultsActivity with the query
+        // 2. Filter your existing data
+        // 3. Make an API call to search products
     }
 
     private fun showCustomMenu() {
@@ -129,12 +179,6 @@ class MainActivity : AppCompatActivity() {
             true
         )
         popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-
-        // Set up exit button
-        val exitButton: ImageButton = customMenuView.findViewById(R.id.exitButton)
-        exitButton.setOnClickListener {
-            popupWindow.dismiss()
-        }
 
         // Set up tabs
         val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
@@ -205,6 +249,29 @@ class MainActivity : AppCompatActivity() {
         inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             val textView: TextView = view.findViewById(R.id.menu_item_text)
             val iconView: ImageView = view.findViewById(R.id.menu_item_icon)
+
+            init {
+                view.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val item = items[position]
+                        when (item.itemId) {
+                            R.id.menu_profile -> {
+                                if (auth.currentUser != null) {
+                                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                                } else {
+                                    Toast.makeText(this@MainActivity, 
+                                        "Please login first", 
+                                        Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                                }
+                                popupWindow.dismiss()
+                            }
+                            // Handle other menu items here
+                        }
+                    }
+                }
+            }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

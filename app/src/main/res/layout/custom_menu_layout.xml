@@ -33,26 +33,6 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="18sp" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/menTab"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="MEN"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textColor="#000000" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/womenTab"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="WOMEN"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textColor="#000000" />-->
     </LinearLayout>
 
     <View

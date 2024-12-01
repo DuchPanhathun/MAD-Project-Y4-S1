@@ -1,0 +1,172 @@
+package kh.edu.rupp.ite.mad_project_y4_s1.activity
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import kh.edu.rupp.ite.mad_project_y4_s1.R
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.UserViewModel
+import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
+import kh.edu.rupp.ite.mad_project_y4_s1.model.User
+import com.google.firebase.auth.FirebaseAuth
+import kh.edu.rupp.ite.mad_project_y4_s1.model.PaymentMethod
+import com.google.firebase.auth.EmailAuthProvider
+
+class ProfileActivity : AppCompatActivity() {
+    private val userViewModel: UserViewModel by viewModels()
+    private val auth = FirebaseAuth.getInstance()
+
+    private lateinit var firstNameEdit: EditText
+    private lateinit var lastNameEdit: EditText
+    private lateinit var addressEdit: EditText
+    private lateinit var cityEdit: EditText
+    private lateinit var phoneNumberEdit: EditText
+    private lateinit var saveButton: Button
+    private lateinit var cardNumberEdit: EditText
+    private lateinit var cvvEdit: EditText
+    private lateinit var expMonthEdit: EditText
+    private lateinit var expYearEdit: EditText
+    private lateinit var nameOnCardEdit: EditText
+    private lateinit var currentPasswordEdit: EditText
+    private lateinit var newPasswordEdit: EditText
+    private lateinit var confirmNewPasswordEdit: EditText
+    private lateinit var updatePasswordButton: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_profile)
+
+        // Initialize views
+        firstNameEdit = findViewById(R.id.firstNameEdit)
+        lastNameEdit = findViewById(R.id.lastNameEdit)
+        addressEdit = findViewById(R.id.addressEdit)
+        cityEdit = findViewById(R.id.cityEdit)
+        phoneNumberEdit = findViewById(R.id.phoneNumberEdit)
+        cardNumberEdit = findViewById(R.id.cardNumberEdit)
+        cvvEdit = findViewById(R.id.cvvEdit)
+        expMonthEdit = findViewById(R.id.expMonthEdit)
+        expYearEdit = findViewById(R.id.expYearEdit)
+        nameOnCardEdit = findViewById(R.id.nameOnCardEdit)
+        saveButton = findViewById(R.id.saveButton)
+        currentPasswordEdit = findViewById(R.id.currentPasswordEdit)
+        newPasswordEdit = findViewById(R.id.newPasswordEdit)
+        confirmNewPasswordEdit = findViewById(R.id.confirmNewPasswordEdit)
+        updatePasswordButton = findViewById(R.id.updatePasswordButton)
+
+        // Get current user data
+        auth.currentUser?.let { firebaseUser ->
+            lifecycleScope.launch {
+                userViewModel.getCurrentUser(firebaseUser.uid)
+            }
+        }
+
+        // Observe user data changes
+        lifecycleScope.launch {
+            userViewModel.userState.collect { response ->
+                when (response.status) {
+                    ApiState.LOADING -> {
+                        // Show loading indicator if needed
+                    }
+                    ApiState.SUCCESS -> {
+                        response.data?.let { user ->
+                            // Populate fields with user data
+                            firstNameEdit.setText(user.firstName)
+                            lastNameEdit.setText(user.lastName)
+                            addressEdit.setText(user.address)
+                            cityEdit.setText(user.city)
+                            phoneNumberEdit.setText(user.phoneNumber)
+
+                            // Populate payment fields
+                            user.paymentMethod?.let { payment ->
+                                cardNumberEdit.setText(payment.cardNumber)
+                                cvvEdit.setText(payment.cvv)
+                                expMonthEdit.setText(payment.expMonth)
+                                expYearEdit.setText(payment.expYear)
+                                nameOnCardEdit.setText(payment.nameOnCard)
+                            }
+                        }
+                    }
+                    ApiState.ERROR -> {
+                        Toast.makeText(this@ProfileActivity, 
+                            response.error ?: "Error loading profile", 
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
+        // Handle save button click
+        saveButton.setOnClickListener {
+            auth.currentUser?.let { firebaseUser ->
+                val paymentMethod = PaymentMethod(
+                    cardNumber = cardNumberEdit.text.toString(),
+                    cvv = cvvEdit.text.toString(),
+                    expMonth = expMonthEdit.text.toString(),
+                    expYear = expYearEdit.text.toString(),
+                    nameOnCard = nameOnCardEdit.text.toString()
+                )
+
+                val updatedUser = User(
+                    uid = firebaseUser.uid,
+                    email = firebaseUser.email ?: "",
+                    firstName = firstNameEdit.text.toString(),
+                    lastName = lastNameEdit.text.toString(),
+                    address = addressEdit.text.toString(),
+                    city = cityEdit.text.toString(),
+                    phoneNumber = phoneNumberEdit.text.toString(),
+                    paymentMethod = paymentMethod
+                )
+                lifecycleScope.launch {
+                    userViewModel.updateUser(updatedUser)
+                }
+            }
+        }
+
+        // Handle password update
+        updatePasswordButton.setOnClickListener {
+            val currentPassword = currentPasswordEdit.text.toString()
+            val newPassword = newPasswordEdit.text.toString()
+            val confirmNewPassword = confirmNewPasswordEdit.text.toString()
+
+            if (currentPassword.isEmpty() || newPassword.isEmpty() || confirmNewPassword.isEmpty()) {
+                Toast.makeText(this, "Please fill all password fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (newPassword != confirmNewPassword) {
+                Toast.makeText(this, "New passwords do not match", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Minimum password length check
+            if (newPassword.length < 6) {
+                Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Re-authenticate user before changing password
+            auth.currentUser?.let { user ->
+                val credential = EmailAuthProvider.getCredential(user.email!!, currentPassword)
+                
+                user.reauthenticate(credential)
+                    .addOnSuccessListener {
+                        // Update password
+                        user.updatePassword(newPassword)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Password updated successfully", Toast.LENGTH_SHORT).show()
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(this, "Failed to update password", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Invalid current password", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        }
+    }
+} 

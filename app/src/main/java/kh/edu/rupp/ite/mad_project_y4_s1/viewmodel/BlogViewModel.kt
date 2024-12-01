@@ -15,11 +15,14 @@ class BlogViewModel : ViewModel() {
     private val _blogsState = MutableLiveData<ApiResponse<List<Blog>>>()
     val blogsState: LiveData<ApiResponse<List<Blog>>> = _blogsState
 
+    private val _selectedBlog = MutableLiveData<Blog>()
+    val selectedBlog: LiveData<Blog> = _selectedBlog
+
     init {
         fetchBlogs()
     }
 
-    private fun fetchBlogs() {
+    fun fetchBlogs() {
         viewModelScope.launch {
             _blogsState.value = ApiResponse(ApiState.LOADING)
             try {
@@ -29,5 +32,9 @@ class BlogViewModel : ViewModel() {
                 _blogsState.value = ApiResponse(ApiState.ERROR, error = e.message ?: "Unknown error occurred")
             }
         }
+    }
+
+    fun setSelectedBlog(blog: Blog) {
+        _selectedBlog.value = blog
     }
 }
