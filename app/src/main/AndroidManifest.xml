@@ -31,6 +31,13 @@
         <activity android:name=".activity.ItemDetailActivity" android:exported="false" />
         <activity android:name=".activity.SearchActivity" android:exported="false" />
         <activity android:name=".activity.ProfileActivity" android:exported="false" />
+        <activity android:name=".activity.ContactUsActivity" />
+        <activity android:name=".activity.AboutActivity" />
+
+
+
+
+
 
 
     </application>

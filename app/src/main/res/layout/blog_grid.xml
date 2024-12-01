@@ -22,6 +22,16 @@
             android:orientation="vertical"
             android:gravity="center"
             android:padding="20sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/tenor_sans"
+                android:gravity="end"
+                android:text="4 days ago"
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,6 +43,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/horizontal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/blog4" />
         </LinearLayout>
         <!--Blog-->
         <LinearLayout
@@ -140,6 +156,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginBottom="120dp"
                             android:fontFamily="@font/tenor_sans"
                             android:gravity="start"
                             android:padding="15dp"
@@ -148,14 +166,6 @@
                             android:textSize="25sp" />
                     </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/tenor_sans"
-                        android:gravity="end"
-                        android:text="4 days ago"
-                        android:textSize="20sp" />
                 </LinearLayout>
             </RelativeLayout>
             <TextView
@@ -176,11 +186,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/blog4"/>
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -6,7 +6,6 @@
 
     <!-- Include the toolbar layout at the top -->
     <include layout="@layout/toolbar_layout" />
-
     <!-- Main content area with RecyclerView and ProgressBar -->
     <FrameLayout
         android:layout_width="match_parent"

@@ -47,6 +47,23 @@ class BlogDetailActivity : AppCompatActivity() {
         intent.getParcelableExtra<Blog>("blog")?.let { blog ->
             viewModel.setSelectedBlog(blog)
         }
+        // Add blog text click handler
+        findViewById<TextView>(R.id.blogText).setOnClickListener {
+            startActivity(Intent(this, BlogActivity::class.java))
+        }
+        //Add contact us
+        val contactUsText: TextView = findViewById(R.id.contact_us_Text)
+        contactUsText.setOnClickListener {
+            val intent = Intent(this, ContactUsActivity::class.java)
+            startActivity(intent)
+        }
+        //Add About
+        val aboutText: TextView = findViewById(R.id.aboutText)
+        aboutText.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
 
         // Observe selected blog
         viewModel.selectedBlog.observe(this) { blog ->

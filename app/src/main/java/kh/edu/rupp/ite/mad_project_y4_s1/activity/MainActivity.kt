@@ -64,6 +64,19 @@ class MainActivity : AppCompatActivity() {
         )
         
         coverImageCarousel.adapter = CoverImageAdapter(images)
+        //Add About
+        val aboutText: TextView = findViewById(R.id.aboutText)
+        aboutText.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Add contact us
+        val contactUsText: TextView = findViewById(R.id.contact_us_Text)
+        contactUsText.setOnClickListener {
+            val intent = Intent(this, ContactUsActivity::class.java)
+            startActivity(intent)
+        }
 
         // Set up the indicator
         val tabLayout: TabLayout = findViewById(R.id.indicator)

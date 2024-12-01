@@ -172,27 +172,31 @@
         </LinearLayout>
 
         <!--Collection-->
+
+        <!-- Recommend -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="COLLECTION"
-                android:textSize="30sp"
-                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/tenor_sans"
                 android:padding="20sp"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center_horizontal"/>
+                android:text="COLLECTION"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/collection1"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/collection1" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -203,11 +207,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/collection3"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/collection3" />
         </LinearLayout>
 
-        <!-- Recommend -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
