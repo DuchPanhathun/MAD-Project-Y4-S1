@@ -29,6 +29,8 @@ import android.view.LayoutInflater
 import android.content.Context
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+import androidx.appcompat.widget.SearchView
+import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -42,6 +44,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var popupWindow: PopupWindow
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
+    private lateinit var searchView: SearchView
+    private lateinit var searchButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,6 +120,89 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
         }
+
+        // Add search button click handler
+        val searchButton: ImageButton = findViewById(R.id.searchButton)
+        searchButton.setOnClickListener {
+            searchView.visibility = if (searchView.visibility == View.GONE) {
+                searchView.isIconified = false  // This will automatically expand and show keyboard
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+
+        setupSearch()
+    }
+
+    private fun setupSearch() {
+        searchView = findViewById(R.id.searchView)
+        searchButton = findViewById(R.id.searchButton)
+        val blurOverlay = findViewById<View>(R.id.searchBackground)
+        
+        searchButton.setOnClickListener {
+            if (searchView.visibility == View.GONE) {
+                // Show search with white background
+                searchView.visibility = View.VISIBLE
+                blurOverlay.visibility = View.VISIBLE
+                searchView.isIconified = false  // This will automatically expand and show keyboard
+                
+                // Set search view styling
+                searchView.setBackgroundResource(R.drawable.search_background)  // We'll create this
+                val searchPlate = searchView.findViewById<View>(androidx.appcompat.R.id.search_plate)
+                searchPlate?.setBackgroundColor(Color.TRANSPARENT)
+                
+                // Set text color to black
+                val searchText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+                searchText?.setTextColor(Color.BLACK)
+                searchText?.setHintTextColor(Color.GRAY)
+            } else {
+                hideSearch()
+            }
+        }
+        
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                performSearch(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+        })
+        
+        searchView.setOnCloseListener {
+            hideSearch()
+            true
+        }
+    }
+
+    private fun hideSearch() {
+        searchView.visibility = View.GONE
+        findViewById<View>(R.id.searchBackground).visibility = View.GONE
+        
+        // Restore background visibility
+        val rootView = window.decorView.findViewById<ViewGroup>(android.R.id.content)
+        for (i in 0 until rootView.childCount) {
+            val child = rootView.getChildAt(i)
+            if (child != searchView && child != searchButton) {
+                child.alpha = 1.0f
+            }
+        }
+    }
+
+    // Add this to handle back button press while search is active
+    override fun onBackPressed() {
+        if (searchView.visibility == View.VISIBLE) {
+            hideSearch()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun performSearch(query: String?) {
+        // Implement your search logic here
     }
 
     private fun showCustomMenu() {
@@ -205,6 +292,29 @@ class MainActivity : AppCompatActivity() {
         inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             val textView: TextView = view.findViewById(R.id.menu_item_text)
             val iconView: ImageView = view.findViewById(R.id.menu_item_icon)
+
+            init {
+                view.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val item = items[position]
+                        when (item.itemId) {
+                            R.id.menu_profile -> {
+                                if (auth.currentUser != null) {
+                                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                                } else {
+                                    Toast.makeText(this@MainActivity, 
+                                        "Please login first", 
+                                        Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                                }
+                                popupWindow.dismiss()
+                            }
+                            // Handle other menu items here
+                        }
+                    }
+                }
+            }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

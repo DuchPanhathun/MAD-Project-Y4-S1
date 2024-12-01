@@ -29,6 +29,8 @@
         <activity android:name=".activity.ItemsActivity" android:exported="false" />
         <activity android:name=".activity.BlogDetailActivity" android:exported="false" />
         <activity android:name=".activity.ItemDetailActivity" android:exported="false" />
+        <activity android:name=".activity.SearchActivity" android:exported="false" />
+        <activity android:name=".activity.ProfileActivity" android:exported="false" />
 
 
     </application>

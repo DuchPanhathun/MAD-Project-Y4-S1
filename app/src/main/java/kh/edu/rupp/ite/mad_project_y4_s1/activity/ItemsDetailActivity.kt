@@ -30,7 +30,7 @@ class ItemDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_item_detail)
 
         initializeViews()
-        
+
         // Get item from intent
         val item = intent.getParcelableExtra<Item>("item")
         item?.let { displayItemDetails(it) }

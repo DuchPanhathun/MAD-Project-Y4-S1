@@ -14,6 +14,9 @@
 
     <group android:id="@+id/setting_group">
         <item
+            android:id="@+id/menu_profile"
+            android:title="Profile" />
+        <item
             android:id="@+id/menu_my_favorite"
             android:title="My Favorite" />
         <item
