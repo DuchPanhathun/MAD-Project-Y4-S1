@@ -121,88 +121,51 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, BlogActivity::class.java))
         }
 
-        // Add search button click handler
-        val searchButton: ImageButton = findViewById(R.id.searchButton)
-        searchButton.setOnClickListener {
-            searchView.visibility = if (searchView.visibility == View.GONE) {
-                searchView.isIconified = false  // This will automatically expand and show keyboard
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
-        }
-
         setupSearch()
     }
 
     private fun setupSearch() {
         searchView = findViewById(R.id.searchView)
         searchButton = findViewById(R.id.searchButton)
-        val blurOverlay = findViewById<View>(R.id.searchBackground)
-        
-        searchButton.setOnClickListener {
-            if (searchView.visibility == View.GONE) {
-                // Show search with white background
-                searchView.visibility = View.VISIBLE
-                blurOverlay.visibility = View.VISIBLE
-                searchView.isIconified = false  // This will automatically expand and show keyboard
-                
-                // Set search view styling
-                searchView.setBackgroundResource(R.drawable.search_background)  // We'll create this
-                val searchPlate = searchView.findViewById<View>(androidx.appcompat.R.id.search_plate)
-                searchPlate?.setBackgroundColor(Color.TRANSPARENT)
-                
-                // Set text color to black
-                val searchText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
-                searchText?.setTextColor(Color.BLACK)
-                searchText?.setHintTextColor(Color.GRAY)
-            } else {
-                hideSearch()
-            }
-        }
-        
+
+        // Make SearchView full width and customize its appearance
+        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setTextColor(Color.BLACK)
+        searchEditText.setHintTextColor(Color.GRAY)
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                performSearch(query)
+                query?.let { performSearch(it) }
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { performSearch(it) }
                 return true
             }
         })
-        
-        searchView.setOnCloseListener {
-            hideSearch()
-            true
-        }
     }
 
-    private fun hideSearch() {
-        searchView.visibility = View.GONE
-        findViewById<View>(R.id.searchBackground).visibility = View.GONE
-        
-        // Restore background visibility
-        val rootView = window.decorView.findViewById<ViewGroup>(android.R.id.content)
-        for (i in 0 until rootView.childCount) {
-            val child = rootView.getChildAt(i)
-            if (child != searchView && child != searchButton) {
-                child.alpha = 1.0f
-            }
-        }
-    }
-
-    // Add this to handle back button press while search is active
-    override fun onBackPressed() {
-        if (searchView.visibility == View.VISIBLE) {
-            hideSearch()
+    fun onSearchButtonClick(view: View) {
+        if (searchView.visibility == View.GONE) {
+            searchView.visibility = View.VISIBLE
+            searchView.isIconified = false  // Shows keyboard and expands SearchView
         } else {
-            super.onBackPressed()
+            searchView.visibility = View.GONE
+            searchView.setQuery("", false)  // Clears the query
+            searchView.isIconified = true
         }
     }
 
-    private fun performSearch(query: String?) {
-        // Implement your search logic here
+    private fun performSearch(query: String) {
+        // TODO: Implement your search logic here
+        // For example:
+        Toast.makeText(this, "Searching for: $query", Toast.LENGTH_SHORT).show()
+        
+        // You might want to:
+        // 1. Start a new SearchResultsActivity with the query
+        // 2. Filter your existing data
+        // 3. Make an API call to search products
     }
 
     private fun showCustomMenu() {
@@ -216,12 +179,6 @@ class MainActivity : AppCompatActivity() {
             true
         )
         popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-
-        // Set up exit button
-        val exitButton: ImageButton = customMenuView.findViewById(R.id.exitButton)
-        exitButton.setOnClickListener {
-            popupWindow.dismiss()
-        }
 
         // Set up tabs
         val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)

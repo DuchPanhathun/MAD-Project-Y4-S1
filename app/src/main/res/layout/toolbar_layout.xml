@@ -70,15 +70,6 @@
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/searchBackground"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:visibility="gone"
-            android:layout_alignParentTop="true"
-            android:elevation="4dp"/>
-
     </RelativeLayout>
 
 </androidx.appcompat.widget.Toolbar>
