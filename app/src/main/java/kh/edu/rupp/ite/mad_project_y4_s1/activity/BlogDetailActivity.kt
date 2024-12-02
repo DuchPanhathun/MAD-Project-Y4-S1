@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.AdditionalPhotosAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
@@ -39,33 +40,72 @@ class BlogDetailActivity : AppCompatActivity() {
     private lateinit var loginLogoutButton: TextView
     private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
+    // Declare the BottomNavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog_detail)
+
+        // Set up Bottom Navigation
+        setupBottomNavigation()
 
         // Get blog from intent and set it in ViewModel
         intent.getParcelableExtra<Blog>("blog")?.let { blog ->
             viewModel.setSelectedBlog(blog)
         }
+
+        // Handle the back button click
+        val backButton: ImageButton = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            val origin = intent.getStringExtra("origin") // Retrieve the origin
+            when (origin) {
+                "BlogDetailActivity" -> {
+                    val intent = Intent(this, BlogDetailActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogActivity" -> {
+                    val intent = Intent(this, BlogActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogGridActivity" -> {
+                    val intent = Intent(this, BlogGridActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "MainActivity" -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                else -> {
+                    finish() // Default behavior if no origin is specified
+                }
+            }
+        }
+
         // Add blog text click handler
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
         }
-        //Add contact us
+
+        // Add contact us
         val contactUsText: TextView = findViewById(R.id.contact_us_Text)
         contactUsText.setOnClickListener {
             val intent = Intent(this, ContactUsActivity::class.java)
             intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
             startActivity(intent)
         }
-        //Add About
+
+        // Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
             intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
             startActivity(intent)
         }
-
 
         // Observe selected blog
         viewModel.selectedBlog.observe(this) { blog ->
@@ -82,131 +122,42 @@ class BlogDetailActivity : AppCompatActivity() {
             photosRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             photosRecyclerView.adapter = AdditionalPhotosAdapter(blog.additionalPhotos)
         }
-
     }
 
-    private fun showCustomMenu() {
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        customMenuView = inflater.inflate(R.layout.custom_menu_layout, null)
+    private fun setupBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
-        popupWindow = PopupWindow(
-            customMenuView,
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            true
-        )
-        popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+        // Set icons programmatically if needed
+        bottomNavigationView.menu.findItem(R.id.shoppingButton)?.setIcon(R.drawable.ic_shopping_bag)
 
-        // Set up exit button
-        val exitButton: ImageButton = customMenuView.findViewById(R.id.exitButton)
-        exitButton.setOnClickListener {
-            popupWindow.dismiss()
-        }
-
-        // Set up tabs
-        val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
-//        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
-//        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
-        tabIndicator = customMenuView.findViewById(R.id.tabIndicator)
-        menuItemsRecyclerView = customMenuView.findViewById(R.id.menuItemsRecyclerView)
-
-        settingTab.setOnClickListener { selectTab(it, R.id.setting_group) }
-//        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
-//        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
-
-        // Set up login/logout button
-        loginLogoutButton = customMenuView.findViewById(R.id.loginLogoutButton)
-        updateLoginLogoutButton()
-
-        // Show the popup window
-        popupWindow.showAtLocation(findViewById(android.R.id.content), Gravity.CENTER, 0, 0)
-
-        // Initially select the setting tab
-        selectTab(settingTab, R.id.setting_group)
-    }
-
-    private fun setupTabs() {
-        val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
-//        val menTab: TextView = customMenuView.findViewById(R.id.menTab)
-//        val womenTab: TextView = customMenuView.findViewById(R.id.womenTab)
-
-        settingTab.setOnClickListener { selectTab(it, R.id.setting_group) }
-//        menTab.setOnClickListener { selectTab(it, R.id.men_group) }
-//        womenTab.setOnClickListener { selectTab(it, R.id.women_group) }
-
-        selectTab(settingTab, R.id.setting_group)
-    }
-
-    private fun selectTab(view: View, menuGroupId: Int) {
-        val tabLayout = customMenuView.findViewById<LinearLayout>(R.id.tabLayout)
-        val tabPosition = tabLayout.indexOfChild(view)
-        val tabWidth = view.width
-        val indicatorWidth = tabWidth / 3
-
-        val params = tabIndicator.layoutParams as LinearLayout.LayoutParams
-        params.width = indicatorWidth
-        params.leftMargin = (tabPosition * tabWidth) + (tabWidth - indicatorWidth) / 2
-        tabIndicator.layoutParams = params
-
-        setupMenuItems(menuGroupId)
-    }
-
-    private fun setupMenuItems(menuGroupId: Int) {
-        val menu = PopupMenu(this, null).menu
-        menuInflater.inflate(R.menu.main_menu, menu)
-        val items = mutableListOf<MenuItem>()
-        for (i in 0 until menu.size()) {
-            val item = menu.getItem(i)
-            if (item.groupId == menuGroupId) {
-                items.add(item)
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    // Keep current main content
+                    true
+                }
+                R.id.shoppingButton -> {
+                    startActivity(Intent(this, ItemsActivity::class.java))
+                    true
+                }
+                R.id.nav_blog -> {
+                    startActivity(Intent(this, BlogActivity::class.java))
+                    true
+                }
+                R.id.nav_profile -> {
+                    if (auth.currentUser != null) {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    } else {
+                        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                    true
+                }
+                else -> false
             }
         }
 
-        menuItemsRecyclerView.layoutManager = LinearLayoutManager(this)
-        menuItemsRecyclerView.adapter = MenuItemAdapter(items)
-    }
-
-    private inner class MenuItemAdapter(private val items: List<MenuItem>) :
-        RecyclerView.Adapter<MenuItemAdapter.ViewHolder>() {
-
-        inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-            val textView: TextView = view.findViewById(R.id.menu_item_text)
-            val iconView: ImageView = view.findViewById(R.id.menu_item_icon)
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = layoutInflater.inflate(R.layout.menu_item_layout, parent, false)
-            return ViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val item = items[position]
-            holder.textView.text = item.title
-            if (item.groupId == R.id.setting_group) {
-                holder.iconView.visibility = View.VISIBLE
-            } else {
-                holder.iconView.visibility = View.GONE
-            }
-        }
-
-        override fun getItemCount() = items.size
-    }
-
-    private fun updateLoginLogoutButton() {
-        val currentUser = auth.currentUser
-        Log.d("MainActivity", "Current user: ${currentUser?.email}")
-        if (currentUser != null) {
-            loginLogoutButton.text = "Log Out"
-            loginLogoutButton.setOnClickListener {
-                auth.signOut()
-                updateLoginLogoutButton()
-                Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
-            }
-        } else {
-            loginLogoutButton.text = "Log In"
-            loginLogoutButton.setOnClickListener {
-                startActivity(Intent(this, LoginActivity::class.java))
-            }
-        }
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.nav_home
     }
 }

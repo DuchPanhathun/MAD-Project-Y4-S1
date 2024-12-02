@@ -34,12 +34,44 @@ class BlogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
+        // Handle the back button click
+        val backButton: ImageButton = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            val origin = intent.getStringExtra("origin") // Retrieve the origin
+            when (origin) {
+                "BlogDetailActivity" -> {
+                    val intent = Intent(this, BlogDetailActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogActivity" -> {
+                    val intent = Intent(this, BlogActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogGridActivity" -> {
+                    val intent = Intent(this, BlogGridActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "MainActivity" -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                else -> {
+                    finish() // Default behavior if no origin is specified
+                }
+            }
+
+        }
+
 
         recyclerView = findViewById(R.id.blogRecyclerView)
         progressBar = findViewById(R.id.progressBar)
 
         auth = FirebaseAuth.getInstance()
-        
+
         if (viewModel.blogsState.value?.data == null) {
             viewModel.fetchBlogs()
         }
@@ -191,4 +223,5 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
+
 }
