@@ -83,16 +83,6 @@ class BlogDetailActivity : AppCompatActivity() {
             photosRecyclerView.adapter = AdditionalPhotosAdapter(blog.additionalPhotos)
         }
 
-        val shoppingButton: ImageButton = findViewById(R.id.shoppingButton)
-        shoppingButton.setOnClickListener {
-            val intent = Intent(this, ItemsActivity::class.java)
-            startActivity(intent)
-        }
-
-        val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener {
-            showCustomMenu()
-        }
     }
 
     private fun showCustomMenu() {
