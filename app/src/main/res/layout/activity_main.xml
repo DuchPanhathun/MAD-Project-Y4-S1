@@ -1,386 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/main"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView">
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".activity.MainActivity"
+            android:gravity="center">
+            
+            <include
+                android:id="@+id/toolbar_layout"
+                layout="@layout/toolbar_layout"/>
+
+            <!-- Carousel -->
+            <FrameLayout
+                android:id="@+id/carouselContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.55">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/coverImageCarousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/newArrivalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEW ARRIVAL"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="25sp"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/horizontal" />
+
+            <include layout="@layout/horizontal_scrollcard" />
+
+            <LinearLayout
+                android:id="@+id/exploreMoreLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/exploreMoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore More"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/tenor_sans"
+                    android:layout_marginEnd="8dp"/>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_forward_arrow"
+                    app:tint="#000000"
+                    android:contentDescription="Forward arrow"/>
+            </LinearLayout>
+            <!--Sponsor-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/horizontal"
+                    android:padding="10dp"/>
+                <!-- First row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor1"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor2"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor3"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+
+                <!-- Second row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor4"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor5"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/sponsor6"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/horizontal"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+            <!--Collection-->
+
+            <!-- Recommend -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/collection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/tenor_sans"
+                    android:padding="20sp"
+                    android:text="COLLECTION"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/collection1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/collection2" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/collection3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/justForU"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JUST FOR YOU"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/tenor_sans"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="10dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/horizontal"/>
+                <include layout="@layout/horizontal_scrollcard" />
+            </LinearLayout>
+
+            <!-- Benifit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="50dp"
+                android:background="@color/f2f2f2">
+                <TextView
+                    android:id="@+id/benifit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phnom Penh Trends"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/tenor_sans"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:id="@+id/decbenifit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Making a luxurious lifestyle accessible for a generous group of women is our daily drive."
+                    android:textSize="18sp"
+                    android:fontFamily="@font/tenor_sans"
+                    android:padding="30dp"
+                    android:textColor="@color/gray"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/horizontal"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="10dp">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/benefit1"/>
+                        <TextView
+                            android:id="@+id/benifit1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fast shipping. Free on orders over $25."
+                            android:textSize="18sp"
+                            android:fontFamily="@font/tenor_sans"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:textColor="@color/gray"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/benifit2"/>
+                        <TextView
+                            android:id="@+id/benifit2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sustainable process from start to finish."
+                            android:textSize="18sp"
+                            android:fontFamily="@font/tenor_sans"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/gray"
+                            android:gravity="center"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/benifit3"/>
+                        <TextView
+                            android:id="@+id/benifit3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unique designs and high-quality materials."
+                            android:textSize="18sp"
+                            android:fontFamily="@font/tenor_sans"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/gray"
+                            android:gravity="center"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/benifit4"/>
+                        <TextView
+                            android:id="@+id/benifit4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fast shipping. Free on orders over $25."
+                            android:textSize="18sp"
+                            android:fontFamily="@font/tenor_sans"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:textColor="@color/gray"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <include layout="@layout/footer_layout" />
+
+            <kh.edu.rupp.ite.mad_project_y4_s1.CustomTabLayout
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@android:color/transparent"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottomNavigationView"
+        layout="@layout/bottom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".activity.MainActivity"
-        android:gravity="center">
-        
-        <include
-            android:id="@+id/toolbar_layout"
-            layout="@layout/toolbar_layout"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- Carousel -->
-        <FrameLayout
-            android:id="@+id/carouselContainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.55">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/coverImageCarousel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/newArrivalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NEW ARRIVAL"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/tenor_sans"
-            android:layout_marginTop="25sp"
-            android:layout_gravity="center_horizontal"
-            />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/horizontal" />
-
-        <include layout="@layout/horizontal_scrollcard" />
-
-        <LinearLayout
-            android:id="@+id/exploreMoreLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="16dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-
-            <TextView
-                android:id="@+id/exploreMoreText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Explore More"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/tenor_sans"
-                android:layout_marginEnd="8dp"/>
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/ic_forward_arrow"
-                app:tint="#000000"
-                android:contentDescription="Forward arrow"/>
-        </LinearLayout>
-        <!--Sponsor-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/horizontal"
-                android:padding="10dp"/>
-            <!-- First row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor1"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor2"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor3"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-            </LinearLayout>
-
-            <!-- Second row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor4"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor5"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/sponsor6"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="8dp"/>
-
-            </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/horizontal"
-                android:padding="10dp"/>
-        </LinearLayout>
-
-        <!--Collection-->
-
-        <!-- Recommend -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/collection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/tenor_sans"
-                android:padding="20sp"
-                android:text="COLLECTION"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/collection1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/collection2" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/collection3" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/justForU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JUST FOR YOU"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/tenor_sans"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/horizontal"/>
-            <include layout="@layout/horizontal_scrollcard" />
-        </LinearLayout>
-
-        <!-- Benifit -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginTop="50dp"
-            android:background="@color/f2f2f2">
-            <TextView
-                android:id="@+id/benifit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phnom Penh Trends"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/tenor_sans"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:id="@+id/decbenifit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Making a luxurious lifestyle accessible for a generous group of women is our daily drive."
-                android:textSize="18sp"
-                android:fontFamily="@font/tenor_sans"
-                android:padding="30dp"
-                android:textColor="@color/gray"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/horizontal"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="20dp"
-                android:layout_marginTop="10dp">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/benefit1"/>
-                    <TextView
-                        android:id="@+id/benifit1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fast shipping. Free on orders over $25."
-                        android:textSize="18sp"
-                        android:fontFamily="@font/tenor_sans"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:textColor="@color/gray"
-                        android:layout_gravity="center_horizontal"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/benifit2"/>
-                    <TextView
-                        android:id="@+id/benifit2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sustainable process from start to finish."
-                        android:textSize="18sp"
-                        android:fontFamily="@font/tenor_sans"
-                        android:layout_marginTop="16dp"
-                        android:textColor="@color/gray"
-                        android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="20dp">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/benifit3"/>
-                    <TextView
-                        android:id="@+id/benifit3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unique designs and high-quality materials."
-                        android:textSize="18sp"
-                        android:fontFamily="@font/tenor_sans"
-                        android:layout_marginTop="16dp"
-                        android:textColor="@color/gray"
-                        android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/benifit4"/>
-                    <TextView
-                        android:id="@+id/benifit4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fast shipping. Free on orders over $25."
-                        android:textSize="18sp"
-                        android:fontFamily="@font/tenor_sans"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:textColor="@color/gray"
-                        android:layout_gravity="center_horizontal"/>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <include layout="@layout/footer_layout" />
-
-        <kh.edu.rupp.ite.mad_project_y4_s1.CustomTabLayout
-            android:id="@+id/indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@android:color/transparent"
-            android:paddingBottom="16dp" />
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

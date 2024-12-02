@@ -31,6 +31,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import androidx.appcompat.widget.SearchView
 import android.widget.EditText
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loginLogoutButton: TextView
     private lateinit var searchView: SearchView
     private lateinit var searchButton: ImageButton
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -135,6 +137,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         setupSearch()
+
+        // Setup bottom navigation
+        setupBottomNavigation()
     }
 
     private fun setupSearch() {
@@ -334,5 +339,39 @@ class MainActivity : AppCompatActivity() {
         if (::popupWindow.isInitialized && popupWindow.isShowing) {
             updateLoginLogoutButton()
         }
+    }
+
+    private fun setupBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    // Keep current main content
+                    true
+                }
+                R.id.shoppingButton -> {
+                    startActivity(Intent(this, ItemsActivity::class.java))
+                    true
+                }
+                R.id.nav_blog -> {
+                    startActivity(Intent(this, BlogActivity::class.java))
+                    true
+                }
+                R.id.nav_profile -> {
+                    if (auth.currentUser != null) {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    } else {
+                        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
+
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.nav_home
     }
 }
