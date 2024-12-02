@@ -31,24 +31,13 @@
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
-                android:layout_width="match_parent"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:iconifiedByDefault="true"
-                android:queryHint="Search products"
-                android:background="@drawable/search_background"
-                android:elevation="2dp"/>
+                android:queryHint="Search products" />
 
-            <ImageButton
-                android:id="@+id/searchButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_search"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginEnd="8dp"
-                android:onClick="onSearchButtonClick" />
         </LinearLayout>
 
     </RelativeLayout>
