@@ -55,12 +55,14 @@ class BlogDetailActivity : AppCompatActivity() {
         val contactUsText: TextView = findViewById(R.id.contact_us_Text)
         contactUsText.setOnClickListener {
             val intent = Intent(this, ContactUsActivity::class.java)
+            intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
             startActivity(intent)
         }
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
+            intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
             startActivity(intent)
         }
 
