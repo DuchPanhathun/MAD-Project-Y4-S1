@@ -5,14 +5,7 @@
     android:orientation="vertical">
 
     <!-- Add this at the top of your layout -->
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow_left"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:padding="16dp"
-        android:contentDescription="Back button"/>
+    <include layout="@layout/toolbar_layout2"/>
 
     <!-- Scrollable content -->
     <ScrollView

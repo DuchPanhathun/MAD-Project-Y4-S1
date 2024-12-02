@@ -101,6 +101,7 @@
                 android:textColor="@color/fcfcfc"
                 android:fontFamily="@font/tenor_sans"/>
             <ImageButton
+                android:id="@+id/favoriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/heart"

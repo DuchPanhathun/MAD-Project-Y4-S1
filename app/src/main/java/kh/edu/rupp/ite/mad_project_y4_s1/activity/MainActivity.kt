@@ -33,6 +33,9 @@ import androidx.appcompat.widget.SearchView
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.core.content.ContextCompat
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loginLogoutButton: TextView
     private lateinit var searchView: SearchView
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var viewModel: FavoritesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,6 +127,9 @@ class MainActivity : AppCompatActivity() {
 
         // Setup bottom navigation
         setupBottomNavigation()
+
+        // Initialize ViewModel
+        viewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
     }
 
     private fun setupSearch() {
@@ -352,7 +359,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.order -> {
-                    startActivity(Intent(this, ItemsActivity::class.java))
+                    startActivity(Intent(this, OrderActivity::class.java))
                     true
                 }
                 R.id.nav_blog -> {

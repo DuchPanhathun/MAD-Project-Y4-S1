@@ -33,12 +33,7 @@
         <activity android:name=".activity.ProfileActivity" android:exported="false" />
         <activity android:name=".activity.ContactUsActivity" />
         <activity android:name=".activity.AboutActivity" android:exported="true"/>
-
-
-
-
-
-
+        <activity android:name=".activity.OrderActivity" />
 
     </application>
 </manifest>
