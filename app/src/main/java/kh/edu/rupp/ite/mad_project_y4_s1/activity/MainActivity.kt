@@ -351,6 +351,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, ItemsActivity::class.java))
                     true
                 }
+                R.id.order -> {
+                    startActivity(Intent(this, ItemsActivity::class.java))
+                    true
+                }
                 R.id.nav_blog -> {
                     startActivity(Intent(this, BlogActivity::class.java))
                     true
