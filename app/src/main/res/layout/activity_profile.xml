@@ -96,6 +96,7 @@
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <!-- Change Password Section Title -->
         <TextView
             android:layout_width="wrap_content"
@@ -192,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp">
 
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/expMonthEdit"
                     android:layout_width="match_parent"
@@ -246,7 +248,18 @@
                 android:hint="Name on Card"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Save Button -->
+        <!-- Login/Logout Button -->
+        <Button
+            android:id="@+id/loginLogoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Log Out"
+            android:textColor="#DD8560"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:background="?android:attr/selectableItemBackground" />
+
         <Button
             android:id="@+id/saveButton"
             android:layout_width="match_parent"

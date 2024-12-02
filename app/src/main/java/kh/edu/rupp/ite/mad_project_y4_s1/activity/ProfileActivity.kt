@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -35,6 +36,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var newPasswordEdit: EditText
     private lateinit var confirmNewPasswordEdit: EditText
     private lateinit var updatePasswordButton: Button
+    private lateinit var loginLogoutButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,10 @@ class ProfileActivity : AppCompatActivity() {
         newPasswordEdit = findViewById(R.id.newPasswordEdit)
         confirmNewPasswordEdit = findViewById(R.id.confirmNewPasswordEdit)
         updatePasswordButton = findViewById(R.id.updatePasswordButton)
+        loginLogoutButton = findViewById(R.id.loginLogoutButton)
+
+        // Setup login/logout button
+        updateLoginLogoutButton()
 
         // Get current user data
         auth.currentUser?.let { firebaseUser ->
@@ -168,5 +174,32 @@ class ProfileActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun updateLoginLogoutButton() {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // User is logged in
+            loginLogoutButton.text = "Log Out"
+            loginLogoutButton.setOnClickListener {
+                auth.signOut()
+                Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+                // Redirect to login screen
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        } else {
+            // User is not logged in
+            loginLogoutButton.text = "Log In"
+            loginLogoutButton.setOnClickListener {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateLoginLogoutButton()
     }
 } 
