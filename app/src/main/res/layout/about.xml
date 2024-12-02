@@ -9,8 +9,7 @@
         android:layout_height="wrap_content">
 
         <!-- Navigation Bar (Toolbar) -->
-        <include layout="@layout/toolbar_layout" />
-
+        <include layout="@layout/toolbar_layout2" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
