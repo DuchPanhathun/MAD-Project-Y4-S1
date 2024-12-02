@@ -50,10 +50,6 @@ class ItemsActivity : AppCompatActivity() {
         setupRecyclerView()
         observeState()
 
-        val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener {
-            showCustomMenu()
-        }
     }
 
     private fun showCustomMenu() {

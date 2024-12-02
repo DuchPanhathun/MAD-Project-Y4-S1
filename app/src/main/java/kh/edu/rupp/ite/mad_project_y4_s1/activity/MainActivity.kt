@@ -54,10 +54,6 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
-        // Set drawables programmatically
-        findViewById<ImageButton>(R.id.searchButton).setImageResource(R.drawable.ic_search)
-        findViewById<ImageButton>(R.id.shoppingButton).setImageResource(R.drawable.ic_shopping_bag)
-
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(
             R.drawable.cover_image1,
@@ -92,19 +88,6 @@ class MainActivity : AppCompatActivity() {
                 sliderHandler.postDelayed(sliderRunnable, 2000) // Change image every 2 seconds
             }
         })
-
-        // Add menu functionality
-        val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener { 
-            showCustomMenu()
-        }
-
-        // Add this new code to handle the click event for the shopping button
-        val shoppingButton: ImageButton = findViewById(R.id.shoppingButton)
-        shoppingButton.setOnClickListener {
-            val intent = Intent(this, ItemsActivity::class.java)
-            startActivity(intent)
-        }
 
         // Add this new code to handle the click event
         val newArrivalText: TextView = findViewById(R.id.newArrivalText)
@@ -343,6 +326,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        
+        // Set icons programmatically if needed
+        bottomNavigationView.menu.findItem(R.id.shoppingButton)?.setIcon(R.drawable.ic_shopping_bag)
         
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
