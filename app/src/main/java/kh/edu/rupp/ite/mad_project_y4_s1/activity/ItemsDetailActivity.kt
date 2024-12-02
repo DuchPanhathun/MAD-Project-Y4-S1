@@ -34,6 +34,7 @@ class ItemDetailActivity : AppCompatActivity() {
         // Get item from intent
         val item = intent.getParcelableExtra<Item>("item")
         item?.let { displayItemDetails(it) }
+
     }
 
     private fun initializeViews() {

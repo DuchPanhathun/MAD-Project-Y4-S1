@@ -28,6 +28,8 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.ItemsViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class ItemsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -39,16 +41,81 @@ class ItemsActivity : AppCompatActivity() {
     private lateinit var menuItemsRecyclerView: RecyclerView
     private lateinit var loginLogoutButton: TextView
     private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+
+        // Set up the BottomNavigationView listener
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Navigate to HomeActivity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.shoppingButton -> {
+                    // Navigate to ShopActivity
+                    val intent = Intent(this, ItemsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_blog -> {
+                    // Navigate to BlogActivity
+                    val intent = Intent(this, BlogActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Navigate to ProfileActivity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
 
         recyclerView = findViewById(R.id.itemsRecyclerView)
         progressBar = findViewById(R.id.progressBar)
 
         setupRecyclerView()
         observeState()
+
+        // Handle the back button click
+        val backButton: ImageButton = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            val origin = intent.getStringExtra("origin") // Retrieve the origin
+            when (origin) {
+                "BlogDetailActivity" -> {
+                    val intent = Intent(this, BlogDetailActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogActivity" -> {
+                    val intent = Intent(this, BlogActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "BlogGridActivity" -> {
+                    val intent = Intent(this, BlogGridActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                }
+                "MainActivity" -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // Clear the stack above MainActivity
+                    startActivity(intent)
+                }
+                else -> {
+                    finish() // Default behavior if no origin is specified
+                }
+            }
+        }
 
     }
 
@@ -63,7 +130,6 @@ class ItemsActivity : AppCompatActivity() {
             true
         )
         popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-
         // Set up exit button
         val exitButton: ImageButton = customMenuView.findViewById(R.id.exitButton)
         exitButton.setOnClickListener {
