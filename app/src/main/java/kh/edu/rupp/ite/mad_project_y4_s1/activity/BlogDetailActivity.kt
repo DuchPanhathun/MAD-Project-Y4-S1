@@ -56,9 +56,8 @@ class BlogDetailActivity : AppCompatActivity() {
         }
 
         // Handle the back button click
-        val backButton: ImageButton = findViewById(R.id.backButton)
-        backButton.setOnClickListener {
-            val origin = intent.getStringExtra("origin") // Retrieve the origin
+        findViewById<ImageButton>(R.id.backButton)?.setOnClickListener {
+            val origin = intent.getStringExtra("origin")
             when (origin) {
                 "BlogDetailActivity" -> {
                     val intent = Intent(this, BlogDetailActivity::class.java)
@@ -81,7 +80,7 @@ class BlogDetailActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 else -> {
-                    finish() // Default behavior if no origin is specified
+                    finish()
                 }
             }
         }
@@ -137,6 +136,10 @@ class BlogDetailActivity : AppCompatActivity() {
                     true
                 }
                 R.id.shoppingButton -> {
+                    startActivity(Intent(this, ItemsActivity::class.java))
+                    true
+                }
+                R.id.order -> {
                     startActivity(Intent(this, ItemsActivity::class.java))
                     true
                 }

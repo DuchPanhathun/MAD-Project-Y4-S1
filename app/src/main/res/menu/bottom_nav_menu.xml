@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_shopping_bag"
         android:title="Shop" />
     <item
+        android:id="@+id/order"
+        android:icon="@drawable/ic_order"
+        android:title="Order" />
+    <item
         android:id="@+id/nav_blog"
         android:icon="@drawable/ic_blog"
         android:title="Blog" />
@@ -16,4 +20,4 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_person"
         android:title="Profile" />
-</menu> 
+</menu>
