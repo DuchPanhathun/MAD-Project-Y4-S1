@@ -18,6 +18,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.adapter.BlogAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Blog
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BlogViewModel
 
 class BlogActivity : AppCompatActivity() {
@@ -30,10 +31,45 @@ class BlogActivity : AppCompatActivity() {
     private lateinit var menuItemsRecyclerView: RecyclerView
     private lateinit var tabIndicator: View
     private lateinit var loginLogoutButton: TextView
+    private lateinit var bottomNavigationView: BottomNavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+
+        // Set up the BottomNavigationView listener
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Navigate to HomeActivity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.shoppingButton -> {
+                    // Navigate to ShopActivity
+                    val intent = Intent(this, ItemsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_blog -> {
+                    // Navigate to BlogActivity
+                    val intent = Intent(this, BlogActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Navigate to ProfileActivity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
         // Handle the back button click
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {

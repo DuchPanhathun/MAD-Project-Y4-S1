@@ -4,34 +4,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
 
-class ItemsAdapter(
-    private val items: List<Item>,
-    private val onItemClick: (Item) -> Unit
-) : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item) -> Unit) :
+    RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemImage: ImageView = view.findViewById(R.id.itemImage)
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val brandNameText: TextView = view.findViewById(R.id.brandNameText)
         val typeText: TextView = view.findViewById(R.id.typeText)
         val priceText: TextView = view.findViewById(R.id.priceText)
         val sizesText: TextView = view.findViewById(R.id.sizesText)
+        val itemImage: ImageView = view.findViewById(R.id.itemImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        
+
+        // Truncate the title if it exceeds 20 words
+        holder.brandNameText.text = truncateTitle(item.brandName, 20) // Adjust 20 if needed
+        holder.typeText.text = item.type
+        holder.priceText.text = "$${item.price}"
+        holder.sizesText.text = "Sizes: ${item.sizes.joinToString(", ")}"
+
         // Load the first image from the images list
         if (item.images.isNotEmpty()) {
             Glide.with(holder.itemImage.context)
@@ -39,15 +42,20 @@ class ItemsAdapter(
                 .into(holder.itemImage)
         }
 
-        holder.brandNameText.text = item.brandName
-        holder.typeText.text = item.type
-        holder.priceText.text = "$${item.price}"
-        holder.sizesText.text = "Sizes: ${item.sizes.joinToString(", ")}"
-        
         holder.itemView.setOnClickListener {
             onItemClick(item)
         }
     }
 
     override fun getItemCount() = items.size
+
+    // Helper function to truncate the title
+    private fun truncateTitle(title: String, wordLimit: Int): String {
+        val words = title.split(" ")
+        return if (words.size > wordLimit) {
+            words.take(wordLimit).joinToString(" ") + "..."
+        } else {
+            title
+        }
+    }
 }

@@ -247,6 +247,18 @@ class ItemsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+    private fun truncateTitle(title: String, wordLimit: Int): String {
+        val words = title.split(" ")
+        return if (words.size > wordLimit) {
+            words.take(wordLimit).joinToString(" ") + "..."
+        } else {
+            title
+        }
+    }
+
+
+
+
     private fun observeState() {
         viewModel.itemsState.observe(this) { response ->
             when (response.status) {
@@ -264,6 +276,7 @@ class ItemsActivity : AppCompatActivity() {
                         recyclerView.adapter = adapter
                     }
                 }
+
                 ApiState.ERROR -> {
                     progressBar.visibility = View.GONE
                     Toast.makeText(this, response.error ?: "Error loading items", Toast.LENGTH_LONG).show()
