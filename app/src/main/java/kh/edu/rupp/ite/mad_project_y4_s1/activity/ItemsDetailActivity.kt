@@ -78,5 +78,7 @@ class ItemDetailActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
             adapter = CareDetailsAdapter(item.careDetails)
         }
+
     }
+
 }
