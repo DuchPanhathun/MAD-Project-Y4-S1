@@ -32,6 +32,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import androidx.appcompat.widget.SearchView
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -46,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
     private lateinit var searchView: SearchView
-    private lateinit var searchButton: ImageButton
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,9 +127,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupSearch() {
         searchView = findViewById(R.id.searchView)
-        searchButton = findViewById(R.id.searchButton)
+        
+        // Configure SearchView
+        searchView.isIconified = true // Start in collapsed state
+        searchView.setOnSearchClickListener {
+            // When search is clicked, expand the width
+            val params = searchView.layoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            searchView.layoutParams = params
+            searchView.background = ContextCompat.getDrawable(this, R.drawable.search_background)
+        }
+        
+        searchView.setOnCloseListener {
+            // When search is closed, restore original width
+            val params = searchView.layoutParams
+            params.width = 48.dpToPx(this) // Convert 48dp to pixels
+            searchView.layoutParams = params
+            searchView.background = null
+            false
+        }
 
-        // Make SearchView full width and customize its appearance
         val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
         searchEditText.setTextColor(Color.BLACK)
         searchEditText.setHintTextColor(Color.GRAY)
@@ -147,15 +164,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun onSearchButtonClick(view: View) {
-        if (searchView.visibility == View.GONE) {
-            searchView.visibility = View.VISIBLE
-            searchView.isIconified = false  // Shows keyboard and expands SearchView
-        } else {
-            searchView.visibility = View.GONE
-            searchView.setQuery("", false)  // Clears the query
-            searchView.isIconified = true
-        }
+    // Add this extension function to convert dp to pixels
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
     }
 
     private fun performSearch(query: String) {
