@@ -38,9 +38,10 @@
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:hint="Password" />
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
 
     </LinearLayout>
     <Button
@@ -49,7 +50,10 @@
         android:layout_height="wrap_content"
         android:text="Log In"
         android:layout_marginTop="10dp"
+        android:background="@drawable/button_style"
+        android:backgroundTint="@color/black"
         android:padding="17dp"/>
+
     <TextView
         android:id="@+id/textLetter"
         android:layout_width="wrap_content"
