@@ -7,6 +7,7 @@
 
     <!-- Include the toolbar layout at the top -->
     <include layout="@layout/toolbar_layout" />
+<<<<<<< HEAD
 
 
     <LinearLayout
@@ -135,6 +136,8 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </LinearLayout>
+=======
+>>>>>>> c5b08451667508725333c6ac3179e67d25b45771
     <!-- Main content area with RecyclerView and ProgressBar -->
 
     <FrameLayout

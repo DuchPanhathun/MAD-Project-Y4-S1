@@ -73,6 +73,7 @@
         android:gravity="center"
         android:padding="20dp">
         <TextView
+            android:id="@+id/aboutText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About"
@@ -81,6 +82,7 @@
             android:padding="15dp"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/contact_us_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact"
