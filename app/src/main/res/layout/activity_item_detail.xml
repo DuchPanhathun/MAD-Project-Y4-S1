@@ -78,49 +78,14 @@
             android:orientation="horizontal"
             android:background="@color/black"
             android:padding="20dp">
-
             <LinearLayout
                 android:id="@+id/addToBasketContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginEnd="16dp">
-
-                    <ImageButton
-                        android:id="@+id/decreaseQuantity"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/minus"
-                        android:background="@color/black"
-                        android:tint="@color/fcfcfc"/>
-
-                    <TextView
-                        android:id="@+id/quantityTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textSize="16sp"
-                        android:textColor="@color/fcfcfc"
-                        android:layout_marginHorizontal="8dp"/>
-
-                    <ImageButton
-                        android:id="@+id/increaseQuantity"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/plus"
-                        android:background="@color/black"
-                        android:tint="@color/fcfcfc"/>
-                </LinearLayout>
-
+                
                 <ImageButton
                     android:id="@+id/purchaseButton"
                     android:layout_width="wrap_content"
