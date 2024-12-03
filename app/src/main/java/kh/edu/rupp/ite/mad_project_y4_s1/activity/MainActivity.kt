@@ -94,31 +94,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Add this new code to handle the click event
-        val newArrivalText: TextView = findViewById(R.id.newArrivalText)
-        newArrivalText.setOnClickListener {
-            Log.d("MainActivity", "New Arrival text clicked")
-            try {
-                val intent = Intent(this, BlogGridActivity::class.java)
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error starting BlogGridActivity", e)
-                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        val exploreMoreLayout: LinearLayout = findViewById(R.id.exploreMoreLayout)
-        exploreMoreLayout.setOnClickListener {
-            Log.d("MainActivity", "Explore More clicked")
-            try {
-                val intent = Intent(this, BlogGridActivity::class.java)
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error starting BlogGridActivity", e)
-                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         // Add blog text click handler
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
