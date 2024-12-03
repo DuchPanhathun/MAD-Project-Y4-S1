@@ -37,8 +37,6 @@ class ItemDetailActivity : AppCompatActivity() {
     private lateinit var heartButton: ImageButton
     private val viewModel: FavoritesViewModel by viewModels()
     private lateinit var auth: FirebaseAuth
-    private var selectedColor: String? = null
-    private var selectedSize: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,25 +114,13 @@ class ItemDetailActivity : AppCompatActivity() {
         // Set up colors RecyclerView
         colorsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            val colorAdapter = ColorAdapter(item.colors)
-            colorAdapter.setOnColorSelectedListener { color ->
-                selectedColor = color
-                // Optional: Show selection feedback
-                Toast.makeText(this@ItemDetailActivity, "Selected color: $color", Toast.LENGTH_SHORT).show()
-            }
-            adapter = colorAdapter
+            adapter = ColorAdapter(item.colors)
         }
 
         // Set up sizes RecyclerView
         sizesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            val sizeAdapter = SizeAdapter(item.sizes)
-            sizeAdapter.setOnSizeSelectedListener { size ->
-                selectedSize = size
-                // Optional: Show selection feedback
-                Toast.makeText(this@ItemDetailActivity, "Selected size: $size", Toast.LENGTH_SHORT).show()
-            }
-            adapter = sizeAdapter
+            adapter = SizeAdapter(item.sizes)
         }
 
         // Set up care details RecyclerView
