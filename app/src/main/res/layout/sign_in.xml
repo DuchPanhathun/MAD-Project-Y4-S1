@@ -35,13 +35,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email" />
-        <EditText
-            android:id="@+id/editPassword"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:gravity="center_vertical">
+
+            <!-- EditText -->
+            <EditText
+                android:id="@+id/editPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingEnd="10dp"
+                android:textSize="16dp"/>
+
+            <!-- ImageView for the Eye icon -->
+            <ImageView
+                android:id="@+id/eyeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/visible"
+                android:contentDescription="Toggle password visibility"
+                android:clickable="true"
+                android:focusable="true" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
     <Button
