@@ -2,8 +2,10 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -15,6 +17,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.AuthViewModel
 
 class LoginActivity : AppCompatActivity() {
     private val viewModel: AuthViewModel by viewModels()
+    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +25,15 @@ class LoginActivity : AppCompatActivity() {
 
         val emailEditText: EditText = findViewById(R.id.editEmail)
         val passwordEditText: EditText = findViewById(R.id.editPassword)
+        val passwordEyeIcon: ImageView = findViewById(R.id.eyeIcon)
         val loginButton: Button = findViewById(R.id.loginButton)
         val signUpText: TextView = findViewById(R.id.textLetter)
+
+        // Handle password visibility toggle
+        passwordEyeIcon.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            togglePasswordVisibility(passwordEditText, isPasswordVisible, passwordEyeIcon)
+        }
 
         lifecycleScope.launch {
             viewModel.authState.collect { result ->
@@ -52,5 +62,19 @@ class LoginActivity : AppCompatActivity() {
         signUpText.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
+    }
+
+    private fun togglePasswordVisibility(editText: EditText, isVisible: Boolean, eyeIcon: ImageView) {
+        if (isVisible) {
+            // Set password visibility
+            editText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            eyeIcon.setImageResource(R.drawable.visible) // Open-eye icon
+        } else {
+            // Set password as hidden
+            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            eyeIcon.setImageResource(R.drawable.hide) // Closed-eye icon
+        }
+
+        editText.setSelection(editText.text.length)
     }
 }
