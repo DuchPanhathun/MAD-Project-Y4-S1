@@ -8,8 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
         <include layout="@layout/toolbar_layout2"/>
 
         <androidx.viewpager2.widget.ViewPager2
@@ -19,22 +18,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp"/>
+            app:layout_constraintEnd_toEndOf="parent" />
         <TextView
             android:id="@+id/brandNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:padding="16dp"/>
 
         <TextView
             android:id="@+id/typeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:padding="16dp"/>
 
         <TextView
@@ -44,7 +40,6 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/red"
-            android:layout_marginTop="8dp"
             android:padding="16dp"/>
 
 
@@ -53,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:text="Colors:"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
                 android:padding="16dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -62,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:clipToPadding="false"
-                android:paddingHorizontal="8dp"
                 android:padding="16dp"/>
 
         <TextView
@@ -70,7 +63,6 @@
             android:layout_height="wrap_content"
             android:text="Sizes:"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:padding="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -79,29 +71,40 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:clipToPadding="false"
-            android:paddingHorizontal="8dp"
             android:padding="16dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@color/black"
-            android:padding="10dp">
-            <ImageButton
-                android:id="@+id/addToBasket"
+            android:padding="20dp">
+            <LinearLayout
+                android:id="@+id/addToBasketContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/plus"
-                android:background="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Add To Basket"
-                android:layout_marginLeft="30dp"
-                android:textSize="16dp"
-                android:textColor="@color/fcfcfc"
-                android:fontFamily="@font/tenor_sans"/>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+                
+                <ImageButton
+                    android:id="@+id/purchaseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/plus"
+                    android:background="@color/black"/>
+                    
+                <TextView
+                    android:id="@+id/addToBasketText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Add To Basket"
+                    android:layout_marginLeft="30dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/fcfcfc"
+                    android:fontFamily="@font/tenor_sans"/>
+                    
+            </LinearLayout>
             <ImageButton
                 android:id="@+id/favoriteButton"
                 android:layout_width="wrap_content"
@@ -115,38 +118,32 @@
             android:layout_height="wrap_content"
             android:text="Materials"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:padding="16dp"/>
 
         <TextView
             android:id="@+id/materialDetailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="16dp"/>
+            android:paddingLeft="16dp"/>
 
         <TextView
             android:id="@+id/additionalCareDetailsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="16dp"/>
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/careDetailsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:paddingHorizontal="8dp"
             android:padding="16dp"/>
 
         <TextView
             android:id="@+id/deliveryDatesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:padding="16dp"/>
-
     </LinearLayout>
 </ScrollView>
