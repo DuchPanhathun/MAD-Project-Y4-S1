@@ -16,8 +16,9 @@ data class Item(
     @PropertyName("careDetails") val careDetails: List<String> = listOf(),
     @PropertyName("deliveryStartDate") val deliveryStartDate: String = "",
     @PropertyName("deliveryEndDate") val deliveryEndDate: String = "",
-    @PropertyName("images") val images: List<String> = listOf()
+    @PropertyName("images") val images: List<String> = listOf(),
+    @PropertyName("timestamp") val timestamp: Long = 0L
 ) : Parcelable {
     // Required no-argument constructor for Firestore
-    constructor() : this("", "", "", listOf(), listOf(), "", "", listOf(), "", "", listOf())
+    constructor() : this("", "", "", listOf(), listOf(), "", "", listOf(), "", "", listOf(), 0L)
 }

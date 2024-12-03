@@ -14,14 +14,12 @@ import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ColorAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.SizeAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CareDetailsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
-import android.widget.ImageButton
 import androidx.activity.viewModels
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.FavoriteItem
 import android.widget.Toast
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import android.content.Intent
 import kh.edu.rupp.ite.mad_project_y4_s1.activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -39,6 +37,8 @@ class ItemDetailActivity : AppCompatActivity() {
     private lateinit var heartButton: ImageButton
     private val viewModel: FavoritesViewModel by viewModels()
     private lateinit var auth: FirebaseAuth
+    private var selectedColor: String? = null
+    private var selectedSize: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,13 +116,25 @@ class ItemDetailActivity : AppCompatActivity() {
         // Set up colors RecyclerView
         colorsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = ColorAdapter(item.colors)
+            val colorAdapter = ColorAdapter(item.colors)
+            colorAdapter.setOnColorSelectedListener { color ->
+                selectedColor = color
+                // Optional: Show selection feedback
+                Toast.makeText(this@ItemDetailActivity, "Selected color: $color", Toast.LENGTH_SHORT).show()
+            }
+            adapter = colorAdapter
         }
 
         // Set up sizes RecyclerView
         sizesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = SizeAdapter(item.sizes)
+            val sizeAdapter = SizeAdapter(item.sizes)
+            sizeAdapter.setOnSizeSelectedListener { size ->
+                selectedSize = size
+                // Optional: Show selection feedback
+                Toast.makeText(this@ItemDetailActivity, "Selected size: $size", Toast.LENGTH_SHORT).show()
+            }
+            adapter = sizeAdapter
         }
 
         // Set up care details RecyclerView

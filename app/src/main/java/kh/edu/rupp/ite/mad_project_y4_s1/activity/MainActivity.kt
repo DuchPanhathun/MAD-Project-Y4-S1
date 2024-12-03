@@ -24,6 +24,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.content.Intent
 import android.util.Log
+import android.net.Uri
 import com.google.firebase.auth.FirebaseAuth
 import android.view.LayoutInflater
 import android.content.Context
@@ -130,6 +131,21 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize ViewModel
         viewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
+
+        findViewById<ImageView>(R.id.facebookButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=100026153991813&mibextid=9R9pXO"))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.instagramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/duch_panhathun/profilecard/?igsh=MTN4dmZ6cXkxM2EzMA=="))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.telegramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/nhacool"))
+            startActivity(intent)
+        }
     }
 
     private fun setupSearch() {

@@ -19,7 +19,7 @@
             android:orientation="vertical"
             tools:context=".activity.MainActivity"
             android:gravity="center">
-            
+
             <include
                 android:id="@+id/toolbar_layout"
                 layout="@layout/toolbar_layout"/>
