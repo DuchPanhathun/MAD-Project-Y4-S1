@@ -24,11 +24,19 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.content.Intent
 import android.util.Log
+import android.net.Uri
 import com.google.firebase.auth.FirebaseAuth
 import android.view.LayoutInflater
 import android.content.Context
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+import androidx.appcompat.widget.SearchView
+import android.widget.EditText
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.core.content.ContextCompat
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -42,15 +50,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var popupWindow: PopupWindow
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
+    private lateinit var searchView: SearchView
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var viewModel: FavoritesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
-
-        // Set drawables programmatically
-        findViewById<ImageButton>(R.id.searchButton).setImageResource(R.drawable.ic_search)
-        findViewById<ImageButton>(R.id.shoppingButton).setImageResource(R.drawable.ic_shopping_bag)
 
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(
@@ -60,6 +67,19 @@ class MainActivity : AppCompatActivity() {
         )
         
         coverImageCarousel.adapter = CoverImageAdapter(images)
+        //Add About
+        val aboutText: TextView = findViewById(R.id.aboutText)
+        aboutText.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Add contact us
+        val contactUsText: TextView = findViewById(R.id.contact_us_Text)
+        contactUsText.setOnClickListener {
+            val intent = Intent(this, ContactUsActivity::class.java)
+            startActivity(intent)
+        }
 
         // Set up the indicator
         val tabLayout: TabLayout = findViewById(R.id.indicator)
@@ -73,19 +93,6 @@ class MainActivity : AppCompatActivity() {
                 sliderHandler.postDelayed(sliderRunnable, 2000) // Change image every 2 seconds
             }
         })
-
-        // Add menu functionality
-        val menuButton: ImageButton = findViewById(R.id.menuButton)
-        menuButton.setOnClickListener { 
-            showCustomMenu()
-        }
-
-        // Add this new code to handle the click event for the shopping button
-        val shoppingButton: ImageButton = findViewById(R.id.shoppingButton)
-        shoppingButton.setOnClickListener {
-            val intent = Intent(this, ItemsActivity::class.java)
-            startActivity(intent)
-        }
 
         // Add this new code to handle the click event
         val newArrivalText: TextView = findViewById(R.id.newArrivalText)
@@ -116,6 +123,84 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
         }
+
+        setupSearch()
+
+        // Setup bottom navigation
+        setupBottomNavigation()
+
+        // Initialize ViewModel
+        viewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
+
+        findViewById<ImageView>(R.id.facebookButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=100026153991813&mibextid=9R9pXO"))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.instagramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/duch_panhathun/profilecard/?igsh=MTN4dmZ6cXkxM2EzMA=="))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.telegramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/nhacool"))
+            startActivity(intent)
+        }
+    }
+
+    private fun setupSearch() {
+        searchView = findViewById(R.id.searchView)
+        
+        // Configure SearchView
+        searchView.isIconified = true // Start in collapsed state
+        searchView.setOnSearchClickListener {
+            // When search is clicked, expand the width
+            val params = searchView.layoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            searchView.layoutParams = params
+            searchView.background = ContextCompat.getDrawable(this, R.drawable.search_background)
+        }
+        
+        searchView.setOnCloseListener {
+            // When search is closed, restore original width
+            val params = searchView.layoutParams
+            params.width = 48.dpToPx(this) // Convert 48dp to pixels
+            searchView.layoutParams = params
+            searchView.background = null
+            false
+        }
+
+        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setTextColor(Color.BLACK)
+        searchEditText.setHintTextColor(Color.GRAY)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { performSearch(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { performSearch(it) }
+                return true
+            }
+        })
+    }
+
+    // Add this extension function to convert dp to pixels
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
+    }
+
+    private fun performSearch(query: String) {
+        // TODO: Implement your search logic here
+        // For example:
+        Toast.makeText(this, "Searching for: $query", Toast.LENGTH_SHORT).show()
+        
+        // You might want to:
+        // 1. Start a new SearchResultsActivity with the query
+        // 2. Filter your existing data
+        // 3. Make an API call to search products
     }
 
     private fun showCustomMenu() {
@@ -129,12 +214,6 @@ class MainActivity : AppCompatActivity() {
             true
         )
         popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-
-        // Set up exit button
-        val exitButton: ImageButton = customMenuView.findViewById(R.id.exitButton)
-        exitButton.setOnClickListener {
-            popupWindow.dismiss()
-        }
 
         // Set up tabs
         val settingTab: TextView = customMenuView.findViewById(R.id.settingTab)
@@ -205,6 +284,29 @@ class MainActivity : AppCompatActivity() {
         inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             val textView: TextView = view.findViewById(R.id.menu_item_text)
             val iconView: ImageView = view.findViewById(R.id.menu_item_icon)
+
+            init {
+                view.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val item = items[position]
+                        when (item.itemId) {
+                            R.id.menu_profile -> {
+                                if (auth.currentUser != null) {
+                                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                                } else {
+                                    Toast.makeText(this@MainActivity, 
+                                        "Please login first", 
+                                        Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                                }
+                                popupWindow.dismiss()
+                            }
+                            // Handle other menu items here
+                        }
+                    }
+                }
+            }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -254,5 +356,46 @@ class MainActivity : AppCompatActivity() {
         if (::popupWindow.isInitialized && popupWindow.isShowing) {
             updateLoginLogoutButton()
         }
+    }
+
+    private fun setupBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        
+        // Set icons programmatically if needed
+        bottomNavigationView.menu.findItem(R.id.shoppingButton)?.setIcon(R.drawable.ic_shopping_bag)
+        
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    // Keep current main content
+                    true
+                }
+                R.id.shoppingButton -> {
+                    startActivity(Intent(this, ItemsActivity::class.java))
+                    true
+                }
+                R.id.order -> {
+                    startActivity(Intent(this, OrderActivity::class.java))
+                    true
+                }
+                R.id.nav_blog -> {
+                    startActivity(Intent(this, BlogActivity::class.java))
+                    true
+                }
+                R.id.nav_profile -> {
+                    if (auth.currentUser != null) {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    } else {
+                        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
+
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.nav_home
     }
 }

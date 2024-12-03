@@ -26,16 +26,19 @@
             android:layout_height="wrap_content"
             android:gravity="center">
             <ImageView
+                android:id="@+id/facebookButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
                 android:src="@drawable/facebook"/>
             <ImageView
+                android:id="@+id/instagramButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
                 android:src="@drawable/instagram"/>
             <ImageView
+                android:id="@+id/telegramButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
@@ -73,6 +76,7 @@
         android:gravity="center"
         android:padding="20dp">
         <TextView
+            android:id="@+id/aboutText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About"
@@ -81,6 +85,7 @@
             android:padding="15dp"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/contact_us_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact"

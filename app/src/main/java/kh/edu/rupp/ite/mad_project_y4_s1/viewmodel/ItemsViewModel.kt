@@ -26,7 +26,9 @@ class ItemsViewModel : ViewModel() {
                 val snapshot = db.collection("items").get().await()
                 val items = snapshot.toObjects(Item::class.java)
                 _itemsState.value = ApiResponse(ApiState.SUCCESS, data = items)
-            } catch (e: Exception) {
+            } catch (e: Exception)
+            {
+
                 _itemsState.value = ApiResponse(ApiState.ERROR, error = e.message ?: "Unknown error occurred")
             }
         }

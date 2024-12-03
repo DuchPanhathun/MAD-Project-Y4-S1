@@ -22,7 +22,7 @@ class BlogViewModel : ViewModel() {
         fetchBlogs()
     }
 
-    private fun fetchBlogs() {
+    fun fetchBlogs() {
         viewModelScope.launch {
             _blogsState.value = ApiResponse(ApiState.LOADING)
             try {
