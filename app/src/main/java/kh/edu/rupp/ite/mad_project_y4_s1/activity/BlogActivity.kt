@@ -38,7 +38,6 @@ class BlogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
-
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -68,7 +67,10 @@ class BlogActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+
         }
+
+
 
         // Handle the back button click
         val backButton: ImageButton = findViewById(R.id.backButton)
@@ -199,6 +201,7 @@ class BlogActivity : AppCompatActivity() {
         tabIndicator.layoutParams = params
 
         setupMenuItems(menuGroupId)
+
     }
 
     private fun setupMenuItems(menuGroupId: Int) {
