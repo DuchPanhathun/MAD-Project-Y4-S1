@@ -177,6 +177,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/forward_image1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/forward_"
@@ -188,6 +189,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/estimated_delivery_label1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Estimated to be delivered on"
@@ -196,9 +198,10 @@
                 android:layout_marginLeft="61dp"
                 android:layout_marginTop="-12dp"/>
             <TextView
+                android:id="@+id/delivery_date1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="09/11/2021 - 12/11/2021"
+                android:text="2024-10-16 - 2025-05-05"
                 android:textSize="17dp"
                 android:textColor="@color/grey"
                 android:layout_marginLeft="61dp"/>
@@ -229,11 +232,14 @@
                 android:text="COD Policy"
                 android:layout_marginTop="20dp"
                 android:textSize="17dp"/>
+
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/forward_image2"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:src="@drawable/forward_"
@@ -243,6 +249,23 @@
                     android:layout_marginTop="30dp"/>
             </RelativeLayout>
         </LinearLayout>
+        <TextView
+            android:id="@+id/estimated_delivery_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estimated to be delivered on"
+            android:textSize="17dp"
+            android:textColor="@color/grey"
+            android:layout_marginLeft="61dp"
+            android:layout_marginTop="-12dp"/>
+        <TextView
+            android:id="@+id/delivery_date2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024-10-16 - 2025-05-05"
+            android:textSize="17dp"
+            android:textColor="@color/grey"
+            android:layout_marginLeft="61dp"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -273,6 +296,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/forward_image3"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:src="@drawable/forward_"
@@ -282,6 +306,23 @@
                     android:layout_marginTop="30dp"/>
             </RelativeLayout>
         </LinearLayout>
+        <TextView
+            android:id="@+id/estimated_delivery_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estimated to be delivered on"
+            android:textSize="17dp"
+            android:textColor="@color/grey"
+            android:layout_marginLeft="61dp"
+            android:layout_marginTop="-12dp"/>
+        <TextView
+            android:id="@+id/delivery_date3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024-10-16 - 2025-05-05"
+            android:textSize="17dp"
+            android:textColor="@color/grey"
+            android:layout_marginLeft="61dp"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
