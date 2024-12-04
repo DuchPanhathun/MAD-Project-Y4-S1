@@ -47,6 +47,8 @@ class OrderActivity : AppCompatActivity() {
         }
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        // Set the selected item to the current activity
+        bottomNavigationView.selectedItemId = R.id.order
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -63,7 +65,6 @@ class OrderActivity : AppCompatActivity() {
                     true
                 }
                 R.id.order -> {
-                    startActivity(Intent(this, OrderActivity::class.java))
                     true
                 }
                 R.id.nav_blog -> {
