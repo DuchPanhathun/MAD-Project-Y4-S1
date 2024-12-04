@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.UserViewModel
@@ -38,10 +39,46 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var confirmNewPasswordEdit: EditText
     private lateinit var updatePasswordButton: Button
     private lateinit var loginLogoutButton: Button
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        // Set the selected item to the current activity
+        bottomNavigationView.selectedItemId = R.id.nav_profile
+        // Set up the BottomNavigationView listener
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Navigate to HomeActivity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.shoppingButton -> {
+                    // Navigate to ShopActivity
+                    val intent = Intent(this, ItemsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.order -> {
+                    startActivity(Intent(this, OrderActivity::class.java))
+                    true
+                }
+                R.id.nav_blog -> {
+                    val intent = Intent(this, BlogActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Navigate to ProfileActivity
+                    true
+                }
+                else -> false
+            }
+
+        }
         // Handle the back button click
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {

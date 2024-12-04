@@ -49,13 +49,10 @@ class ItemsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_items)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
-<<<<<<< HEAD
-=======
 
         // Set the selected item to the current activity
         bottomNavigationView.selectedItemId = R.id.shoppingButton
 
->>>>>>> origin/thun
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -65,12 +62,6 @@ class ItemsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.shoppingButton -> {
-<<<<<<< HEAD
-                    val intent = Intent(this, ItemsActivity::class.java)
-                    startActivity(intent)
-=======
-                    // Already in ItemsActivity, do nothing
->>>>>>> origin/thun
                     true
                 }
                 R.id.order -> {
