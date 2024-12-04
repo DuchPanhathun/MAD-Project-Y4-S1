@@ -38,6 +38,8 @@ class BlogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        // Set the selected item to the current activity
+        bottomNavigationView.selectedItemId = R.id.nav_blog
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -58,9 +60,6 @@ class BlogActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_blog -> {
-                    // Navigate to BlogActivity
-                    val intent = Intent(this, BlogActivity::class.java)
-                    startActivity(intent)
                     true
                 }
                 R.id.nav_profile -> {

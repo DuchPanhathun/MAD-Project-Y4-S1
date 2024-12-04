@@ -15,9 +15,9 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/purchasedImageView"
+            android:id="@+id/historyImageView"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
 
         <LinearLayout
@@ -27,37 +27,43 @@
             android:layout_marginStart="16dp">
 
             <TextView
-                android:id="@+id/purchasedBrandNameTextView"
+                android:id="@+id/historyBrandNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/purchasedTypeTextView"
+                android:id="@+id/historyTypeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"/>
 
             <TextView
-                android:id="@+id/purchasedPriceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="@android:color/black"/>
-
-            <TextView
-                android:id="@+id/purchasedSizesTextView"
+                android:id="@+id/historyPriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"/>
 
             <TextView
-                android:id="@+id/purchaseDateTextView"
+                android:id="@+id/historyDetailsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/historyDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/historyTotalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView> 

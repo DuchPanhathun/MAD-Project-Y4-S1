@@ -43,15 +43,33 @@ class PurchasedViewModel : ViewModel() {
     fun addPurchase(purchasedItem: PurchasedItem) {
         val userId = auth.currentUser?.uid ?: return
         
+        val itemToAdd = purchasedItem.copy(quantity = purchasedItem.quantity.coerceAtLeast(1))
+        
         firestore.collection("users")
             .document(userId)
             .collection("purchased")
-            .add(purchasedItem)
+            .add(itemToAdd)
             .addOnSuccessListener { documentReference ->
                 Log.d("PurchasedViewModel", "Purchase added with ID: ${documentReference.id}")
             }
             .addOnFailureListener { e ->
                 Log.w("PurchasedViewModel", "Error adding purchase", e)
+            }
+    }
+
+    fun removeItem(itemId: String) {
+        val userId = auth.currentUser?.uid ?: return
+        
+        firestore.collection("users")
+            .document(userId)
+            .collection("purchased")
+            .document(itemId)
+            .delete()
+            .addOnSuccessListener {
+                Log.d("PurchasedViewModel", "Item successfully removed")
+            }
+            .addOnFailureListener { e ->
+                Log.w("PurchasedViewModel", "Error removing item", e)
             }
     }
 } 

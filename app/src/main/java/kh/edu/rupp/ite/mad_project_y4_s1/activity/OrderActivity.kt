@@ -47,6 +47,8 @@ class OrderActivity : AppCompatActivity() {
         }
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        // Set the selected item to the current activity
+        bottomNavigationView.selectedItemId = R.id.order
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -63,7 +65,6 @@ class OrderActivity : AppCompatActivity() {
                     true
                 }
                 R.id.order -> {
-                    startActivity(Intent(this, OrderActivity::class.java))
                     true
                 }
                 R.id.nav_blog -> {
@@ -93,8 +94,9 @@ class OrderActivity : AppCompatActivity() {
         // Connect TabLayout with ViewPager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Purchased"
-                1 -> "Favorites"
+                0 -> "Basket"
+                1 -> "History Purchased"
+                2 -> "Favorites"
                 else -> ""
             }
         }.attach()
