@@ -48,7 +48,6 @@ class ItemsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_items)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
-
         // Set up the BottomNavigationView listener
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -62,6 +61,10 @@ class ItemsActivity : AppCompatActivity() {
                     // Navigate to ShopActivity
                     val intent = Intent(this, ItemsActivity::class.java)
                     startActivity(intent)
+                    true
+                }
+                R.id.order -> {
+                    startActivity(Intent(this, OrderActivity::class.java))
                     true
                 }
                 R.id.nav_blog -> {
