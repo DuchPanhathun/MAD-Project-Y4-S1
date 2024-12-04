@@ -12,6 +12,120 @@
         <!-- Include the toolbar layout at the top -->
         <include layout="@layout/toolbar_layout2" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4500 APPAREL"
+                android:layout_margin="26dp"
+                android:fontFamily="@font/tenorsansregular"/>
+            <androidx.cardview.widget.CardView
+                xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                cardview:cardCornerRadius="100dp"
+                cardview:cardElevation="4dp">
+
+                <LinearLayout
+                    android:background="@color/c4c4c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:layout_gravity="center">
+
+                    <!-- TextView -->
+                    <TextView
+                        android:layout_width="83dp"
+                        android:layout_height="30dp"
+                        android:text="NEW"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/tenorsansregular" />
+
+
+                </LinearLayout>
+
+                <!-- ImageView (Arrow Down) -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/down"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical|end" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                cardview:cardCornerRadius="100dp"
+                cardview:cardElevation="4dp">
+
+                <LinearLayout
+                    android:background="@color/c4c4c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:layout_gravity="center"> <!-- Centering the content inside the LinearLayout -->
+
+                    <ImageView
+                        android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/grid_view"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerInside"
+                        android:layout_marginLeft="5dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                cardview:cardCornerRadius="100dp"
+                cardview:cardElevation="4dp">
+
+                <LinearLayout
+                    android:background="@color/c4c4c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:layout_gravity="center"> <!-- Centering the content inside the LinearLayout -->
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/filter_click"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="centerInside"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
         <!-- Main content area with RecyclerView and ProgressBar -->
         <FrameLayout
             android:layout_width="match_parent"

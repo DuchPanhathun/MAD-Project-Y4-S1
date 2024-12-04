@@ -2,7 +2,9 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +25,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.PurchasedViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.PurchasedItem
 
 class ItemDetailActivity : AppCompatActivity() {
+
     private lateinit var imageViewPager: ViewPager2
     private lateinit var brandNameTextView: TextView
     private lateinit var typeTextView: TextView
@@ -40,44 +43,31 @@ class ItemDetailActivity : AppCompatActivity() {
     private val purchasedViewModel: PurchasedViewModel by viewModels()
     private var selectedSize: String? = null
     private var selectedColor: String? = null
+    private lateinit var forwardImage1: ImageView
+    private lateinit var forwardImage2: ImageView
+    private lateinit var forwardImage3: ImageView
+    private lateinit var estimatedDeliveryLabel1: TextView
+    private lateinit var estimatedDeliveryLabel2: TextView
+    private lateinit var estimatedDeliveryLabel3: TextView
+    private lateinit var deliveryDate1: TextView
+    private lateinit var deliveryDate2: TextView
+    private lateinit var deliveryDate3: TextView
+    private var isForward1Down = false
+    private var isForward2Down = false
+    private var isForward3Down = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_detail)
-        // Handle the back button click
-        val backButton: ImageButton = findViewById(R.id.backButton)
-        backButton.setOnClickListener {
-            val origin = intent.getStringExtra("origin") // Retrieve the origin
-            when (origin) {
-                "BlogDetailActivity" -> {
-                    val intent = Intent(this, BlogDetailActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(intent)
-                }
-                "BlogActivity" -> {
-                    val intent = Intent(this, BlogActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(intent)
-                }
-                "MainActivity" -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(intent)
-                }
-                else -> {
-                    finish() // Default behavior if no origin is specified
-                }
-            }
 
-        }
+        initializeViews()
+        setupBackButton()
 
         auth = FirebaseAuth.getInstance()
-        
-        initializeViews()
 
-        // Get item from intent
         val item = intent.getParcelableExtra<Item>("item")
-        item?.let { 
+        item?.let {
             displayItemDetails(it)
             setupHeartButton(it)
             setupPurchaseButton(it)
@@ -97,13 +87,112 @@ class ItemDetailActivity : AppCompatActivity() {
         deliveryDatesTextView = findViewById(R.id.deliveryDatesTextView)
         heartButton = findViewById(R.id.favoriteButton)
         purchaseButton = findViewById(R.id.purchaseButton)
+        forwardImage1 = findViewById(R.id.forward_image1)
+        forwardImage2 = findViewById(R.id.forward_image2)
+        forwardImage3 = findViewById(R.id.forward_image3)
+        estimatedDeliveryLabel1 = findViewById(R.id.estimated_delivery_label1)
+        estimatedDeliveryLabel2 = findViewById(R.id.estimated_delivery_label2)
+        estimatedDeliveryLabel3 = findViewById(R.id.estimated_delivery_label3)
+        deliveryDate1 = findViewById(R.id.delivery_date1)
+        deliveryDate2 = findViewById(R.id.delivery_date2)
+        deliveryDate3 = findViewById(R.id.delivery_date3)
+
+
+        estimatedDeliveryLabel1.visibility = View.GONE
+        estimatedDeliveryLabel2.visibility = View.GONE
+        estimatedDeliveryLabel3.visibility = View.GONE
+        deliveryDate1.visibility = View.GONE
+        deliveryDate2.visibility = View.GONE
+        deliveryDate3.visibility = View.GONE
+
+        // Reset arrow state
+        isForward1Down = false
+        isForward2Down = false
+        isForward3Down = false
+        forwardImage1.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
+        forwardImage2.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
+        forwardImage3.setImageResource(R.drawable.forward_)
+
+        forwardImage1.setOnClickListener {
+            toggleDeliveryDetails(1)
+        }
+        forwardImage2.setOnClickListener {
+            toggleDeliveryDetails(2)
+        }
+        forwardImage3.setOnClickListener {
+            toggleDeliveryDetails(3)
+        }
+
+
+    }
+
+    private fun toggleDeliveryDetails(index: Int) {
+        when (index) {
+            1 -> {
+                val isExpanded = toggleVisibility(
+                    estimatedDeliveryLabel1,
+                    deliveryDate1,
+                    isForward1Down
+                )
+                isForward1Down = isExpanded
+                toggleArrow(forwardImage1, isExpanded)
+            }
+            2 -> {
+                val isExpanded = toggleVisibility(
+                    estimatedDeliveryLabel2,
+                    deliveryDate2,
+                    isForward2Down
+                )
+                isForward2Down = isExpanded
+                toggleArrow(forwardImage2, isExpanded)
+            }
+            3 -> {
+                val isExpanded = toggleVisibility(
+                    estimatedDeliveryLabel3,
+                    deliveryDate3,
+                    isForward3Down
+                )
+                isForward3Down = isExpanded
+                toggleArrow(forwardImage3, isExpanded)
+            }
+        }
+    }
+
+    private fun toggleVisibility(label: TextView, date: TextView, isDown: Boolean): Boolean {
+        if (isDown) {
+            label.visibility = View.GONE
+            date.visibility = View.GONE
+        } else {
+            label.visibility = View.VISIBLE
+            date.visibility = View.VISIBLE
+        }
+        return !isDown
+    }
+
+    private fun toggleArrow(imageView: ImageView, isDown: Boolean) {
+        if (isDown) {
+            imageView.setImageResource(R.drawable.arrow_down) // Replace with your downward arrow drawable
+        } else {
+            imageView.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
+        }
+    }
+    private fun setupBackButton() {
+        val backButton: ImageButton = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            val origin = intent.getStringExtra("origin") // Retrieve the origin
+            val intent = when (origin) {
+                "BlogDetailActivity" -> Intent(this, BlogDetailActivity::class.java)
+                "BlogActivity" -> Intent(this, BlogActivity::class.java)
+                "MainActivity" -> Intent(this, MainActivity::class.java)
+                else -> null
+            }
+            intent?.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            intent?.let { startActivity(it) } ?: finish()
+        }
     }
 
     private fun displayItemDetails(item: Item) {
-        // Set up image slider
         imageViewPager.adapter = ImageSliderAdapter(item.images)
-
-        // Set text views
         brandNameTextView.text = item.brandName
         typeTextView.text = item.type
         priceTextView.text = "$${item.price}"
@@ -111,36 +200,29 @@ class ItemDetailActivity : AppCompatActivity() {
         additionalCareDetailsTextView.text = "Care: ${item.additionalCareDetails}"
         deliveryDatesTextView.text = "Delivery: ${item.deliveryStartDate} - ${item.deliveryEndDate}"
 
-        // Set up colors RecyclerView with selection
-        colorsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            val colorAdapter = ColorAdapter(item.colors)
-            adapter = colorAdapter
-            
-            colorAdapter.setOnColorSelectedListener { color ->
-                selectedColor = color
-                updatePurchaseButtonState()
-            }
+        setupRecyclerView(colorsRecyclerView, item.colors, ColorAdapter(item.colors)) { color ->
+            selectedColor = color
+            updatePurchaseButtonState()
         }
 
-        // Set up sizes RecyclerView with selection
-        sizesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            val sizeAdapter = SizeAdapter(item.sizes)
-            adapter = sizeAdapter
-            
-            sizeAdapter.setOnSizeSelectedListener { size ->
-                selectedSize = size
-                updatePurchaseButtonState()
-            }
+        setupRecyclerView(sizesRecyclerView, item.sizes, SizeAdapter(item.sizes)) { size ->
+            selectedSize = size
+            updatePurchaseButtonState()
         }
 
-        // Set up care details RecyclerView
         careDetailsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = CareDetailsAdapter(item.careDetails)
         }
+    }
 
+    private fun setupRecyclerView(recyclerView: RecyclerView, items: List<String>, adapter: RecyclerView.Adapter<*>, onItemSelected: (String) -> Unit) {
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this.adapter = adapter
+        }
+        (adapter as? ColorAdapter)?.setOnColorSelectedListener(onItemSelected)
+        (adapter as? SizeAdapter)?.setOnSizeSelectedListener(onItemSelected)
     }
 
     private fun updatePurchaseButtonState() {
@@ -167,7 +249,6 @@ class ItemDetailActivity : AppCompatActivity() {
             price = item.price,
             sizes = item.sizes
         )
-        
         viewModel.addFavorite(favoriteItem)
         Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()
     }
@@ -199,7 +280,6 @@ class ItemDetailActivity : AppCompatActivity() {
             selectedColor = selectedColor!!,
             purchaseDate = System.currentTimeMillis()
         )
-        
         purchasedViewModel.addPurchase(purchasedItem)
         Toast.makeText(this, "Item purchased successfully", Toast.LENGTH_SHORT).show()
     }
