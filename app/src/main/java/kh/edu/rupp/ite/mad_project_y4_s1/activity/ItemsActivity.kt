@@ -64,10 +64,6 @@ class ItemsActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                R.id.order -> {
-                    startActivity(Intent(this, OrderActivity::class.java))
-                    true
-                }
                 R.id.nav_blog -> {
                     // Navigate to BlogActivity
                     val intent = Intent(this, BlogActivity::class.java)
