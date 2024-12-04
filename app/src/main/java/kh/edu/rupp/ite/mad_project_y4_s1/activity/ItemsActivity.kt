@@ -64,6 +64,11 @@ class ItemsActivity : AppCompatActivity() {
                     // Already in ItemsActivity, do nothing
                     true
                 }
+                R.id.order -> {
+                    val intent = Intent(this, OrderActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.nav_blog -> {
                     val intent = Intent(this, BlogActivity::class.java)
                     startActivity(intent)

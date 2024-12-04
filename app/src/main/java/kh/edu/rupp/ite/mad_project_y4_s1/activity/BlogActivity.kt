@@ -56,7 +56,8 @@ class BlogActivity : AppCompatActivity() {
                     true
                 }
                 R.id.order -> {
-                    startActivity(Intent(this, OrderActivity::class.java))
+                    val intent = Intent(this, OrderActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.nav_blog -> {
