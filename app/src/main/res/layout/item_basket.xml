@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/purchasedImageView"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
 
         <LinearLayout
@@ -59,34 +59,56 @@
                 android:layout_marginTop="4dp"
                 android:textStyle="italic"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/itemTotalTextView"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp">
 
-                <ImageButton
-                    android:id="@+id/decreaseQuantityButton"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:src="@drawable/minus_circle"/>
-
-                <TextView
-                    android:id="@+id/quantityTextView"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_gravity="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/increaseQuantityButton"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:src="@drawable/plus_circle"/>
+                    <ImageButton
+                        android:id="@+id/decreaseQuantityButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:src="@drawable/minus_circle"/>
+
+                    <TextView
+                        android:id="@+id/quantityTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <ImageButton
+                        android:id="@+id/increaseQuantityButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:src="@drawable/plus_circle"/>
+                    <ImageButton
+                        android:id="@+id/removeItemButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="90dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:src="@android:drawable/ic_menu_delete"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

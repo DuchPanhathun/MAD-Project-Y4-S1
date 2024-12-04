@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/itemImage"
+            android:id="@+id/historyImageView"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
@@ -26,32 +27,43 @@
             android:layout_marginStart="16dp">
 
             <TextView
-                android:id="@+id/brandNameText"
+                android:id="@+id/historyBrandNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/typeText"
+                android:id="@+id/historyTypeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"/>
 
             <TextView
-                android:id="@+id/priceText"
+                android:id="@+id/historyPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/historyDetailsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/historyDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@color/dd8560" />
+                android:textStyle="italic"/>
 
             <TextView
-                android:id="@+id/sizesText"
+                android:id="@+id/historyTotalTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp" />
-
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.cardview.widget.CardView> 

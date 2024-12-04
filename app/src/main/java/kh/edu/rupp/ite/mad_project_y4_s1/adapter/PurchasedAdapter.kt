@@ -20,11 +20,30 @@ import com.google.firebase.firestore.FirebaseFirestore
 class PurchasedAdapter : RecyclerView.Adapter<PurchasedAdapter.PurchasedViewHolder>() {
     
     private var purchasedItems: List<PurchasedItem> = emptyList()
+    private var onTotalPriceChangedListener: ((Int, Double) -> Unit)? = null
+
+    fun setOnTotalPriceChangedListener(listener: (Int, Double) -> Unit) {
+        onTotalPriceChangedListener = listener
+        calculateAndNotifyTotalPrice()
+    }
+
+    private fun calculateAndNotifyTotalPrice() {
+        val totalItems = purchasedItems.sumOf { it.quantity }
+        val totalPrice = purchasedItems.sumOf { item ->
+            val price = item.price.removePrefix("$").toDoubleOrNull() ?: 0.0
+            price * item.quantity
+        }
+        onTotalPriceChangedListener?.invoke(totalItems, totalPrice)
+    }
 
     fun updatePurchased(newPurchased: List<PurchasedItem>) {
-        Log.d("PurchasedAdapter", "Updating purchased items. New size: ${newPurchased.size}")
         purchasedItems = newPurchased
         notifyDataSetChanged()
+        calculateAndNotifyTotalPrice()
+    }
+
+    fun getCurrentItems(): List<PurchasedItem> {
+        return purchasedItems
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PurchasedViewHolder {
@@ -50,6 +69,8 @@ class PurchasedAdapter : RecyclerView.Adapter<PurchasedAdapter.PurchasedViewHold
         private val quantityTextView: TextView = itemView.findViewById(R.id.quantityTextView)
         private val decreaseButton: ImageButton = itemView.findViewById(R.id.decreaseQuantityButton)
         private val increaseButton: ImageButton = itemView.findViewById(R.id.increaseQuantityButton)
+        private val itemTotalTextView: TextView = itemView.findViewById(R.id.itemTotalTextView)
+        private val removeItemButton: ImageButton = itemView.findViewById(R.id.removeItemButton)
 
         fun bind(item: PurchasedItem) {
             Glide.with(itemView.context)
@@ -68,11 +89,21 @@ class PurchasedAdapter : RecyclerView.Adapter<PurchasedAdapter.PurchasedViewHold
             
             quantityTextView.text = item.quantity.toString()
             
+            // Calculate and show item total
+            val price = item.price.removePrefix("$").toDoubleOrNull() ?: 0.0
+            val total = price * item.quantity
+            itemTotalTextView.text = "Total: $${String.format("%.2f", total)}"
+            
             decreaseButton.setOnClickListener {
                 if (item.quantity > 1) {
                     item.quantity--
                     quantityTextView.text = item.quantity.toString()
                     updateQuantityInFirestore(item)
+                    // Update item total
+                    val newTotal = price * item.quantity
+                    itemTotalTextView.text = "Total: $${String.format("%.2f", newTotal)}"
+                    // Notify adapter to recalculate total
+                    (bindingAdapter as? PurchasedAdapter)?.calculateAndNotifyTotalPrice()
                 }
             }
             
@@ -80,7 +111,33 @@ class PurchasedAdapter : RecyclerView.Adapter<PurchasedAdapter.PurchasedViewHold
                 item.quantity++
                 quantityTextView.text = item.quantity.toString()
                 updateQuantityInFirestore(item)
+                // Update item total
+                val newTotal = price * item.quantity
+                itemTotalTextView.text = "Total: $${String.format("%.2f", newTotal)}"
+                // Notify adapter to recalculate total
+                (bindingAdapter as? PurchasedAdapter)?.calculateAndNotifyTotalPrice()
             }
+
+            removeItemButton.setOnClickListener {
+                removeItemFromFirestore(item)
+            }
+        }
+
+        private fun removeItemFromFirestore(item: PurchasedItem) {
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+            FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(userId)
+                .collection("purchased")
+                .document(item.id)
+                .delete()
+                .addOnSuccessListener {
+                    Log.d("PurchasedAdapter", "Item successfully removed")
+                    // The LiveData in ViewModel will automatically update the UI
+                }
+                .addOnFailureListener { e ->
+                    Log.e("PurchasedAdapter", "Error removing item", e)
+                }
         }
 
         private fun updateQuantityInFirestore(item: PurchasedItem) {

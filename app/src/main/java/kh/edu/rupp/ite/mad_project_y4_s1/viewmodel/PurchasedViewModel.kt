@@ -56,4 +56,20 @@ class PurchasedViewModel : ViewModel() {
                 Log.w("PurchasedViewModel", "Error adding purchase", e)
             }
     }
+
+    fun removeItem(itemId: String) {
+        val userId = auth.currentUser?.uid ?: return
+        
+        firestore.collection("users")
+            .document(userId)
+            .collection("purchased")
+            .document(itemId)
+            .delete()
+            .addOnSuccessListener {
+                Log.d("PurchasedViewModel", "Item successfully removed")
+            }
+            .addOnFailureListener { e ->
+                Log.w("PurchasedViewModel", "Error removing item", e)
+            }
+    }
 } 
