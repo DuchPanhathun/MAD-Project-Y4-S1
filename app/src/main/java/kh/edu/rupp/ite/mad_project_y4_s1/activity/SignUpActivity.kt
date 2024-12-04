@@ -1,8 +1,10 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -14,6 +16,8 @@ import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.AuthViewModel
 
 class SignUpActivity : AppCompatActivity() {
     private val viewModel: AuthViewModel by viewModels()
+    private var isPasswordVisible = false
+    private var isConfirmPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +26,21 @@ class SignUpActivity : AppCompatActivity() {
         val emailEditText: EditText = findViewById(R.id.editEmail)
         val passwordEditText: EditText = findViewById(R.id.editPassword)
         val confirmPasswordEditText: EditText = findViewById(R.id.editConfirmPassword)
+        val passwordEyeIcon: ImageView = findViewById(R.id.eyeIcon)
+        val confirmPasswordEyeIcon: ImageView = findViewById(R.id.confirmeyeIcon)
         val signUpButton: Button = findViewById(R.id.signUpButton)
         val loginText: TextView = findViewById(R.id.textLetter)
+
+        // Handle password visibility toggle
+        passwordEyeIcon.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            togglePasswordVisibility(passwordEditText, isPasswordVisible, passwordEyeIcon)
+        }
+
+        confirmPasswordEyeIcon.setOnClickListener {
+            isConfirmPasswordVisible = !isConfirmPasswordVisible
+            togglePasswordVisibility(confirmPasswordEditText, isConfirmPasswordVisible, confirmPasswordEyeIcon)
+        }
 
         lifecycleScope.launch {
             viewModel.authState.collect { result ->
@@ -57,5 +74,16 @@ class SignUpActivity : AppCompatActivity() {
         loginText.setOnClickListener {
             finish()
         }
+    }
+
+    private fun togglePasswordVisibility(editText: EditText, isVisible: Boolean, eyeIcon: ImageView) {
+        if (isVisible) {
+            editText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            eyeIcon.setImageResource(R.drawable.visible)
+        } else {
+            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            eyeIcon.setImageResource(R.drawable.hide)
+        }
+        editText.setSelection(editText.text.length)
     }
 }

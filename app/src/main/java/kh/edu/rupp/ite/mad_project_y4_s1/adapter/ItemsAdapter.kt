@@ -29,8 +29,8 @@ class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
-        // Truncate the title if it exceeds 20 words
-        holder.brandNameText.text = truncateTitle(item.brandName, 20) // Adjust 20 if needed
+        // Truncate the brand name if it exceeds 20 characters
+        holder.brandNameText.text = truncateTitle(item.brandName, 20)
         holder.typeText.text = item.type
         holder.priceText.text = "$${item.price}"
         holder.sizesText.text = "Sizes: ${item.sizes.joinToString(", ")}"
@@ -49,11 +49,10 @@ class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item
 
     override fun getItemCount() = items.size
 
-    // Helper function to truncate the title
-    private fun truncateTitle(title: String, wordLimit: Int): String {
-        val words = title.split(" ")
-        return if (words.size > wordLimit) {
-            words.take(wordLimit).joinToString(" ") + "..."
+    // Helper function to truncate the title by characters
+    private fun truncateTitle(title: String, charLimit: Int): String {
+        return if (title.length > charLimit) {
+            title.take(charLimit) + "..."
         } else {
             title
         }

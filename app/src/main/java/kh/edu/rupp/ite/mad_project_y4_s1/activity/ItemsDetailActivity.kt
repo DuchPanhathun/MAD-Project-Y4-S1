@@ -18,7 +18,17 @@ import androidx.activity.viewModels
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.FavoriteItem
 import android.widget.Toast
+<<<<<<< HEAD
+=======
+import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import kh.edu.rupp.ite.mad_project_y4_s1.activity.LoginActivity
+>>>>>>> origin/thun
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.Button
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.PurchasedViewModel
+import kh.edu.rupp.ite.mad_project_y4_s1.model.PurchasedItem
 
 class ItemDetailActivity : AppCompatActivity() {
     private lateinit var imageViewPager: ViewPager2
@@ -32,8 +42,12 @@ class ItemDetailActivity : AppCompatActivity() {
     private lateinit var careDetailsRecyclerView: RecyclerView
     private lateinit var deliveryDatesTextView: TextView
     private lateinit var heartButton: ImageButton
+    private lateinit var purchaseButton: ImageButton
     private val viewModel: FavoritesViewModel by viewModels()
     private lateinit var auth: FirebaseAuth
+    private val purchasedViewModel: PurchasedViewModel by viewModels()
+    private var selectedSize: String? = null
+    private var selectedColor: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +64,6 @@ class ItemDetailActivity : AppCompatActivity() {
                 }
                 "BlogActivity" -> {
                     val intent = Intent(this, BlogActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(intent)
-                }
-                "BlogGridActivity" -> {
-                    val intent = Intent(this, BlogGridActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(intent)
                 }
@@ -79,6 +88,7 @@ class ItemDetailActivity : AppCompatActivity() {
         item?.let { 
             displayItemDetails(it)
             setupHeartButton(it)
+            setupPurchaseButton(it)
         }
     }
 
@@ -94,6 +104,7 @@ class ItemDetailActivity : AppCompatActivity() {
         careDetailsRecyclerView = findViewById(R.id.careDetailsRecyclerView)
         deliveryDatesTextView = findViewById(R.id.deliveryDatesTextView)
         heartButton = findViewById(R.id.favoriteButton)
+        purchaseButton = findViewById(R.id.purchaseButton)
     }
 
     private fun displayItemDetails(item: Item) {
@@ -108,16 +119,28 @@ class ItemDetailActivity : AppCompatActivity() {
         additionalCareDetailsTextView.text = "Care: ${item.additionalCareDetails}"
         deliveryDatesTextView.text = "Delivery: ${item.deliveryStartDate} - ${item.deliveryEndDate}"
 
-        // Set up colors RecyclerView
+        // Set up colors RecyclerView with selection
         colorsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = ColorAdapter(item.colors)
+            val colorAdapter = ColorAdapter(item.colors)
+            adapter = colorAdapter
+            
+            colorAdapter.setOnColorSelectedListener { color ->
+                selectedColor = color
+                updatePurchaseButtonState()
+            }
         }
 
-        // Set up sizes RecyclerView
+        // Set up sizes RecyclerView with selection
         sizesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = SizeAdapter(item.sizes)
+            val sizeAdapter = SizeAdapter(item.sizes)
+            adapter = sizeAdapter
+            
+            sizeAdapter.setOnSizeSelectedListener { size ->
+                selectedSize = size
+                updatePurchaseButtonState()
+            }
         }
 
         // Set up care details RecyclerView
@@ -126,6 +149,10 @@ class ItemDetailActivity : AppCompatActivity() {
             adapter = CareDetailsAdapter(item.careDetails)
         }
 
+    }
+
+    private fun updatePurchaseButtonState() {
+        purchaseButton.isEnabled = selectedSize != null && selectedColor != null
     }
 
     private fun setupHeartButton(item: Item) {
@@ -151,6 +178,38 @@ class ItemDetailActivity : AppCompatActivity() {
         
         viewModel.addFavorite(favoriteItem)
         Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setupPurchaseButton(item: Item) {
+        purchaseButton.setOnClickListener {
+            purchaseItem(item)
+        }
+    }
+
+    private fun purchaseItem(item: Item) {
+        if (auth.currentUser == null) {
+            Toast.makeText(this, "Please login to purchase items", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            return
+        }
+
+        if (selectedSize == null || selectedColor == null) {
+            Toast.makeText(this, "Please select both size and color", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val purchasedItem = PurchasedItem(
+            imageUrl = item.images.firstOrNull() ?: "",
+            brandName = item.brandName,
+            type = item.type,
+            price = item.price,
+            selectedSize = selectedSize!!,
+            selectedColor = selectedColor!!,
+            purchaseDate = System.currentTimeMillis()
+        )
+        
+        purchasedViewModel.addPurchase(purchasedItem)
+        Toast.makeText(this, "Item purchased successfully", Toast.LENGTH_SHORT).show()
     }
 
 }

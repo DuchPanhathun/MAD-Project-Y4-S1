@@ -3,7 +3,9 @@
     android:id="@+id/sizeText"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:background="@drawable/size_item_background"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="12dp"
     android:layout_margin="4dp"
-    android:background="@drawable/rounded_background"
-    android:textColor="@color/black" />
+    android:textColor="@color/size_text_color"
+    android:textSize="16sp" />

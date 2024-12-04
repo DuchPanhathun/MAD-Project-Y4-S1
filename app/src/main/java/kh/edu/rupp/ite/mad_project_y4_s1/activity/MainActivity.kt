@@ -24,6 +24,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.content.Intent
 import android.util.Log
+import android.net.Uri
 import com.google.firebase.auth.FirebaseAuth
 import android.view.LayoutInflater
 import android.content.Context
@@ -93,31 +94,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Add this new code to handle the click event
-        val newArrivalText: TextView = findViewById(R.id.newArrivalText)
-        newArrivalText.setOnClickListener {
-            Log.d("MainActivity", "New Arrival text clicked")
-            try {
-                val intent = Intent(this, BlogGridActivity::class.java)
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error starting BlogGridActivity", e)
-                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        val exploreMoreLayout: LinearLayout = findViewById(R.id.exploreMoreLayout)
-        exploreMoreLayout.setOnClickListener {
-            Log.d("MainActivity", "Explore More clicked")
-            try {
-                val intent = Intent(this, BlogGridActivity::class.java)
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error starting BlogGridActivity", e)
-                Toast.makeText(this, "Error opening blog grid", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         // Add blog text click handler
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
@@ -130,6 +106,21 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize ViewModel
         viewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
+
+        findViewById<ImageView>(R.id.facebookButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=100026153991813&mibextid=9R9pXO"))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.instagramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/duch_panhathun/profilecard/?igsh=MTN4dmZ6cXkxM2EzMA=="))
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.telegramButton).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/nhacool"))
+            startActivity(intent)
+        }
     }
 
     private fun setupSearch() {
