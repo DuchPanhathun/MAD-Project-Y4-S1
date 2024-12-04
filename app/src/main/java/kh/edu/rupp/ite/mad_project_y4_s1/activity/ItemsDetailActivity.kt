@@ -18,12 +18,7 @@ import androidx.activity.viewModels
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.FavoriteItem
 import android.widget.Toast
-import android.util.Log
-import androidx.lifecycle.ViewModelProvider
-import kh.edu.rupp.ite.mad_project_y4_s1.activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import android.widget.Button
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.PurchasedViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.PurchasedItem
 
