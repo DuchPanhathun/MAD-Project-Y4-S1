@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -58,7 +59,6 @@ class ItemsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.shoppingButton -> {
-                    // Navigate to ShopActivity
                     val intent = Intent(this, ItemsActivity::class.java)
                     startActivity(intent)
                     true
@@ -79,7 +79,9 @@ class ItemsActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                else -> false
+                else -> {
+                    false
+                }
             }
         }
 
