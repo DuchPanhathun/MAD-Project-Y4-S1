@@ -11,5 +11,6 @@ data class PurchasedItem(
     val price: String = "",
     val selectedSize: String = "",
     val selectedColor: String = "",
-    val purchaseDate: Long = System.currentTimeMillis()
+    val purchaseDate: Long = System.currentTimeMillis(),
+    var quantity: Int = 1
 ) 

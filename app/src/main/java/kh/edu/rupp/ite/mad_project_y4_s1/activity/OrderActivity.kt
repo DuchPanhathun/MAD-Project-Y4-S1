@@ -26,7 +26,7 @@ class OrderActivity : AppCompatActivity() {
         // Connect TabLayout with ViewPager
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Purchased"
+                0 -> "Basket"
                 1 -> "Favorites"
                 else -> ""
             }

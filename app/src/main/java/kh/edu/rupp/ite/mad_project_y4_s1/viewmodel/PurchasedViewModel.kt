@@ -43,10 +43,12 @@ class PurchasedViewModel : ViewModel() {
     fun addPurchase(purchasedItem: PurchasedItem) {
         val userId = auth.currentUser?.uid ?: return
         
+        val itemToAdd = purchasedItem.copy(quantity = purchasedItem.quantity.coerceAtLeast(1))
+        
         firestore.collection("users")
             .document(userId)
             .collection("purchased")
-            .add(purchasedItem)
+            .add(itemToAdd)
             .addOnSuccessListener { documentReference ->
                 Log.d("PurchasedViewModel", "Purchase added with ID: ${documentReference.id}")
             }
