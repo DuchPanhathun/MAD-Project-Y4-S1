@@ -95,7 +95,7 @@ class OrderActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "Basket"
-                1 -> "History Purchased"
+                1 -> "Purchased"
                 2 -> "Favorites"
                 else -> ""
             }
