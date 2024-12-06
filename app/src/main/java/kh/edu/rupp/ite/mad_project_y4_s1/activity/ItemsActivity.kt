@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -61,7 +62,10 @@ class ItemsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.shoppingButton -> {
-                    // Already in ItemsActivity, do nothing
+                    true
+                }
+                R.id.order -> {
+                    startActivity(Intent(this, OrderActivity::class.java))
                     true
                 }
                 R.id.order -> {
@@ -79,7 +83,9 @@ class ItemsActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                else -> false
+                else -> {
+                    false
+                }
             }
         }
 
