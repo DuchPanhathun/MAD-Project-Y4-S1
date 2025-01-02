@@ -228,7 +228,7 @@ class ItemDetailActivity : AppCompatActivity() {
     private fun updatePurchaseButtonState() {
         purchaseButton.isEnabled = selectedSize != null && selectedColor != null
     }
-
+    //Click on button favorite
     private fun setupHeartButton(item: Item) {
         heartButton.setOnClickListener {
             addToFavorites(item)
@@ -250,6 +250,7 @@ class ItemDetailActivity : AppCompatActivity() {
             sizes = item.sizes
         )
         viewModel.addFavorite(favoriteItem)
+        //show on screen when click favorite successfully
         Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()
     }
 
