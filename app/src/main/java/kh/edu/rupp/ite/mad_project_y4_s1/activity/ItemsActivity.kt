@@ -47,6 +47,10 @@ class ItemsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
 
+
+
+
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         // Set the selected item to the current activity
@@ -282,4 +286,5 @@ class ItemsActivity : AppCompatActivity() {
             }
         }
     }
+
 }

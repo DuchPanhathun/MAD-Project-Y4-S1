@@ -32,10 +32,12 @@ import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import androidx.appcompat.widget.SearchView
 import android.widget.EditText
+import android.widget.ProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.core.content.ContextCompat
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -54,10 +56,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var viewModel: FavoritesViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
+
+
+
+
+
 
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         val images = listOf(

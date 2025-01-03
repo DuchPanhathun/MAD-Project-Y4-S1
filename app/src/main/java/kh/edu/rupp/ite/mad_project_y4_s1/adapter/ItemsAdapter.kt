@@ -57,4 +57,5 @@ class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item
             title
         }
     }
+
 }

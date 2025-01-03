@@ -124,6 +124,7 @@
             android:id="@+id/materialDetailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/tenorsansregular"
             android:paddingLeft="16dp"/>
 
         <TextView
@@ -131,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
+            android:fontFamily="@font/tenorsansregular"
             android:paddingTop="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -144,6 +146,7 @@
             android:id="@+id/deliveryDatesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/tenorsansregular"
             android:padding="16dp"/>
 
         <LinearLayout
