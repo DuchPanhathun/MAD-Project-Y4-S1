@@ -20,6 +20,10 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kh.edu.rupp.ite.mad_project_y4_s1.model.HistoryPurchaseItem
+import android.graphics.Paint
+import com.google.android.material.textfield.TextInputEditText
+import android.os.Handler
+import android.os.Looper
 
 class PurchasedFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -30,6 +34,10 @@ class PurchasedFragment : Fragment() {
     private lateinit var purchaseButton: Button
     private val purchasedAdapter = PurchasedAdapter()
     private val viewModel: PurchasedViewModel by activityViewModels()
+    private lateinit var promoCodeInput: TextInputEditText
+    private lateinit var applyPromoButton: Button
+    private lateinit var discountInfoText: TextView
+    private lateinit var originalPriceTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,9 +58,14 @@ class PurchasedFragment : Fragment() {
         totalPriceTextView = view.findViewById(R.id.totalPriceTextView)
         totalSection = view.findViewById(R.id.totalSection)
         purchaseButton = view.findViewById(R.id.purchaseButton)
+        promoCodeInput = view.findViewById(R.id.promoCodeInput)
+        applyPromoButton = view.findViewById(R.id.applyPromoButton)
+        discountInfoText = view.findViewById(R.id.discountInfoText)
+        originalPriceTextView = view.findViewById(R.id.originalPriceTextView)
 
         setupRecyclerView()
         observePurchased()
+        setupPromoCode()
 
         purchasedAdapter.setOnTotalPriceChangedListener { totalItems, totalPrice ->
             updateTotalSection(totalItems, totalPrice)
@@ -73,7 +86,35 @@ class PurchasedFragment : Fragment() {
 
     private fun updateTotalSection(totalItems: Int, totalPrice: Double) {
         totalItemsTextView.text = "Total Items: $totalItems"
-        totalPriceTextView.text = "Total Price: $${String.format("%.2f", totalPrice)}"
+        
+        val currentItems = purchasedAdapter.getCurrentItems()
+        var hasDiscount = false
+        var originalTotal = 0.0
+        var discountedTotal = 0.0
+        
+        currentItems.forEach { item ->
+            val itemOriginalPrice = item.price.removePrefix("$").toDouble() * item.quantity
+            originalTotal += itemOriginalPrice
+            discountedTotal += item.calculateDiscountedPrice()
+            if (item.discountPercentage > 0) hasDiscount = true
+        }
+        
+        if (hasDiscount) {
+            originalPriceTextView.apply {
+                visibility = View.VISIBLE
+                text = "Original Price: $${String.format("%.2f", originalTotal)}"
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            discountInfoText.apply {
+                visibility = View.VISIBLE
+                text = "Discount Applied: -$${String.format("%.2f", originalTotal - discountedTotal)}"
+            }
+            totalPriceTextView.text = "Final Price: $${String.format("%.2f", discountedTotal)}"
+        } else {
+            originalPriceTextView.visibility = View.GONE
+            discountInfoText.visibility = View.GONE
+            totalPriceTextView.text = "Total Price: $${String.format("%.2f", originalTotal)}"
+        }
     }
 
     private fun observePurchased() {
@@ -112,6 +153,9 @@ class PurchasedFragment : Fragment() {
                     val batch = db.batch()
 
                     for (item in currentItems) {
+                        val originalPrice = item.price.removePrefix("$").toDouble() * item.quantity
+                        val finalPrice = item.calculateDiscountedPrice()
+                        
                         val historyItem = HistoryPurchaseItem(
                             imageUrl = item.imageUrl,
                             brandName = item.brandName,
@@ -121,7 +165,10 @@ class PurchasedFragment : Fragment() {
                             selectedColor = item.selectedColor,
                             purchaseDate = System.currentTimeMillis(),
                             quantity = item.quantity,
-                            totalPrice = item.price.removePrefix("$").toDouble() * item.quantity
+                            originalPrice = originalPrice,
+                            discountPercentage = item.discountPercentage,
+                            finalPrice = finalPrice,
+                            appliedPromoCode = item.appliedPromoCode
                         )
 
                         val historyRef = db.collection("users").document(userId)
@@ -146,5 +193,30 @@ class PurchasedFragment : Fragment() {
             }
             .setNegativeButton("No", null)
             .show()
+    }
+
+    private fun setupPromoCode() {
+        applyPromoButton.setOnClickListener {
+            val promoCode = promoCodeInput.text.toString().trim()
+            if (promoCode.isNotEmpty()) {
+                val currentItems = purchasedAdapter.getCurrentItems()
+                if (currentItems.isNotEmpty()) {
+                    currentItems.forEach { item ->
+                        viewModel.applyPromoCode(item.id, promoCode)
+                    }
+                    // Show loading indicator or disable button while processing
+                    applyPromoButton.isEnabled = false
+                    
+                    // Re-enable button after a short delay
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        applyPromoButton.isEnabled = true
+                    }, 2000)
+                } else {
+                    Toast.makeText(context, "No items in cart", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(context, "Please enter a promo code", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 } 

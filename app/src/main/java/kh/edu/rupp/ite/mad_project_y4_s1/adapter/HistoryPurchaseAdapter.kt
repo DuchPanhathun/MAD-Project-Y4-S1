@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,34 +29,77 @@ class HistoryPurchaseAdapter : RecyclerView.Adapter<HistoryPurchaseAdapter.Histo
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        holder.bind(historyItems[position])
+        val item = historyItems[position]
+
+        Glide.with(holder.itemView.context)
+            .load(item.imageUrl)
+            .into(holder.imageView)
+
+        holder.brandNameTextView.text = item.brandName
+        holder.typeTextView.text = item.type
+        
+        // Individual item price (before quantity)
+        holder.priceTextView.text = "Unit Price: $${item.price}"
+        holder.detailsTextView.text = "Size: ${item.selectedSize}, Color: ${item.selectedColor}"
+        
+        val dateFormat = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault())
+        holder.dateTextView.text = "Purchased on: ${dateFormat.format(Date(item.purchaseDate))}"
+
+        // Handle price display with discounts
+        if (item.discountPercentage > 0) {
+            // Calculate prices
+            val unitOriginalPrice = item.originalPrice
+            val unitFinalPrice = item.finalPrice
+            val totalOriginalPrice = unitOriginalPrice * item.quantity
+            val totalFinalPrice = unitFinalPrice * item.quantity
+
+            // Show original price with strikethrough
+            holder.originalPriceText.apply {
+                visibility = View.VISIBLE
+                text = "$${String.format("%.2f", unitOriginalPrice)}"
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            
+            // Show discount info
+            holder.discountText.apply {
+                visibility = View.VISIBLE
+                text = "-${String.format("%.0f", item.discountPercentage * 100)}%"
+            }
+            
+            // Show final unit price
+            holder.finalPriceText.text = "$${String.format("%.2f", unitFinalPrice)}"
+
+            // Show quantity and total with discount
+            holder.totalTextView.text = "Quantity: ${item.quantity} | Total: $${String.format("%.2f", totalFinalPrice)}"
+        } else {
+            // No discount case
+            val unitPrice = item.finalPrice
+            val totalPrice = unitPrice * item.quantity
+
+            // Hide discount-related views
+            holder.originalPriceText.visibility = View.GONE
+            holder.discountText.visibility = View.GONE
+            
+            // Show regular price
+            holder.finalPriceText.text = "$${String.format("%.2f", unitPrice)}"
+            
+            // Show quantity and total
+            holder.totalTextView.text = "Quantity: ${item.quantity} | Total: $${String.format("%.2f", totalPrice)}"
+        }
     }
 
     override fun getItemCount(): Int = historyItems.size
 
     class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val imageView: ImageView = itemView.findViewById(R.id.historyImageView)
-        private val brandNameTextView: TextView = itemView.findViewById(R.id.historyBrandNameTextView)
-        private val typeTextView: TextView = itemView.findViewById(R.id.historyTypeTextView)
-        private val priceTextView: TextView = itemView.findViewById(R.id.historyPriceTextView)
-        private val detailsTextView: TextView = itemView.findViewById(R.id.historyDetailsTextView)
-        private val dateTextView: TextView = itemView.findViewById(R.id.historyDateTextView)
-        private val totalTextView: TextView = itemView.findViewById(R.id.historyTotalTextView)
-
-        fun bind(item: HistoryPurchaseItem) {
-            Glide.with(itemView.context)
-                .load(item.imageUrl)
-                .into(imageView)
-
-            brandNameTextView.text = item.brandName
-            typeTextView.text = item.type
-            priceTextView.text = "Price: $${item.price}"
-            detailsTextView.text = "Size: ${item.selectedSize}, Color: ${item.selectedColor}"
-            
-            val dateFormat = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault())
-            dateTextView.text = "Purchased on: ${dateFormat.format(Date(item.purchaseDate))}"
-            
-            totalTextView.text = "Quantity: ${item.quantity} | Total: $${String.format("%.2f", item.totalPrice)}"
-        }
+        val imageView: ImageView = itemView.findViewById(R.id.historyImageView)
+        val brandNameTextView: TextView = itemView.findViewById(R.id.historyBrandNameTextView)
+        val typeTextView: TextView = itemView.findViewById(R.id.historyTypeTextView)
+        val priceTextView: TextView = itemView.findViewById(R.id.historyPriceTextView)
+        val detailsTextView: TextView = itemView.findViewById(R.id.historyDetailsTextView)
+        val dateTextView: TextView = itemView.findViewById(R.id.historyDateTextView)
+        val totalTextView: TextView = itemView.findViewById(R.id.historyTotalTextView)
+        val originalPriceText: TextView = itemView.findViewById(R.id.originalPriceText)
+        val discountText: TextView = itemView.findViewById(R.id.discountText)
+        val finalPriceText: TextView = itemView.findViewById(R.id.finalPriceText)
     }
 } 
