@@ -60,11 +60,10 @@ class ItemsAdapter(
         }
     }
 
-<<<<<<< HEAD
-=======
+
     fun submitList(newItems: List<Item>) {
         items = newItems
         notifyDataSetChanged()
     }
->>>>>>> 904639c562669eb2239c122bcfd5ae8ae0efac82
+
 }

@@ -300,8 +300,7 @@ class ItemsActivity : AppCompatActivity() {
         }
     }
 
-<<<<<<< HEAD
-=======
+
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
@@ -329,5 +328,5 @@ class ItemsActivity : AppCompatActivity() {
         }
     }
 
->>>>>>> 904639c562669eb2239c122bcfd5ae8ae0efac82
+
 }
