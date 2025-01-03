@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: FavoritesViewModel
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
@@ -53,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             R.drawable.cover_image2,
             R.drawable.cover_image3
         )
-        
         coverImageCarousel.adapter = CoverImageAdapter(images)
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
@@ -107,7 +107,15 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/nhacool"))
             startActivity(intent)
         }
+        // Initialize exploreMoreText and set OnClickListener
+        val exploreMoreText: TextView = findViewById(R.id.exploreMoreText)
+        exploreMoreText.setOnClickListener {
+            // Your action when the "Explore More" text is clicked
+            val intent = Intent(this, ItemsActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 
 
 
