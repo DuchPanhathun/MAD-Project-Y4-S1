@@ -2,6 +2,7 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -265,5 +266,9 @@ class ProfileActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         updateLoginLogoutButton()
+    }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
     }
 } 

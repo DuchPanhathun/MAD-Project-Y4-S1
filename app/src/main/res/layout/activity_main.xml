@@ -22,7 +22,7 @@
 
             <include
                 android:id="@+id/toolbar_layout"
-                layout="@layout/toolbar_layout"/>
+                layout="@layout/toolbar_layout3"/>
 
             <!-- Carousel -->
             <FrameLayout
@@ -42,13 +42,12 @@
                 android:id="@+id/newArrivalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25sp"
+                android:fontFamily="@font/tenor_sans"
                 android:text="NEW ARRIVAL"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/tenor_sans"
-                android:layout_marginTop="25sp"
-                android:layout_gravity="center_horizontal"
-                />
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
