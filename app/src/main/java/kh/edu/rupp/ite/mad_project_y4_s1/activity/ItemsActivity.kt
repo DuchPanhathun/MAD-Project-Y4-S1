@@ -303,10 +303,6 @@ class ItemsActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/thun
     private fun setupFilterView() {
         val filterLayout = findViewById<LinearLayout>(R.id.filterLayout)
         val filterText = findViewById<TextView>(R.id.filterText)

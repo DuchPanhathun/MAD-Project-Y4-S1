@@ -20,11 +20,6 @@ class ItemsViewModel : ViewModel() {
     val totalQuantity: LiveData<Int> = _totalQuantity
 
     private var currentItems = listOf<Item>()
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/thun
     // Add sorting enum
     enum class SortOrder {
         NEWEST,
@@ -42,25 +37,13 @@ class ItemsViewModel : ViewModel() {
             try {
                 val snapshot = db.collection("items").get().await()
                 currentItems = snapshot.toObjects(Item::class.java)
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> origin/thun
                 // Sort items based on timestamp
                 val sortedItems = when (sortOrder) {
                     SortOrder.NEWEST -> currentItems.sortedByDescending { it.timestamp }
                     SortOrder.OLDEST -> currentItems.sortedBy { it.timestamp }
                 }
-<<<<<<< HEAD
-
                 _itemsState.value = ApiResponse(ApiState.SUCCESS, data = sortedItems)
 
-=======
-                
-                _itemsState.value = ApiResponse(ApiState.SUCCESS, data = sortedItems)
-                
->>>>>>> origin/thun
                 // Calculate total quantity
                 val total = sortedItems.sumOf { it.getQuantityAsInt() }
                 _totalQuantity.value = total
@@ -89,8 +72,5 @@ class ItemsViewModel : ViewModel() {
     fun getCurrentSortOrder(): SortOrder {
         return currentSortOrder
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/thun
+
