@@ -10,8 +10,10 @@ import com.bumptech.glide.Glide
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
 
-class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item) -> Unit) :
-    RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+class ItemsAdapter(
+    private var items: List<Item>,
+    private val onItemClick: (Item) -> Unit
+) : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val brandNameText: TextView = view.findViewById(R.id.brandNameText)
@@ -56,5 +58,10 @@ class ItemsAdapter(private val items: List<Item>, private val onItemClick: (Item
         } else {
             title
         }
+    }
+
+    fun submitList(newItems: List<Item>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 }

@@ -30,6 +30,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.ItemsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kh.edu.rupp.ite.mad_project_y4_s1.activity.SearchActivity
 
 
 class ItemsActivity : AppCompatActivity() {
@@ -121,6 +122,12 @@ class ItemsActivity : AppCompatActivity() {
             }
         }
 
+        // Observe total quantity
+        viewModel.totalQuantity.observe(this) { total ->
+            findViewById<TextView>(R.id.totalItemsTextView).text = "$total APPAREL"
+        }
+
+        setupFilterView()
     }
 
     private fun showCustomMenu() {
@@ -288,4 +295,32 @@ class ItemsActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun setupFilterView() {
+        val filterLayout = findViewById<LinearLayout>(R.id.filterLayout)
+        val filterText = findViewById<TextView>(R.id.filterText)
+        val filterArrow = findViewById<ImageView>(R.id.filterArrow)
+
+        filterLayout.setOnClickListener {
+            viewModel.toggleSortOrder()
+            updateFilterUI(viewModel.getCurrentSortOrder())
+        }
+
+        // Initial UI update
+        updateFilterUI(viewModel.getCurrentSortOrder())
+    }
+
+    private fun updateFilterUI(sortOrder: ItemsViewModel.SortOrder) {
+        val filterText = findViewById<TextView>(R.id.filterText)
+        filterText.text = when (sortOrder) {
+            ItemsViewModel.SortOrder.NEWEST -> "NEW"
+            ItemsViewModel.SortOrder.OLDEST -> "OLD"
+        }
+    }
+
 }

@@ -10,5 +10,8 @@ data class HistoryPurchaseItem(
     val selectedColor: String = "",
     val purchaseDate: Long = System.currentTimeMillis(),
     val quantity: Int = 1,
-    val totalPrice: Double = 0.0
+    val originalPrice: Double = 0.0,
+    val discountPercentage: Double = 0.0,
+    val finalPrice: Double = 0.0,
+    val appliedPromoCode: String = ""
 ) 

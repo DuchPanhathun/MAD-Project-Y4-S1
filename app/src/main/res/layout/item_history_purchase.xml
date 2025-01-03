@@ -45,6 +45,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"/>
 
+            <LinearLayout
+                android:id="@+id/priceContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/originalPriceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/discountText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#4CAF50"
+                    android:textSize="12sp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/finalPriceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/historyDetailsTextView"
                 android:layout_width="wrap_content"
