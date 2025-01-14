@@ -22,14 +22,15 @@
 
             <include
                 android:id="@+id/toolbar_layout"
-                layout="@layout/toolbar_layout3"/>
+                layout="@layout/toolbar_layout"/>
 
             <!-- Carousel -->
             <FrameLayout
                 android:id="@+id/carouselContainer"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.55">
+                android:layout_height="450dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/coverImageCarousel"
@@ -42,12 +43,13 @@
                 android:id="@+id/newArrivalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25sp"
-                android:fontFamily="@font/tenor_sans"
                 android:text="NEW ARRIVAL"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/tenor_sans"
+                android:layout_marginTop="25sp"
+                android:layout_gravity="center_horizontal"
+                />
 
             <ImageView
                 android:layout_width="match_parent"

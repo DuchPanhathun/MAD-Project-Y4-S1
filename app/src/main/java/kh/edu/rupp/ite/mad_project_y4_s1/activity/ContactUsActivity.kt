@@ -1,7 +1,6 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import kh.edu.rupp.ite.mad_project_y4_s1.R
@@ -37,10 +36,6 @@ class ContactUsActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-    fun onSearchButtonClick(view: View) {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
     }
 }
 

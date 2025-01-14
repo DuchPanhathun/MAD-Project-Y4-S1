@@ -2,11 +2,7 @@ package kh.edu.rupp.ite.mad_project_y4_s1.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,14 +10,11 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.OrderPagerAdapter
-import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.ItemsViewModel
-import androidx.activity.viewModels
-import kh.edu.rupp.ite.mad_project_y4_s1.activity.SearchActivity
+
 class OrderActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var bottomNavigationView: BottomNavigationView
-    private val viewModel: ItemsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,32 +100,5 @@ class OrderActivity : AppCompatActivity() {
                 else -> ""
             }
         }.attach()
-    }
-    fun onSearchButtonClick(view: View) {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
-
-
-    private fun setupFilterView() {
-        val filterLayout = findViewById<LinearLayout>(R.id.filterLayout)
-        val filterText = findViewById<TextView>(R.id.filterText)
-        val filterArrow = findViewById<ImageView>(R.id.filterArrow)
-
-        filterLayout.setOnClickListener {
-            viewModel.toggleSortOrder()
-            updateFilterUI(viewModel.getCurrentSortOrder())
-        }
-
-        // Initial UI update
-        updateFilterUI(viewModel.getCurrentSortOrder())
-    }
-
-    private fun updateFilterUI(sortOrder: ItemsViewModel.SortOrder) {
-        val filterText = findViewById<TextView>(R.id.filterText)
-        filterText.text = when (sortOrder) {
-            ItemsViewModel.SortOrder.NEWEST -> "NEW"
-            ItemsViewModel.SortOrder.OLDEST -> "OLD"
-        }
     }
 } 

@@ -96,7 +96,6 @@ class ItemsActivity : AppCompatActivity() {
         setupRecyclerView()
         observeState()
 
-
         // Handle the back button click
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {
@@ -187,7 +186,6 @@ class ItemsActivity : AppCompatActivity() {
         val tabPosition = tabLayout.indexOfChild(view)
         val tabWidth = view.width
         val indicatorWidth = tabWidth / 3
-
 
         val params = tabIndicator.layoutParams as LinearLayout.LayoutParams
         params.width = indicatorWidth

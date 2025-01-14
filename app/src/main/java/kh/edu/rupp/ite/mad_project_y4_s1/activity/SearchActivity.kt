@@ -52,6 +52,10 @@ class SearchActivity : AppCompatActivity() {
         // Load initial items
         loadItems()
 
+
+        // Load initial items
+        loadItems()
+
         // Setup search functionality
         searchEditText.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -95,6 +99,7 @@ class SearchActivity : AppCompatActivity() {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
 
+
         // Perform search using brandName, type, and materialDetail
         val filteredItems = items.filter { item ->
             item.brandName.contains(query, ignoreCase = true) ||
@@ -116,4 +121,3 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 }
-

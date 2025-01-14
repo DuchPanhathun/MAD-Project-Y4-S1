@@ -13,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kh.edu.rupp.ite.mad_project_y4_s1.R
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.FavoritesAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
-import android.content.Intent
-import kh.edu.rupp.ite.mad_project_y4_s1.activity.ItemDetailActivity
-import kh.edu.rupp.ite.mad_project_y4_s1.model.Item
 
 class FavoritesFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -44,28 +41,10 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
+        Log.d("FavoritesFragment", "Setting up RecyclerView")
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = favoritesAdapter
-        }
-        //Click to see items detail on favorite
-        favoritesAdapter.setOnItemClick { favoriteItem ->
-            val intent = Intent(requireContext(), ItemDetailActivity::class.java)
-            intent.putExtra("item", Item(
-                images = listOf(favoriteItem.imageUrl),
-                brandName = favoriteItem.brandName,
-                type = favoriteItem.type,
-                price = favoriteItem.price,
-                sizes = favoriteItem.sizes,
-                // Add other required Item properties with default values
-                colors = listOf(),
-                materialDetail = "",
-                additionalCareDetails = "",
-                careDetails = listOf(),
-                deliveryStartDate = "",
-                deliveryEndDate = ""
-            ))
-            startActivity(intent)
         }
     }
 
