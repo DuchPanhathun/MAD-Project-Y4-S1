@@ -18,6 +18,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.User
 import com.google.firebase.auth.FirebaseAuth
 import kh.edu.rupp.ite.mad_project_y4_s1.model.PaymentMethod
 import com.google.firebase.auth.EmailAuthProvider
+import android.view.View
 
 class ProfileActivity : AppCompatActivity() {
     private val userViewModel: UserViewModel by viewModels()
@@ -265,5 +266,9 @@ class ProfileActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         updateLoginLogoutButton()
+    }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
     }
 } 
