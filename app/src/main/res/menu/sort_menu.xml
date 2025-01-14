@@ -6,4 +6,8 @@
     <item
         android:id="@+id/sort_oldest"
         android:title="Oldest First" />
+<<<<<<< HEAD
 </menu> 
+=======
+</menu>
+>>>>>>> origin/sal

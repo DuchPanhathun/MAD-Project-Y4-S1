@@ -64,4 +64,8 @@ class ItemsAdapter(
         items = newItems
         notifyDataSetChanged()
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/sal

@@ -60,14 +60,25 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bannerViewModel: BannerViewModel
     private lateinit var coverImageAdapter: CoverImageAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
+<<<<<<< HEAD
         // Initialize banner carousel
         setupBannerCarousel()
 
+=======
+        coverImageCarousel = findViewById(R.id.coverImageCarousel)
+        val images = listOf(
+            R.drawable.cover_image1,
+            R.drawable.cover_image2,
+            R.drawable.cover_image3
+        )
+        coverImageCarousel.adapter = CoverImageAdapter(images)
+>>>>>>> origin/sal
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
@@ -118,6 +129,13 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.telegramButton).setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/nhacool"))
+            startActivity(intent)
+        }
+        // Initialize exploreMoreText and set OnClickListener
+        val exploreMoreText: TextView = findViewById(R.id.exploreMoreText)
+        exploreMoreText.setOnClickListener {
+            // Your action when the "Explore More" text is clicked
+            val intent = Intent(this, ItemsActivity::class.java)
             startActivity(intent)
         }
     }
@@ -198,6 +216,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
     // Add this extension function to convert dp to pixels
     private fun Int.dpToPx(context: Context): Int {
