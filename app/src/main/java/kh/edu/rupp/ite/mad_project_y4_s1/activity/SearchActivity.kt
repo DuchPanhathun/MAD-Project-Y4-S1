@@ -26,20 +26,20 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var adapter: ItemsAdapter
     private lateinit var noResultsView: View
     private lateinit var resultsCount: TextView
-    
+
     private val items = mutableListOf<Item>()
     private val viewModel: ItemsViewModel by viewModels()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        
+
         // Initialize views
         searchEditText = findViewById(R.id.searchEditText)
         searchResultsRecyclerView = findViewById(R.id.searchResultsRecyclerView)
         noResultsView = findViewById(R.id.noResultsView)
         resultsCount = findViewById(R.id.resultsCount)
-        
+
         // Setup RecyclerView
         searchResultsRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ItemsAdapter(emptyList()) { item ->
@@ -48,10 +48,14 @@ class SearchActivity : AppCompatActivity() {
             startActivity(intent)
         }
         searchResultsRecyclerView.adapter = adapter
-        
+
         // Load initial items
         loadItems()
-        
+
+
+        // Load initial items
+        loadItems()
+
         // Setup search functionality
         searchEditText.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -61,7 +65,7 @@ class SearchActivity : AppCompatActivity() {
                 false
             }
         }
-        
+
         findViewById<ImageButton>(R.id.searchActionButton).setOnClickListener {
             performSearch(searchEditText.text.toString())
         }
@@ -70,7 +74,7 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
     }
-    
+
     private fun loadItems() {
         viewModel.itemsState.observe(this) { response ->
             when (response.status) {
@@ -94,14 +98,15 @@ class SearchActivity : AppCompatActivity() {
         // Hide keyboard
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
-        
-        // Perform search using brandName and type instead of name and description
-        val filteredItems = items.filter { item -> 
-            item.brandName.contains(query, ignoreCase = true) || 
-            item.type.contains(query, ignoreCase = true) ||
-            item.materialDetail.contains(query, ignoreCase = true)
+
+
+        // Perform search using brandName, type, and materialDetail
+        val filteredItems = items.filter { item ->
+            item.brandName.contains(query, ignoreCase = true) ||
+                    item.type.contains(query, ignoreCase = true) ||
+                    item.materialDetail.contains(query, ignoreCase = true)
         }
-        
+
         // Update UI based on results
         if (filteredItems.isEmpty()) {
             noResultsView.visibility = View.VISIBLE

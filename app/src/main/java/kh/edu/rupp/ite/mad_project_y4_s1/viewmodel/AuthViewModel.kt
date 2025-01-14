@@ -16,10 +16,13 @@ class AuthViewModel : ViewModel() {
     fun signIn(email: String, password: String) {
         viewModelScope.launch {
             try {
-                val user = authApi.signIn(email, password)
-                _authState.emit(AuthResult(isSuccess = user != null))
+                val result = authApi.signIn(email, password)
+                _authState.emit(result)
             } catch (e: Exception) {
-                _authState.emit(AuthResult(isSuccess = false, error = e.message))
+                _authState.emit(AuthResult(
+                    isSuccess = false,
+                    error = e.message ?: "An unexpected error occurred"
+                ))
             }
         }
     }
@@ -28,10 +31,31 @@ class AuthViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val user = authApi.signUp(email, password)
-                _authState.emit(AuthResult(isSuccess = user != null))
+                if (user != null) {
+                    _authState.emit(AuthResult(isSuccess = true))
+                } else {
+                    _authState.emit(AuthResult(
+                        isSuccess = false,
+                        error = "Failed to create account"
+                    ))
+                }
             } catch (e: Exception) {
-                _authState.emit(AuthResult(isSuccess = false, error = e.message))
+                _authState.emit(AuthResult(
+                    isSuccess = false,
+                    error = e.message ?: "Failed to create account"
+                ))
             }
         }
+    }
+
+    fun getCurrentUser() = authApi.getCurrentUser()
+
+    fun signOut() {
+        authApi.signOut()
+        _authState.value = null
+    }
+
+    fun clearAuthState() {
+        _authState.value = null
     }
 } 

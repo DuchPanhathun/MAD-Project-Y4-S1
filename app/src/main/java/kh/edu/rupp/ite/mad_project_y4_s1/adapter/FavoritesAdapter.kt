@@ -15,6 +15,13 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoriteViewHolde
     
     private var favorites: List<FavoriteItem> = emptyList()
 
+    // Declare a variable to hold the listener function
+    private var onItemClick: ((FavoriteItem) -> Unit)? = null
+    // This function allows the caller to set a custom listener function to handle item clicks.
+    fun setOnItemClick(listener: (FavoriteItem) -> Unit) {
+        onItemClick = listener
+    }
+
     fun updateFavorites(newFavorites: List<FavoriteItem>) {
         Log.d("FavoritesAdapter", "Updating favorites. New size: ${newFavorites.size}")
         Log.d("FavoritesAdapter", "New favorites content: $newFavorites")
@@ -30,7 +37,12 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoriteViewHolde
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         Log.d("FavoritesAdapter", "Binding item at position $position")
-        holder.bind(favorites[position])
+        val item = favorites[position]
+        holder.bind(item)
+        // Add a click listener to the item view to handle item clicks
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(item)
+        }
     }
 
     override fun getItemCount(): Int = favorites.size

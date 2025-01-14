@@ -6,4 +6,4 @@
     <item
         android:id="@+id/sort_oldest"
         android:title="Oldest First" />
-</menu> 
+</menu>
