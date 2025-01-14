@@ -24,12 +24,16 @@ import kh.edu.rupp.ite.mad_project_y4_s1.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.lifecycle.ViewModelProvider
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BannerViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
     private val sliderRunnable = Runnable { 
-        coverImageCarousel.currentItem = (coverImageCarousel.currentItem + 1) % (coverImageCarousel.adapter?.itemCount ?: 1)
+        val itemCount = coverImageCarousel.adapter?.itemCount ?: 0
+        if (itemCount > 0) {
+            coverImageCarousel.currentItem = (coverImageCarousel.currentItem + 1) % itemCount
+        }
     }
     private lateinit var customMenuView: View
     private lateinit var tabIndicator: View
@@ -40,6 +44,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchButton: ImageButton
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var viewModel: FavoritesViewModel
+    private lateinit var bannerViewModel: BannerViewModel
+    private lateinit var coverImageAdapter: CoverImageAdapter
 
 
 
@@ -48,13 +54,9 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
-        coverImageCarousel = findViewById(R.id.coverImageCarousel)
-        val images = listOf(
-            R.drawable.cover_image1,
-            R.drawable.cover_image2,
-            R.drawable.cover_image3
-        )
-        coverImageCarousel.adapter = CoverImageAdapter(images)
+        // Initialize banner carousel
+        setupBannerCarousel()
+
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
@@ -77,8 +79,10 @@ class MainActivity : AppCompatActivity() {
         coverImageCarousel.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                sliderHandler.removeCallbacks(sliderRunnable)
-                sliderHandler.postDelayed(sliderRunnable, 2000) // Change image every 2 seconds
+                if (coverImageAdapter.itemCount > 0) {
+                    sliderHandler.removeCallbacks(sliderRunnable)
+                    sliderHandler.postDelayed(sliderRunnable, 2000)
+                }
             }
         })
 
@@ -116,8 +120,38 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
+    private fun setupBannerCarousel() {
+        coverImageCarousel = findViewById(R.id.coverImageCarousel)
+        coverImageAdapter = CoverImageAdapter()
+        coverImageCarousel.adapter = coverImageAdapter
+        // Initialize ViewModel
+        bannerViewModel = ViewModelProvider(this)[BannerViewModel::class.java]
+        // Observe banner changes
+        bannerViewModel.banners.observe(this) { banners ->
+            coverImageAdapter.updateBanners(banners)
+            // Only start auto-sliding if we have banners
+            if (banners.isNotEmpty()) {
+                sliderHandler.removeCallbacks(sliderRunnable)
+                sliderHandler.postDelayed(sliderRunnable, 2000)
+            }
+        }
+        // Set up the indicator
+        val tabLayout: TabLayout = findViewById(R.id.indicator)
+        TabLayoutMediator(tabLayout, coverImageCarousel) { _, _ -> }.attach()
+        // Set up auto-sliding
+        coverImageCarousel.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                // Only continue auto-sliding if we have items
+                if (coverImageAdapter.itemCount > 0) {
+                    sliderHandler.removeCallbacks(sliderRunnable)
+                    sliderHandler.postDelayed(sliderRunnable, 2000)
+                }
+            }
+        })
+        // Start fetching banners
+        bannerViewModel.fetchBanners()
+    }
 
     // Add this extension function to convert dp to pixels
     private fun Int.dpToPx(context: Context): Int {

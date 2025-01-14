@@ -28,8 +28,9 @@
             <FrameLayout
                 android:id="@+id/carouselContainer"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.55">
+                android:layout_height="450dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/coverImageCarousel"
