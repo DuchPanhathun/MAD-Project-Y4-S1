@@ -109,10 +109,6 @@
         android:gravity="center"
         android:padding="32dp"
         android:visibility="gone">
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/sal
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -136,9 +132,4 @@
             android:textColor="@android:color/darker_gray"
             android:fontFamily="@font/tenorsansregular"/>
     </LinearLayout>
-
-<<<<<<< HEAD
 </LinearLayout>
-=======
-</LinearLayout>
->>>>>>> origin/sal

@@ -66,19 +66,9 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
-<<<<<<< HEAD
         // Initialize banner carousel
         setupBannerCarousel()
 
-=======
-        coverImageCarousel = findViewById(R.id.coverImageCarousel)
-        val images = listOf(
-            R.drawable.cover_image1,
-            R.drawable.cover_image2,
-            R.drawable.cover_image3
-        )
-        coverImageCarousel.adapter = CoverImageAdapter(images)
->>>>>>> origin/sal
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
