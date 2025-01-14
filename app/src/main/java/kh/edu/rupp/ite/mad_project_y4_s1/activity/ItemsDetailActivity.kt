@@ -52,9 +52,9 @@ class ItemDetailActivity : AppCompatActivity() {
     private lateinit var deliveryDate1: TextView
     private lateinit var deliveryDate2: TextView
     private lateinit var deliveryDate3: TextView
-    private var isForward1Down = false
-    private var isForward2Down = false
-    private var isForward3Down = false
+    private var isForward1Down = true
+    private var isForward2Down = true
+    private var isForward3Down = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,9 +109,9 @@ class ItemDetailActivity : AppCompatActivity() {
         isForward1Down = false
         isForward2Down = false
         isForward3Down = false
-        forwardImage1.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
-        forwardImage2.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
-        forwardImage3.setImageResource(R.drawable.forward_)
+        forwardImage1.setImageResource(R.drawable.drop_down) // Replace with your forward arrow drawable
+        forwardImage2.setImageResource(R.drawable.drop_down) // Replace with your forward arrow drawable
+        forwardImage3.setImageResource(R.drawable.drop_down)
 
         forwardImage1.setOnClickListener {
             toggleDeliveryDetails(1)
@@ -171,9 +171,9 @@ class ItemDetailActivity : AppCompatActivity() {
 
     private fun toggleArrow(imageView: ImageView, isDown: Boolean) {
         if (isDown) {
-            imageView.setImageResource(R.drawable.arrow_down) // Replace with your downward arrow drawable
+            imageView.setImageResource(R.drawable.forward_) // Replace with your downward arrow drawable
         } else {
-            imageView.setImageResource(R.drawable.forward_) // Replace with your forward arrow drawable
+            imageView.setImageResource(R.drawable.drop_down) // Replace with your forward arrow drawable
         }
     }
     private fun setupBackButton() {
