@@ -261,5 +261,9 @@ class BlogActivity : AppCompatActivity() {
             }
         }
     }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
 
 }

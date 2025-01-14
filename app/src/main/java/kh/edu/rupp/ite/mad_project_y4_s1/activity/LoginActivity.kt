@@ -77,4 +77,5 @@ class LoginActivity : AppCompatActivity() {
 
         editText.setSelection(editText.text.length)
     }
+
 }

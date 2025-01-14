@@ -283,5 +283,9 @@ class ItemDetailActivity : AppCompatActivity() {
         purchasedViewModel.addPurchase(purchasedItem)
         Toast.makeText(this, "Item purchased successfully", Toast.LENGTH_SHORT).show()
     }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
 
 }

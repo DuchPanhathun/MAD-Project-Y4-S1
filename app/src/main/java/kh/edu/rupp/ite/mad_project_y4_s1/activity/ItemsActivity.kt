@@ -296,11 +296,6 @@ class ItemsActivity : AppCompatActivity() {
         }
     }
 
-    fun onSearchButtonClick(view: View) {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
-
     private fun setupFilterView() {
         val filterLayout = findViewById<LinearLayout>(R.id.filterLayout)
         val filterText = findViewById<TextView>(R.id.filterText)
@@ -322,5 +317,8 @@ class ItemsActivity : AppCompatActivity() {
             ItemsViewModel.SortOrder.OLDEST -> "OLD"
         }
     }
-
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
 }

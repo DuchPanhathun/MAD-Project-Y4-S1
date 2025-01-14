@@ -9,7 +9,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kh.edu.rupp.ite.mad_project_y4_s1.R
+import android.view.View
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.OrderPagerAdapter
+import kh.edu.rupp.ite.mad_project_y4_s1.activity.SearchActivity
 
 class OrderActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -101,4 +103,9 @@ class OrderActivity : AppCompatActivity() {
             }
         }.attach()
     }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
+
 } 

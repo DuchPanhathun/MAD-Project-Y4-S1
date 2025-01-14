@@ -158,4 +158,8 @@ class BlogDetailActivity : AppCompatActivity() {
         // Set default selection
         bottomNavigationView.selectedItemId = R.id.nav_home
     }
+    fun onSearchButtonClick(view: View) {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
 }
