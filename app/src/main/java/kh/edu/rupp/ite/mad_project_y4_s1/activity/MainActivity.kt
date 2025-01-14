@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: FavoritesViewModel
     private lateinit var bannerViewModel: BannerViewModel
     private lateinit var coverImageAdapter: CoverImageAdapter
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9bbf12
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,10 +136,15 @@ class MainActivity : AppCompatActivity() {
         coverImageCarousel = findViewById(R.id.coverImageCarousel)
         coverImageAdapter = CoverImageAdapter()
         coverImageCarousel.adapter = coverImageAdapter
+<<<<<<< HEAD
 
         // Initialize ViewModel
         bannerViewModel = ViewModelProvider(this)[BannerViewModel::class.java]
 
+=======
+        // Initialize ViewModel
+        bannerViewModel = ViewModelProvider(this)[BannerViewModel::class.java]
+>>>>>>> f9bbf12
         // Observe banner changes
         bannerViewModel.banners.observe(this) { banners ->
             coverImageAdapter.updateBanners(banners)
@@ -145,11 +154,17 @@ class MainActivity : AppCompatActivity() {
                 sliderHandler.postDelayed(sliderRunnable, 2000)
             }
         }
+<<<<<<< HEAD
 
         // Set up the indicator
         val tabLayout: TabLayout = findViewById(R.id.indicator)
         TabLayoutMediator(tabLayout, coverImageCarousel) { _, _ -> }.attach()
 
+=======
+        // Set up the indicator
+        val tabLayout: TabLayout = findViewById(R.id.indicator)
+        TabLayoutMediator(tabLayout, coverImageCarousel) { _, _ -> }.attach()
+>>>>>>> f9bbf12
         // Set up auto-sliding
         coverImageCarousel.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -161,11 +176,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+<<<<<<< HEAD
 
         // Start fetching banners
         bannerViewModel.fetchBanners()
     }
 
+=======
+        // Start fetching banners
+        bannerViewModel.fetchBanners()
+    }
+>>>>>>> f9bbf12
 
     // Add this extension function to convert dp to pixels
     private fun Int.dpToPx(context: Context): Int {

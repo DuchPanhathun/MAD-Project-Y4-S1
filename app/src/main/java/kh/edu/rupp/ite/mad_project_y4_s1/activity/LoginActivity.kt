@@ -105,5 +105,9 @@ class LoginActivity : AppCompatActivity() {
 
         editText.setSelection(editText.text.length)
     }
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> f9bbf12
