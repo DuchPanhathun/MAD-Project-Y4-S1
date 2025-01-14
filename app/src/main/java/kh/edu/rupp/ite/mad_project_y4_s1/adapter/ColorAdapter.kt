@@ -1,7 +1,7 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.adapter
 
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
+import android.graphics.PorterDuff
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +21,7 @@ class ColorAdapter(private val colors: List<String>) :
 
     class ColorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val colorCircle: View = view.findViewById(R.id.colorCircle)
-        val strokeCircle: View = view.findViewById(R.id.strokeCircle)
+        val strokeCircle: View = view.findViewById(R.id.strokeCircle) // Add this view for stroke
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
@@ -32,25 +32,15 @@ class ColorAdapter(private val colors: List<String>) :
 
     override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
         val color = colors[position]
-        Log.d("ColorAdapter", "Binding color at position $position: $color")
-        
         try {
             val colorInt = Color.parseColor(color)
-            
-            // Create a new drawable for the color circle
-            val backgroundDrawable = GradientDrawable().apply {
-                shape = GradientDrawable.OVAL
-                setColor(colorInt)
-            }
-            holder.colorCircle.background = backgroundDrawable
-            
-            Log.d("ColorAdapter", "Successfully set color: $color")
+            holder.colorCircle.background.setColorFilter(colorInt, PorterDuff.Mode.SRC_IN)
             
             // Show/hide stroke based on selection
             holder.strokeCircle.visibility = if (position == selectedPosition) View.VISIBLE else View.INVISIBLE
 
+            // Handle click
             holder.itemView.setOnClickListener {
-                Log.d("ColorAdapter", "Color clicked: $color at position $position")
                 val previousSelected = selectedPosition
                 selectedPosition = position
                 notifyItemChanged(previousSelected)
@@ -58,7 +48,7 @@ class ColorAdapter(private val colors: List<String>) :
                 onColorSelectedListener?.invoke(color)
             }
         } catch (e: IllegalArgumentException) {
-            Log.e("ColorAdapter", "Invalid color code: $color", e)
+            Log.e("ColorAdapter", "Invalid color code: $color")
         }
     }
 

@@ -33,10 +33,7 @@ class CoverImageAdapter : RecyclerView.Adapter<CoverImageAdapter.BannerViewHolde
     }
 
     override fun getItemCount() = banners.size
-<<<<<<< HEAD
 
-=======
->>>>>>> f9bbf12
     fun updateBanners(newBanners: List<Banner>) {
         banners = newBanners
         notifyDataSetChanged()
