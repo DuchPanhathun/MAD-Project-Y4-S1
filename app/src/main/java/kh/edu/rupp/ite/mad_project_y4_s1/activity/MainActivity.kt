@@ -99,8 +99,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, BlogActivity::class.java))
         }
 
-        setupSearch()
-
         // Setup bottom navigation
         setupBottomNavigation()
 
@@ -166,45 +164,6 @@ class MainActivity : AppCompatActivity() {
 
         // Start fetching banners
         bannerViewModel.fetchBanners()
-    }
-
-    private fun setupSearch() {
-        searchView = findViewById(R.id.searchView)
-        
-        // Configure SearchView
-        searchView.isIconified = true // Start in collapsed state
-        searchView.setOnSearchClickListener {
-            // When search is clicked, expand the width
-            val params = searchView.layoutParams
-            params.width = ViewGroup.LayoutParams.MATCH_PARENT
-            searchView.layoutParams = params
-            searchView.background = ContextCompat.getDrawable(this, R.drawable.search_background)
-        }
-        
-        searchView.setOnCloseListener {
-            // When search is closed, restore original width
-            val params = searchView.layoutParams
-            params.width = 48.dpToPx(this) // Convert 48dp to pixels
-            searchView.layoutParams = params
-            searchView.background = null
-            false
-        }
-
-        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
-        searchEditText.setTextColor(Color.BLACK)
-        searchEditText.setHintTextColor(Color.GRAY)
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { performSearch(it) }
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let { performSearch(it) }
-                return true
-            }
-        })
     }
 
 
