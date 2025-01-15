@@ -145,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"/>
-
+        <!--Delivery-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,17 +153,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DELIVERY"
-                android:textSize="22dp"
+                android:text="Delivery"
+                android:textSize="16dp"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="@font/tenorsansregular"/>
+                android:textStyle="bold"/>
+            <!--Free Flat Rate Shipping-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="28dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/shipping"
                     android:layout_margin="16dp"/>
                 <TextView
@@ -171,20 +172,20 @@
                     android:layout_height="wrap_content"
                     android:text="Free Flat Rate Shipping"
                     android:layout_marginTop="20dp"
-                    android:textSize="17dp"/>
+                    android:textSize="16dp"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/forward_image1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="28dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/forward_"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="35dp"/>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -193,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Estimated to be delivered on"
-                android:textSize="17dp"
+                android:textSize="16dp"
                 android:textColor="@color/grey"
                 android:layout_marginLeft="61dp"
                 android:layout_marginTop="-12dp"/>
@@ -202,7 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2024-10-16 - 2025-05-05"
-                android:textSize="17dp"
+                android:textSize="16dp"
                 android:textColor="@color/grey"
                 android:layout_marginLeft="61dp"/>
 
@@ -214,15 +215,15 @@
                 android:layout_marginRight="20dp"
                 android:background="@color/grey" />
         </LinearLayout>
-
+        <!--COD Policy-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="33dp"
-                android:layout_height="33dp"
+                android:layout_width="25dp"
+                android:layout_height="28dp"
                 android:src="@drawable/tag_"
                 android:layout_margin="16dp"/>
 
@@ -231,7 +232,7 @@
                 android:layout_height="wrap_content"
                 android:text="COD Policy"
                 android:layout_marginTop="20dp"
-                android:textSize="17dp"/>
+                android:textSize="16dp"/>
 
 
             <RelativeLayout
@@ -240,8 +241,8 @@
 
                 <ImageView
                     android:id="@+id/forward_image2"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="28dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/forward_"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -254,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Estimated to be delivered on"
-            android:textSize="17dp"
+            android:textSize="16dp"
             android:textColor="@color/grey"
             android:layout_marginLeft="61dp"
             android:layout_marginTop="-12dp"/>
@@ -263,7 +264,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2024-10-16 - 2025-05-05"
-            android:textSize="17dp"
+            android:textSize="16dp"
             android:textColor="@color/grey"
             android:layout_marginLeft="61dp"/>
         <View
@@ -280,8 +281,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="33dp"
-                android:layout_height="33dp"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
                 android:src="@drawable/refrease_"
                 android:layout_margin="16dp"/>
 
@@ -290,15 +291,15 @@
                 android:layout_height="wrap_content"
                 android:text="Return Policy"
                 android:layout_marginTop="20dp"
-                android:textSize="17dp"/>
+                android:textSize="16dp"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/forward_image3"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="28dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/forward_"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -311,7 +312,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Estimated to be delivered on"
-            android:textSize="17dp"
+            android:textSize="16dp"
             android:textColor="@color/grey"
             android:layout_marginLeft="61dp"
             android:layout_marginTop="-12dp"/>
@@ -320,7 +321,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2024-10-16 - 2025-05-05"
-            android:textSize="17dp"
+            android:textSize="16dp"
             android:textColor="@color/grey"
             android:layout_marginLeft="61dp"/>
         <View
@@ -330,6 +331,5 @@
             android:layout_marginRight="20dp"
             android:background="@color/black" />
     </LinearLayout>
-
 
 </ScrollView>
