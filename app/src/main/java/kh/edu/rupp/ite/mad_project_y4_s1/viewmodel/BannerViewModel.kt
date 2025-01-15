@@ -10,7 +10,6 @@ import android.util.Log
 class BannerViewModel : ViewModel() {
     private val _banners = MutableLiveData<List<Banner>>()
     val banners: LiveData<List<Banner>> = _banners
-
     fun fetchBanners() {
         FirebaseFirestore.getInstance().collection("banners")
             .whereEqualTo("active", true)

@@ -64,12 +64,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
-<<<<<<< HEAD
+
 
 
 
@@ -83,11 +86,11 @@ class MainActivity : AppCompatActivity() {
         )
         
         coverImageCarousel.adapter = CoverImageAdapter(images)
-=======
+
         // Initialize banner carousel
         setupBannerCarousel()
 
->>>>>>> 359f82e04543d5237dbbc4d0e5c5706595c125b1
+
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
         aboutText.setOnClickListener {
@@ -117,8 +120,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.blogText).setOnClickListener {
             startActivity(Intent(this, BlogActivity::class.java))
         }
-
-        setupSearch()
 
         // Setup bottom navigation
         setupBottomNavigation()
@@ -171,6 +172,7 @@ class MainActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.indicator)
         TabLayoutMediator(tabLayout, coverImageCarousel) { _, _ -> }.attach()
 
+
         // Set up auto-sliding
         coverImageCarousel.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -185,45 +187,6 @@ class MainActivity : AppCompatActivity() {
 
         // Start fetching banners
         bannerViewModel.fetchBanners()
-    }
-
-    private fun setupSearch() {
-        searchView = findViewById(R.id.searchView)
-        
-        // Configure SearchView
-        searchView.isIconified = true // Start in collapsed state
-        searchView.setOnSearchClickListener {
-            // When search is clicked, expand the width
-            val params = searchView.layoutParams
-            params.width = ViewGroup.LayoutParams.MATCH_PARENT
-            searchView.layoutParams = params
-            searchView.background = ContextCompat.getDrawable(this, R.drawable.search_background)
-        }
-        
-        searchView.setOnCloseListener {
-            // When search is closed, restore original width
-            val params = searchView.layoutParams
-            params.width = 48.dpToPx(this) // Convert 48dp to pixels
-            searchView.layoutParams = params
-            searchView.background = null
-            false
-        }
-
-        val searchEditText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
-        searchEditText.setTextColor(Color.BLACK)
-        searchEditText.setHintTextColor(Color.GRAY)
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { performSearch(it) }
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let { performSearch(it) }
-                return true
-            }
-        })
     }
 
 
