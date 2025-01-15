@@ -49,10 +49,6 @@ class ItemsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
 
-
-
-
-
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         // Set the selected item to the current activity
@@ -300,18 +296,6 @@ class ItemsActivity : AppCompatActivity() {
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1678e8403120989c5aaeb858842da9e216534ad7
-
-    fun onSearchButtonClick(view: View) {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
-
-=======
->>>>>>> 359f82e04543d5237dbbc4d0e5c5706595c125b1
     private fun setupFilterView() {
         val filterLayout = findViewById<LinearLayout>(R.id.filterLayout)
         val filterText = findViewById<TextView>(R.id.filterText)
@@ -333,16 +317,8 @@ class ItemsActivity : AppCompatActivity() {
             ItemsViewModel.SortOrder.OLDEST -> "OLD"
         }
     }
-<<<<<<< HEAD
-
-
-<<<<<<< HEAD
-=======
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
     }
->>>>>>> 359f82e04543d5237dbbc4d0e5c5706595c125b1
-=======
->>>>>>> 1678e8403120989c5aaeb858842da9e216534ad7
 }

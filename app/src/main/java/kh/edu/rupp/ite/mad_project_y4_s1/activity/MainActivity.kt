@@ -29,22 +29,15 @@ import android.view.LayoutInflater
 import android.content.Context
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
-<<<<<<< HEAD
-import androidx.appcompat.widget.SearchView
-import android.widget.EditText
-import android.widget.ProgressBar
-=======
->>>>>>> 4173e10a56ffad794c5a87e5037bcb4264c0d669
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.lifecycle.ViewModelProvider
-import kh.edu.rupp.ite.mad_project_y4_s1.adapter.ItemsAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BannerViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
-    private val sliderRunnable = Runnable { 
+    private val sliderRunnable = Runnable {
         val itemCount = coverImageCarousel.adapter?.itemCount ?: 0
         if (itemCount > 0) {
             coverImageCarousel.currentItem = (coverImageCarousel.currentItem + 1) % itemCount
@@ -61,34 +54,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bannerViewModel: BannerViewModel
     private lateinit var coverImageAdapter: CoverImageAdapter
 
-
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_main)
 
-
-
-
-
-
-
-        coverImageCarousel = findViewById(R.id.coverImageCarousel)
-        val images = listOf(
-            R.drawable.cover_image1,
-            R.drawable.cover_image2,
-            R.drawable.cover_image3
-        )
-        
-        coverImageCarousel.adapter = CoverImageAdapter(images)
-
         // Initialize banner carousel
         setupBannerCarousel()
-
 
         //Add About
         val aboutText: TextView = findViewById(R.id.aboutText)
@@ -286,8 +258,8 @@ class MainActivity : AppCompatActivity() {
                                 if (auth.currentUser != null) {
                                     startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
                                 } else {
-                                    Toast.makeText(this@MainActivity, 
-                                        "Please login first", 
+                                    Toast.makeText(this@MainActivity,
+                                        "Please login first",
                                         Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                                 }
@@ -351,10 +323,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        
+
         // Set icons programmatically if needed
         bottomNavigationView.menu.findItem(R.id.shoppingButton)?.setIcon(R.drawable.ic_shopping_bag)
-        
+
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {

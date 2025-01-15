@@ -43,20 +43,20 @@
             android:padding="16dp"/>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Colors:"
-                android:textStyle="bold"
-                android:padding="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Colors:"
+            android:textStyle="bold"
+            android:padding="16dp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/colorsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:clipToPadding="false"
-                android:padding="16dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/colorsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            android:padding="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -83,96 +83,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-<<<<<<< HEAD
-                android:clipToPadding="false"
-                android:padding="16dp"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/black"
-                android:padding="20dp">
-                <LinearLayout
-                    android:id="@+id/addToBasketContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:clickable="true"
-                    android:focusable="true">
-
-<<<<<<< HEAD
-        <TextView
-            android:id="@+id/materialDetailTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/tenorsansregular"
-            android:paddingLeft="16dp"/>
-
-        <TextView
-            android:id="@+id/additionalCareDetailsTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:fontFamily="@font/tenorsansregular"
-            android:paddingTop="8dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/careDetailsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:padding="16dp"/>
-
-        <TextView
-            android:id="@+id/deliveryDatesTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/tenorsansregular"
-            android:padding="16dp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-=======
-                    <ImageButton
-                        android:id="@+id/purchaseButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/plus"
-                        android:background="@color/black"/>
-
-                    <TextView
-                        android:id="@+id/addToBasketText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="Add To Basket"
-                        android:layout_marginLeft="30dp"
-                        android:textSize="16dp"
-                        android:textColor="@color/fcfcfc"
-                        android:fontFamily="@font/tenor_sans"/>
-
-                </LinearLayout>
-=======
                 android:clickable="true"
                 android:focusable="true">
-                
->>>>>>> 075b83d774872c338c246d0fb448fc8302cf1332
+
                 <ImageButton
                     android:id="@+id/purchaseButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-<<<<<<< HEAD
-                    android:src="@drawable/heart"
-                    android:background="@color/black"
-                    android:layout_alignParentEnd="true"/>
-            </RelativeLayout>
->>>>>>> 359f82e04543d5237dbbc4d0e5c5706595c125b1
-=======
                     android:src="@drawable/plus"
                     android:background="@color/black"/>
-                    
+
                 <TextView
                     android:id="@+id/addToBasketText"
                     android:layout_width="wrap_content"
@@ -183,7 +103,7 @@
                     android:textSize="16dp"
                     android:textColor="@color/fcfcfc"
                     android:fontFamily="@font/tenor_sans"/>
-                    
+
             </LinearLayout>
             <ImageButton
                 android:id="@+id/favoriteButton"
@@ -230,7 +150,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
->>>>>>> 075b83d774872c338c246d0fb448fc8302cf1332
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
