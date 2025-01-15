@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FOLLOW US"
-            android:textSize="30sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/tenor_sans"
             android:padding="20dp"
@@ -27,19 +27,19 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/facebookButton"
-                android:layout_width="30dp"
+                android:layout_width="28dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
                 android:src="@drawable/facebook"/>
             <ImageView
                 android:id="@+id/instagramButton"
-                android:layout_width="30dp"
+                android:layout_width="28dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
                 android:src="@drawable/instagram"/>
             <ImageView
                 android:id="@+id/telegramButton"
-                android:layout_width="30dp"
+                android:layout_width="28dp"
                 android:layout_height="30dp"
                 android:layout_margin="20dp"
                 android:src="@drawable/telegram"/>
@@ -59,9 +59,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="phnompenhtrends@gmail.com\n+85512 334 567\n08:00 - 22:00 - Everyday"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/tenor_sans"
-            android:padding="15dp"
+            android:padding="16dp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"/>
         <ImageView
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/tenor_sans"
             android:padding="15dp"
             android:gravity="center"/>
@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/tenor_sans"
             android:padding="15dp"
             android:gravity="center"/>
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blog"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/tenor_sans"
             android:padding="15dp"
             android:clickable="true"
@@ -108,8 +108,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Copyright© Thu All Rights Reserved."
-        android:textSize="20sp"
+        android:text="Copyright© PPT All Rights Reserved."
+        android:textSize="16sp"
         android:fontFamily="@font/tenor_sans"
         android:padding="15dp"
         android:gravity="center"

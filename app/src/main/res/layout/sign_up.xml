@@ -35,6 +35,7 @@
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:hint="Email" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,15 +98,7 @@
 
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/textLetter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already have account? please log in"
-        android:textSize="15dp"
-        android:fontFamily="@font/tenorsansregular"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"/>
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
@@ -115,5 +108,14 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
         android:padding="16dp"/>
+    <TextView
+        android:id="@+id/textLetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have account? please log in"
+        android:textSize="15dp"
+        android:fontFamily="@font/tenorsansregular"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
