@@ -6,7 +6,6 @@ import android.os.Looper
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -30,11 +29,7 @@ import android.view.LayoutInflater
 import android.content.Context
 import kh.edu.rupp.ite.mad_project_y4_s1.adapter.CoverImageAdapter
 import kh.edu.rupp.ite.mad_project_y4_s1.R
-import androidx.appcompat.widget.SearchView
-import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.core.content.ContextCompat
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BannerViewModel
@@ -54,7 +49,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var popupWindow: PopupWindow
     private lateinit var auth: FirebaseAuth
     private lateinit var loginLogoutButton: TextView
-    private lateinit var searchView: SearchView
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var viewModel: FavoritesViewModel
     private lateinit var bannerViewModel: BannerViewModel
@@ -170,17 +164,6 @@ class MainActivity : AppCompatActivity() {
     // Add this extension function to convert dp to pixels
     private fun Int.dpToPx(context: Context): Int {
         return (this * context.resources.displayMetrics.density).toInt()
-    }
-
-    private fun performSearch(query: String) {
-        // TODO: Implement your search logic here
-        // For example:
-        Toast.makeText(this, "Searching for: $query", Toast.LENGTH_SHORT).show()
-        
-        // You might want to:
-        // 1. Start a new SearchResultsActivity with the query
-        // 2. Filter your existing data
-        // 3. Make an API call to search products
     }
 
     private fun showCustomMenu() {
