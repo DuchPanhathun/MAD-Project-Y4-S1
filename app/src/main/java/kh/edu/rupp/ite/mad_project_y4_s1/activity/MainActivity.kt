@@ -396,7 +396,7 @@ class MainActivity : AppCompatActivity() {
 
         // Observe items from ViewModel
         horizontalViewModel.itemsState.observe(this) { response ->
-            when (response.status) {
+            when (response.state) {
                 ApiState.SUCCESS -> {
                     response.data?.let { items ->
                         horizontalAdapter.submitList(items)

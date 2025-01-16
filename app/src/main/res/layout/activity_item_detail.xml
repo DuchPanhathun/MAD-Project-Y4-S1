@@ -330,6 +330,31 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/black" />
+        <TextView
+            android:id="@+id/newArrivalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You May Also Like"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/tenor_sans"
+            android:layout_marginTop="25sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/horizontal"
+            android:layout_marginBottom="25sp"/>
+
+
+        <include
+            android:id="@+id/gridItemsContainer"
+            layout="@layout/grid_items_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <include layout="@layout/footer_layout" />
     </LinearLayout>
 
 </ScrollView>

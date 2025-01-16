@@ -23,6 +23,10 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.PurchasedViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.model.PurchasedItem
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.GridItemsViewModel
+import kh.edu.rupp.ite.mad_project_y4_s1.adapter.GridItemsAdapter
+import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiResponse
+import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 
 class ItemDetailActivity : AppCompatActivity() {
 
@@ -55,7 +59,8 @@ class ItemDetailActivity : AppCompatActivity() {
     private var isForward1Down = true
     private var isForward2Down = true
     private var isForward3Down = true
-
+    private val gridItemsViewModel: GridItemsViewModel by viewModels()
+    private lateinit var adapter: GridItemsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +76,27 @@ class ItemDetailActivity : AppCompatActivity() {
             displayItemDetails(it)
             setupHeartButton(it)
             setupPurchaseButton(it)
+        }
+        
+        // Add blog text click handler
+        findViewById<TextView>(R.id.blogText).setOnClickListener {
+            startActivity(Intent(this, BlogActivity::class.java))
+        }
+
+        // Add contact us
+        val contactUsText: TextView = findViewById(R.id.contact_us_Text)
+        contactUsText.setOnClickListener {
+            val intent = Intent(this, ContactUsActivity::class.java)
+            intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
+            startActivity(intent)
+        }
+
+        // Add About
+        val aboutText: TextView = findViewById(R.id.aboutText)
+        aboutText.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            intent.putExtra("origin", "BlogDetailActivity") // Specify the origin
+            startActivity(intent)
         }
     }
 
@@ -97,7 +123,6 @@ class ItemDetailActivity : AppCompatActivity() {
         deliveryDate2 = findViewById(R.id.delivery_date2)
         deliveryDate3 = findViewById(R.id.delivery_date3)
 
-
         estimatedDeliveryLabel1.visibility = View.GONE
         estimatedDeliveryLabel2.visibility = View.GONE
         estimatedDeliveryLabel3.visibility = View.GONE
@@ -123,7 +148,28 @@ class ItemDetailActivity : AppCompatActivity() {
             toggleDeliveryDetails(3)
         }
 
+        adapter = GridItemsAdapter(emptyList()) { item ->
+            // Handle item click
+        }
 
+        val recyclerView = findViewById<RecyclerView>(R.id.gridRecyclerView)
+        recyclerView.adapter = adapter
+
+        gridItemsViewModel.itemsState.observe(this) { response ->
+            when (response.state) {
+                ApiState.SUCCESS -> {
+                    response.data?.let { items ->
+                        adapter.submitList(items)
+                    }
+                }
+                ApiState.ERROR -> {
+                    Toast.makeText(this, "Error: ${response.error}", Toast.LENGTH_SHORT).show()
+                }
+                ApiState.LOADING -> {
+                    // Show loading state if needed
+                }
+            }
+        }
     }
 
     private fun toggleDeliveryDetails(index: Int) {
@@ -176,6 +222,7 @@ class ItemDetailActivity : AppCompatActivity() {
             imageView.setImageResource(R.drawable.drop_down) // Replace with your forward arrow drawable
         }
     }
+
     private fun setupBackButton() {
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {
@@ -283,9 +330,9 @@ class ItemDetailActivity : AppCompatActivity() {
         purchasedViewModel.addPurchase(purchasedItem)
         Toast.makeText(this, "Item purchased successfully", Toast.LENGTH_SHORT).show()
     }
+
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
     }
-
 }
