@@ -294,7 +294,8 @@ class ItemDetailActivity : AppCompatActivity() {
             brandName = item.brandName,
             type = item.type,
             price = item.price,
-            sizes = item.sizes
+            sizes = item.sizes,
+            colors = item.colors
         )
         viewModel.addFavorite(favoriteItem)
         Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()

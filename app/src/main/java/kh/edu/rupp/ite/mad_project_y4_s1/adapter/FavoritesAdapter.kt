@@ -53,6 +53,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoriteViewHolde
         private val typeTextView: TextView = itemView.findViewById(R.id.favoriteTypeTextView)
         private val priceTextView: TextView = itemView.findViewById(R.id.favoritePriceTextView)
         private val sizesTextView: TextView = itemView.findViewById(R.id.favoriteSizesTextView)
+        private val colorsTextView: TextView = itemView.findViewById(R.id.favoriteColorsTextView)
 
         fun bind(item: FavoriteItem) {
             Glide.with(itemView.context)
@@ -63,6 +64,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoriteViewHolde
             typeTextView.text = item.type
             priceTextView.text = "$${item.price}"
             sizesTextView.text = "Sizes: ${item.sizes.joinToString(", ")}"
+            colorsTextView.text = "Colors: ${item.colors.joinToString(", ")}"
         }
     }
 } 
