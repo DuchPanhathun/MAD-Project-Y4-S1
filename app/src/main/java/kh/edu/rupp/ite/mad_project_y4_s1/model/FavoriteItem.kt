@@ -9,5 +9,6 @@ data class FavoriteItem(
     val brandName: String = "",
     val type: String = "",
     val price: String = "",
-    val sizes: List<String> = listOf()
+    val sizes: List<String> = listOf(),
+    val colors: List<String> = listOf()
 ) 

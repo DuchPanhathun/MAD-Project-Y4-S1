@@ -272,7 +272,7 @@ class ItemsActivity : AppCompatActivity() {
 
     private fun observeState() {
         viewModel.itemsState.observe(this) { response ->
-            when (response.status) {
+            when (response.state) {
                 ApiState.LOADING -> {
                     progressBar.visibility = View.VISIBLE
                 }
