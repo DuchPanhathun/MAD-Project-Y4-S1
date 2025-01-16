@@ -57,8 +57,7 @@ class FavoritesFragment : Fragment() {
                 type = favoriteItem.type,
                 price = favoriteItem.price,
                 sizes = favoriteItem.sizes,
-                // Add other required Item properties with default values
-                colors = listOf(),
+                colors = favoriteItem.colors,
                 materialDetail = "",
                 additionalCareDetails = "",
                 careDetails = listOf(),

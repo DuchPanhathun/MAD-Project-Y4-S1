@@ -56,13 +56,11 @@
                 />
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/horizontal" />
 
-            <include android:id="@+id/includedLayout"
-                layout="@layout/horizontal_scrollcard" />
+            <include layout="@layout/horizontal_scrollcard" />
 
             <LinearLayout
                 android:id="@+id/exploreMoreLayout"

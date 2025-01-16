@@ -33,6 +33,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.lifecycle.ViewModelProvider
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.FavoritesViewModel
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.BannerViewModel
+import kh.edu.rupp.ite.mad_project_y4_s1.adapter.HorizontalItemsAdapter
+import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
+import androidx.activity.viewModels
+import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.HorizontalItemsViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var coverImageCarousel: ViewPager2
@@ -53,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: FavoritesViewModel
     private lateinit var bannerViewModel: BannerViewModel
     private lateinit var coverImageAdapter: CoverImageAdapter
+    private val horizontalViewModel: HorizontalItemsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,6 +124,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ItemsActivity::class.java)
             startActivity(intent)
         }
+
+        // Setup horizontal items
+        setupHorizontalItems()
     }
 
     private fun setupBannerCarousel() {
@@ -365,5 +373,46 @@ class MainActivity : AppCompatActivity() {
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setupHorizontalItems() {
+        val horizontalRecyclerView = findViewById<RecyclerView>(R.id.horizontalRecyclerView)
+        
+        // Set up horizontal layout manager
+        horizontalRecyclerView.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        
+        // Create and set adapter
+        val horizontalAdapter = HorizontalItemsAdapter(emptyList()) { item ->
+            // Handle item click
+            val intent = Intent(this, ItemDetailActivity::class.java)
+            intent.putExtra("item", item)
+            startActivity(intent)
+        }
+        horizontalRecyclerView.adapter = horizontalAdapter
+
+        // Observe items from ViewModel
+        horizontalViewModel.itemsState.observe(this) { response ->
+            when (response.state) {
+                ApiState.SUCCESS -> {
+                    response.data?.let { items ->
+                        horizontalAdapter.submitList(items)
+                    }
+                }
+                ApiState.ERROR -> {
+                    Toast.makeText(
+                        this, 
+                        response.error ?: "Error loading items", 
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                ApiState.LOADING -> {
+                    // Handle loading state if needed
+                }
+            }
+        }
     }
 }

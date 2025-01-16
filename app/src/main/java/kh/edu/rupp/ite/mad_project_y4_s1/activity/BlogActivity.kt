@@ -115,7 +115,7 @@ class BlogActivity : AppCompatActivity() {
 
 
         viewModel.blogsState.observe(this) { response: ApiResponse<List<Blog>> ->
-            when (response.status) {
+            when (response.state) {
                 ApiState.LOADING -> progressBar.visibility = View.VISIBLE
                 ApiState.SUCCESS -> {
                     progressBar.visibility = View.GONE

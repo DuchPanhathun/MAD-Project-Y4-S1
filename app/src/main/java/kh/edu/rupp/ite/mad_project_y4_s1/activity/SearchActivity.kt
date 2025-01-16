@@ -77,7 +77,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun loadItems() {
         viewModel.itemsState.observe(this) { response ->
-            when (response.status) {
+            when (response.state) {
                 ApiState.SUCCESS -> {
                     response.data?.let { loadedItems ->
                         items.clear()

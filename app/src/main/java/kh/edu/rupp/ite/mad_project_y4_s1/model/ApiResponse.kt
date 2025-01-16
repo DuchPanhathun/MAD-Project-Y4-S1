@@ -1,7 +1,7 @@
 package kh.edu.rupp.ite.mad_project_y4_s1.model
 
 data class ApiResponse<T>(
-    val status: ApiState,
+    val state: ApiState,
     val data: T? = null,
     val error: String? = null
 )

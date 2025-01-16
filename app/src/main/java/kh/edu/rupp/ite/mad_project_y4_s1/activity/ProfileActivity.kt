@@ -138,7 +138,7 @@ class ProfileActivity : AppCompatActivity() {
         // Observe user data changes
         lifecycleScope.launch {
             userViewModel.userState.collect { response ->
-                when (response.status) {
+                when (response.state) {
                     ApiState.LOADING -> {
                         // Show loading indicator if needed
                     }
