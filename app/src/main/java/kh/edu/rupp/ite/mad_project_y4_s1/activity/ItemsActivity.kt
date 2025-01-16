@@ -31,6 +31,8 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.ItemsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kh.edu.rupp.ite.mad_project_y4_s1.activity.SearchActivity
+import android.graphics.Typeface
+import androidx.core.content.res.ResourcesCompat
 
 
 class ItemsActivity : AppCompatActivity() {
@@ -44,6 +46,9 @@ class ItemsActivity : AppCompatActivity() {
     private lateinit var loginLogoutButton: TextView
     private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var pageNumbersContainer: LinearLayout
+    private lateinit var prevButton: TextView
+    private lateinit var nextButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,6 +133,7 @@ class ItemsActivity : AppCompatActivity() {
         }
 
         setupFilterView()
+        setupPagination()
     }
 
     private fun showCustomMenu() {
@@ -320,5 +326,93 @@ class ItemsActivity : AppCompatActivity() {
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setupPagination() {
+        pageNumbersContainer = findViewById(R.id.pageNumbersContainer)
+        prevButton = findViewById(R.id.prevButton)
+        nextButton = findViewById(R.id.nextButton)
+
+        viewModel.totalPages.observe(this) { totalPages ->
+            updatePaginationButtons(totalPages)
+        }
+
+        viewModel.currentPage.observe(this) { currentPage ->
+            updatePaginationUI(currentPage)
+        }
+
+        prevButton.setOnClickListener {
+            viewModel.currentPage.value?.let { current ->
+                viewModel.setPage(current - 1)
+            }
+        }
+
+        nextButton.setOnClickListener {
+            viewModel.currentPage.value?.let { current ->
+                viewModel.setPage(current + 1)
+            }
+        }
+    }
+
+    private fun updatePaginationButtons(totalPages: Int) {
+        pageNumbersContainer.removeAllViews()
+        
+        for (i in 1..totalPages) {
+            // Create CardView container
+            val cardView = androidx.cardview.widget.CardView(this).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    marginEnd = resources.getDimensionPixelSize(R.dimen.spacing_small) // Add 8dp margin
+                }
+                radius = resources.getDimensionPixelSize(R.dimen.spacing_medium).toFloat() // 16dp radius
+                cardElevation = resources.getDimensionPixelSize(R.dimen.elevation_small).toFloat() // 2dp elevation
+            }
+
+            // Create TextView for page number
+            val pageButton = TextView(this).apply {
+                text = i.toString()
+                setPadding(24, 12, 24, 12) // Increased padding
+                setTextColor(Color.BLACK)
+                textSize = 16f
+                gravity = Gravity.CENTER
+                isClickable = true
+                isFocusable = true
+                background = ResourcesCompat.getDrawable(resources, R.drawable.ripple_effect, theme)
+                setOnClickListener { viewModel.setPage(i) }
+            }
+
+            // Add TextView to CardView
+            cardView.addView(pageButton)
+            // Add CardView to container
+            pageNumbersContainer.addView(cardView)
+        }
+    }
+
+    private fun updatePaginationUI(currentPage: Int) {
+        for (i in 0 until pageNumbersContainer.childCount) {
+            val cardView = pageNumbersContainer.getChildAt(i) as androidx.cardview.widget.CardView
+            val pageButton = cardView.getChildAt(0) as TextView
+            
+            if (i + 1 == currentPage) {
+                // Selected page styling
+                cardView.setCardBackgroundColor(resources.getColor(R.color.black, theme))
+                pageButton.setTextColor(Color.WHITE)
+                pageButton.setTypeface(null, Typeface.BOLD)
+            } else {
+                // Unselected page styling
+                cardView.setCardBackgroundColor(Color.WHITE)
+                pageButton.setTextColor(Color.BLACK)
+                pageButton.setTypeface(null, Typeface.NORMAL)
+            }
+        }
+
+        // Update prev/next buttons visibility and styling
+        prevButton.isEnabled = currentPage > 1
+        nextButton.isEnabled = currentPage < (viewModel.totalPages.value ?: 1)
+        
+        prevButton.alpha = if (prevButton.isEnabled) 1.0f else 0.5f
+        nextButton.alpha = if (nextButton.isEnabled) 1.0f else 0.5f
     }
 }

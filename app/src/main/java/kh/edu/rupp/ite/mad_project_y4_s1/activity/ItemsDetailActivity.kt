@@ -150,6 +150,9 @@ class ItemDetailActivity : AppCompatActivity() {
 
         adapter = GridItemsAdapter(emptyList()) { item ->
             // Handle item click
+            val intent = Intent(this, ItemDetailActivity::class.java)
+            intent.putExtra("item", item)
+            startActivity(intent)
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.gridRecyclerView)

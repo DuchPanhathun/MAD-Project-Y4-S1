@@ -4,4 +4,7 @@
     <dimen name="indicator_height">2dp</dimen>
     <dimen name="indicator_spacing">8dp</dimen>
     <dimen name="item_spacing">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="elevation_small">2dp</dimen>
 </resources>

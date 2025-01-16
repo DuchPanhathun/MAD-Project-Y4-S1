@@ -29,6 +29,14 @@ class ItemsViewModel : ViewModel() {
 
     private var currentSortOrder = SortOrder.NEWEST
 
+    private val _totalPages = MutableLiveData<Int>()
+    val totalPages: LiveData<Int> = _totalPages
+    
+    private val _currentPage = MutableLiveData<Int>(1)
+    val currentPage: LiveData<Int> = _currentPage
+    
+    private val itemsPerPage = 10 // Adjust this value as needed
+
     init {
         fetchItems()
     }
@@ -45,7 +53,14 @@ class ItemsViewModel : ViewModel() {
                     SortOrder.OLDEST -> currentItems.sortedBy { it.timestamp }
                 }
                 
-                _itemsState.value = ApiResponse(ApiState.SUCCESS, data = sortedItems)
+                // Calculate total pages
+                _totalPages.value = (sortedItems.size + itemsPerPage - 1) / itemsPerPage
+                
+                // Get items for current page
+                val startIndex = ((_currentPage.value ?: 1) - 1) * itemsPerPage
+                val pageItems = sortedItems.drop(startIndex).take(itemsPerPage)
+                
+                _itemsState.value = ApiResponse(ApiState.SUCCESS, data = pageItems)
 
                 // Calculate total quantity
                 val total = sortedItems.sumOf { it.getQuantityAsInt() }
@@ -76,4 +91,10 @@ class ItemsViewModel : ViewModel() {
         return currentSortOrder
     }
 
+    fun setPage(page: Int) {
+        if (page in 1..(_totalPages.value ?: 1)) {
+            _currentPage.value = page
+            fetchItems(currentSortOrder)
+        }
+    }
 }
