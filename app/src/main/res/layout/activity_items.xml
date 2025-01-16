@@ -93,6 +93,13 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Add this before the BottomNavigationView -->
+    <include
+        android:id="@+id/paginationLayout"
+        layout="@layout/pagination_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomNavigationView"/>
 
     <!-- BottomNavigationView fixed at the bottom of the screen -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

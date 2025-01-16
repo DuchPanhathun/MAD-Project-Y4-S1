@@ -31,6 +31,7 @@ import kh.edu.rupp.ite.mad_project_y4_s1.model.ApiState
 import kh.edu.rupp.ite.mad_project_y4_s1.viewmodel.ItemsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kh.edu.rupp.ite.mad_project_y4_s1.activity.SearchActivity
+import android.graphics.Typeface
 
 
 class ItemsActivity : AppCompatActivity() {
@@ -44,6 +45,9 @@ class ItemsActivity : AppCompatActivity() {
     private lateinit var loginLogoutButton: TextView
     private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var pageNumbersContainer: LinearLayout
+    private lateinit var prevButton: TextView
+    private lateinit var nextButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,6 +132,7 @@ class ItemsActivity : AppCompatActivity() {
         }
 
         setupFilterView()
+        setupPagination()
     }
 
     private fun showCustomMenu() {
@@ -320,5 +325,65 @@ class ItemsActivity : AppCompatActivity() {
     fun onSearchButtonClick(view: View) {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setupPagination() {
+        pageNumbersContainer = findViewById(R.id.pageNumbersContainer)
+        prevButton = findViewById(R.id.prevButton)
+        nextButton = findViewById(R.id.nextButton)
+
+        viewModel.totalPages.observe(this) { totalPages ->
+            updatePaginationButtons(totalPages)
+        }
+
+        viewModel.currentPage.observe(this) { currentPage ->
+            updatePaginationUI(currentPage)
+        }
+
+        prevButton.setOnClickListener {
+            viewModel.currentPage.value?.let { current ->
+                viewModel.setPage(current - 1)
+            }
+        }
+
+        nextButton.setOnClickListener {
+            viewModel.currentPage.value?.let { current ->
+                viewModel.setPage(current + 1)
+            }
+        }
+    }
+
+    private fun updatePaginationButtons(totalPages: Int) {
+        pageNumbersContainer.removeAllViews()
+        
+        for (i in 1..totalPages) {
+            val pageButton = TextView(this).apply {
+                text = i.toString()
+                setPadding(16, 8, 16, 8)
+                setTextColor(Color.BLACK)
+                textSize = 16f
+                isClickable = true
+                setOnClickListener { viewModel.setPage(i) }
+            }
+            pageNumbersContainer.addView(pageButton)
+        }
+    }
+
+    private fun updatePaginationUI(currentPage: Int) {
+        // Update page buttons appearance
+        for (i in 0 until pageNumbersContainer.childCount) {
+            val pageButton = pageNumbersContainer.getChildAt(i) as TextView
+            if (i + 1 == currentPage) {
+                pageButton.setTextColor(Color.BLUE)
+                pageButton.setTypeface(null, Typeface.BOLD)
+            } else {
+                pageButton.setTextColor(Color.BLACK)
+                pageButton.setTypeface(null, Typeface.NORMAL)
+            }
+        }
+
+        // Update prev/next buttons
+        prevButton.isEnabled = currentPage > 1
+        nextButton.isEnabled = currentPage < (viewModel.totalPages.value ?: 1)
     }
 }
